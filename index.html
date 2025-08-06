@@ -2,274 +2,320 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Von's Portfolio - A showcase of web systems and Arduino projects by an IT student and developer." />
   <title>Von's Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'neo-blue': '#0066FF',
-            'neo-cyan': '#00CCFF',
-            'neo-dark': '#001122',
-            'neo-yellow': '#FFFF00',
-            'neo-pink': '#FF6B9D'
-          }
-        }
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-blue: #0066FF;
+      --accent-yellow: #FFD700;
+      --deep-blue: #001F3F;
+      --dark-blue: #000A1F;
+    }
+
+    body {
+      font-family: 'Helvetica', 'Arial', sans-serif; /* Changed to Helvetica */
+      background: linear-gradient(to bottom right, var(--deep-blue), #003366);
+      color: white;
+    }
+
+    a {
+      color: var(--accent-yellow);
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    /* Border and Shadow */
+    .neo-border {
+      border: 3px solid #000;
+    }
+
+    .neo-shadow {
+      box-shadow: 8px 8px 0px #000;
+    }
+
+    .neo-shadow-sm {
+      box-shadow: 4px 4px 0px #000;
+    }
+
+    section {
+      background-color: rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      margin-bottom: 30px;
+      transition: background-color 0.3s ease;
+    }
+
+    section:hover {
+      background-color: rgba(255, 255, 255, 0.09);
+    }
+
+    .project-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      margin-bottom: 20px; /* Space between project sections */
+    }
+
+    footer {
+      background-color: var(--dark-blue);
+      border-top: 3px solid #000;
+    }
+
+    img.tech-icon {
+      width: 48px;
+      height: 48px;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    img.tech-icon:hover {
+      transform: translateY(-15px) scale(1.2) rotate(5deg);
+      filter: drop-shadow(0 8px 15px rgba(255, 215, 0, 0.6));
+    }
+
+    .tech-item {
+      transition: all 0.3s ease;
+    }
+
+    .tech-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .tech-item:hover p {
+      color: var(--accent-yellow);
+      transform: scale(1.1);
+    }
+
+    img.rounded-circle {
+      border: 3px solid var(--accent-yellow);
+    }
+
+    /* Floating Hover */
+    .card-hover:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s ease;
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
-  </script>
-  <style>
-    .neo-shadow {
-      box-shadow: 8px 8px 0px #000000;
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-in-out both;
     }
-    .neo-shadow-sm {
-      box-shadow: 4px 4px 0px #000000;
+
+    /* Custom styles for the navbar */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.8);
     }
-    .neo-border {
-      border: 4px solid #000000;
+
+    .navbar-brand {
+      color: var(--accent-yellow) !important;
     }
-    
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
+
+    .navbar-nav .nav-link {
+      color: white !important;
     }
-    
-    /* Smooth transitions for navigation links */
-    nav a {
-      transition: all 0.3s ease;
-    }
-    
-    /* Mobile menu transition */
-    #mobile-menu {
-      transition: all 0.3s ease;
-      max-height: 0;
-      overflow: hidden;
-    }
-    
-    #mobile-menu.show {
-      max-height: 300px;
+
+    .navbar-nav .nav-link:hover {
+      color: var(--accent-yellow) !important;
     }
   </style>
 </head>
-<body class="bg-neo-cyan font-mono text-neo-dark">
+<body>
 
-  <!-- Navigation -->
-  <nav class="bg-neo-blue neo-border neo-shadow-sm sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex justify-between items-center py-4">
-        <div class="text-white font-black text-2xl">VON.DEV</div>
-        <div class="hidden md:flex space-x-6">
-          <a href="#hero" class="text-white font-bold hover:text-neo-yellow transition-all duration-300 hover:scale-105">HOME</a>
-          <a href="#about" class="text-white font-bold hover:text-neo-yellow transition-all duration-300 hover:scale-105">ABOUT</a>
-          <a href="#tech" class="text-white font-bold hover:text-neo-yellow transition-all duration-300 hover:scale-105">TECH</a>
-          <a href="#projects" class="text-white font-bold hover:text-neo-yellow transition-all duration-300 hover:scale-105">PROJECTS</a>
-          <a href="#experience" class="text-white font-bold hover:text-neo-yellow transition-all duration-300 hover:scale-105">EXPERIENCE</a>
-          <a href="#education" class="text-white font-bold hover:text-neo-yellow transition-all duration-300 hover:scale-105">EDUCATION</a>
-          <a href="#contact" class="text-white font-bold hover:text-neo-yellow transition-all duration-300 hover:scale-105">CONTACT</a>
-        </div>
-        <button id="mobile-menu-btn" class="md:hidden text-white font-bold">MENU</button>
-      </div>
-      <div id="mobile-menu" class="hidden md:hidden pb-4">
-        <a href="#about" class="block text-white font-bold py-2 hover:text-neo-yellow">ABOUT</a>
-        <a href="#tech" class="block text-white font-bold py-2 hover:text-neo-yellow">TECH</a>
-        <a href="#projects" class="block text-white font-bold py-2 hover:text-neo-yellow">PROJECTS</a>
-        <a href="#experience" class="block text-white font-bold py-2 hover:text-neo-yellow">EXPERIENCE</a>
-        <a href="#education" class="block text-white font-bold py-2 hover:text-neo-yellow">EDUCATION</a>
-        <a href="#contact" class="block text-white font-bold py-2 hover:text-neo-yellow">CONTACT</a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top neo-border neo-shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">VON.DEV</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tech">Tech</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
       </div>
     </div>
   </nav>
 
-  <div class="max-w-6xl mx-auto px-4 py-8 space-y-12">
+  <main class="container my-5 fade-in-up">
 
-    <!-- Hero Section -->
-    <section id="hero" class="bg-neo-blue neo-border neo-shadow text-white p-8">
-      <div class="flex flex-col md:flex-row items-center gap-8">
-        <div class="w-48 h-48 bg-neo-yellow neo-border neo-shadow-sm flex items-center justify-center">
-          <img src="photo_6332367307707368682_y.jpg" alt="Von's Photo" class="w-44 h-44 object-cover neo-border" style="display: block;">
+    <!-- Hero -->
+    <section id="hero" class="p-4 neo-border neo-shadow">
+      <div class="row align-items-center">
+        <div class="col-md-4 text-center">
+          <img src="photo_6332367307707368682_y.jpg" alt="Von's Photo" class="img-fluid rounded-circle" style="width: 180px; height: 180px; object-fit: cover;">
         </div>
-        <div>
-          <h1 class="text-5xl md:text-6xl font-black mb-4">HI, I'M VON!</h1>
-          <p class="text-xl font-bold">PASSIONATE IT STUDENT & DEVELOPER</p>
-          <p class="mt-4 text-lg">I CREATE WEB SYSTEMS & ARDUINO PROJECTS THAT SOLVE REAL PROBLEMS</p>
+        <div class="col-md-8 mt-3 mt-md-0">
+          <h1 class="display-5 fw-bold text-warning">Hi, I'm Von!</h1>
+          <p class="lead fw-semibold">Passionate IT Student & Developer</p>
+          <p>I create web systems & Arduino projects that solve real problems.</p>
         </div>
       </div>
     </section>
 
-    <!-- Section Template -->
-    <section id="about" class="bg-white neo-border neo-shadow p-8">
-      <h2 class="text-4xl font-black mb-4">ABOUT ME</h2>
-      <p class="text-lg font-bold">Hi! I'm Von, a passionate IT student and developer. I enjoy creating web and arduino projects that solve real problems. My journey in tech combines creativity with functionality, always pushing the boundaries of what's possible.</p>
+    <!-- About -->
+    <section id="about" class="p-4 neo-border neo-shadow-sm fade-in-up">
+      <h2 class="fw-bold mb-3 text-warning">About Me</h2>
+      <p>Hi! I'm Von, a passionate IT student and developer. I enjoy creating web and Arduino projects that solve real problems. My journey in tech combines creativity with functionality, always pushing the boundaries of what's possible.</p>
     </section>
 
-    <section id="tech" class="bg-white neo-border neo-shadow p-8">
-      <h2 class="text-4xl font-black mb-6">TECH STACK</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-        <!-- HTML -->
-        <div class="bg-neo-yellow neo-border neo-shadow-sm p-4 text-center hover:scale-110 transition-transform duration-300">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="w-12 h-12 mx-auto mb-2">
-          <p class="font-black text-sm">HTML5</p>
+    <!-- Tech Stack -->
+    <section id="tech" class="p-4 neo-border neo-shadow-sm fade-in-up">
+      <h2 class="fw-bold mb-3 text-warning">Tech Stack</h2>
+      <div class="row text-center g-3">
+        <div class="col-4 col-md-2 tech-item">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="tech-icon mb-2" alt="HTML5"/>
+          <p class="fw-bold">HTML5</p>
         </div>
-        
-        <!-- CSS -->
-        <div class="bg-neo-pink neo-border neo-shadow-sm p-4 text-center hover:scale-110 transition-transform duration-300">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-12 h-12 mx-auto mb-2">
-          <p class="font-black text-sm text-white">CSS3</p>
+        <div class="col-4 col-md-2 tech-item">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="tech-icon mb-2" alt="CSS3"/>
+          <p class="fw-bold">CSS3</p>
         </div>
-        
-        <!-- JavaScript -->
-        <div class="bg-neo-yellow neo-border neo-shadow-sm p-4 text-center hover:scale-110 transition-transform duration-300">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-12 h-12 mx-auto mb-2">
-          <p class="font-black text-sm">JavaScript</p>
+        <div class="col-4 col-md-2 tech-item">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="tech-icon mb-2" alt="JavaScript"/>
+          <p class="fw-bold">JavaScript</p>
         </div>
-        
-        <!-- PHP -->
-        <div class="bg-neo-blue neo-border neo-shadow-sm p-4 text-center hover:scale-110 transition-transform duration-300">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="w-12 h-12 mx-auto mb-2">
-          <p class="font-black text-sm text-white">PHP</p>
+        <div class="col-4 col-md-2 tech-item">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="tech-icon mb-2" alt="PHP"/>
+          <p class="fw-bold">PHP</p>
         </div>
-        
-        <!-- MySQL -->
-        <div class="bg-neo-pink neo-border neo-shadow-sm p-4 text-center hover:scale-110 transition-transform duration-300">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-12 h-12 mx-auto mb-2">
-          <p class="font-black text-sm text-white">MySQL</p>
+        <div class="col-4 col-md-2 tech-item">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="tech-icon mb-2" alt="MySQL"/>
+          <p class="fw-bold">MySQL</p>
         </div>
-        
-        <!-- Bootstrap -->
-        <div class="bg-neo-yellow neo-border neo-shadow-sm p-4 text-center hover:scale-110 transition-transform duration-300">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="w-12 h-12 mx-auto mb-2">
-          <p class="font-black text-sm">Bootstrap</p>
-        </div>
-        
-        <!-- Tailwind CSS -->
-        <div class="bg-neo-blue neo-border neo-shadow-sm p-4 text-center hover:scale-110 transition-transform duration-300">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="w-12 h-12 mx-auto mb-2">
-          <p class="font-black text-sm text-white">Tailwind</p>
-        </div>
-        
-        <!-- Arduino -->
-        <div class="bg-neo-pink neo-border neo-shadow-sm p-4 text-center hover:scale-110 transition-transform duration-300">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="Arduino" class="w-12 h-12 mx-auto mb-2">
-          <p class="font-black text-sm text-white">Arduino</p>
-        </div>
-      </div>
-      
-      <!-- Software Used Section -->
-      <div class="mt-8">
-        <h3 class="text-2xl font-black mb-4 text-neo-dark">SOFTWARE USED</h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <!-- VS Code -->
-          <div class="bg-neo-blue neo-border neo-shadow-sm p-4 text-center hover:scale-110 transition-transform duration-300">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="w-10 h-10 mx-auto mb-2">
-            <p class="font-black text-xs text-white">VS Code</p>
-          </div>
-          
-          <!-- Git -->
-          <div class="bg-neo-yellow neo-border neo-shadow-sm p-4 text-center hover:scale-110 transition-transform duration-300">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-10 h-10 mx-auto mb-2">
-            <p class="font-black text-xs">Git</p>
-          </div>
-          
-          <!-- XAMPP -->
-          <div class="bg-neo-pink neo-border neo-shadow-sm p-4 text-center hover:scale-110 transition-transform duration-300">
-            <div class="w-10 h-10 mx-auto mb-2 bg-orange-500 rounded flex items-center justify-center neo-border">
-              <span class="text-white font-black text-lg">X</span>
-            </div>
-            <p class="font-black text-xs text-white">XAMPP</p>
-          </div>
-          
-          <!-- Arduino IDE -->
-          <div class="bg-neo-blue neo-border neo-shadow-sm p-4 text-center hover:scale-110 transition-transform duration-300">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="Arduino IDE" class="w-10 h-10 mx-auto mb-2">
-            <p class="font-black text-xs text-white">Arduino IDE</p>
-          </div>
+        <div class="col-4 col-md-2 tech-item">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="tech-icon mb-2" alt="Bootstrap"/>
+          <p class="fw-bold">Bootstrap</p>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="bg-white neo-border neo-shadow p-8">
-      <h2 class="text-4xl font-black mb-6">PROJECTS</h2>
-      <div class="grid gap-6">
-        
-        <!-- Web Development Projects -->
-        <div class="bg-neo-yellow neo-border neo-shadow-sm p-6">
-          <h3 class="text-xl font-black mb-3 text-neo-dark">WEB DEVELOPMENT PROJECTS</h3>
-          <ul class="space-y-3 text-lg font-bold text-neo-dark">
-            <li>• <strong>Attendance Management System using QR Code</strong> – Web-based system with QR code scanning functionality</li>
-            <li>• <strong>Boarding House Management System</strong> – Complete management solution for boarding house operations</li>
-            <li>• <strong>Health Worker and Patient Management System</strong> – Healthcare management platform for tracking patients and staff</li>
-            <li>• <strong>Inventory Management System</strong> – Cosmetics inventory tracking with sales monitoring capabilities</li>
-          </ul>
-        </div>
+    <!-- My Projects -->
+    <section id="projects" class="p-4 neo-border neo-shadow-sm fade-in-up">
+      <h2 class="fw-bold mb-4 text-center text-warning">My Projects</h2>
 
-        <!-- Arduino + Database Projects -->
-        <div class="bg-neo-pink neo-border neo-shadow-sm p-6">
-          <h3 class="text-xl font-black mb-3 text-white">ARDUINO + DATABASE PROJECTS</h3>
-          <ul class="space-y-3 text-lg font-bold text-white">
-            <li>• <strong>RFID-Based Attendance System</strong> – Arduino RFID reader connected to MySQL database</li>
-            <li>• <strong>Smart Mousetrap System</strong> – Arduino-powered trap with database logging and notifications</li>
-            <li>• <strong>Mood Lamp Controller</strong> – Arduino mood lighting system with PHP/MySQLi web interface</li>
-            <li>• <strong>LCD Greetings Display</strong> – Dynamic greeting system with database-driven messages</li>
-            <li>• <strong>Memory Game Arduino</strong> – Interactive memory game with score tracking in database</li>
-          </ul>
-        </div>
+      <!-- Project 1 -->
+      <div class="project-box p-4 rounded neo-border">
+        <h5 class="fw-bold text-warning">📱 Attendance Management System</h5>
+        <p class="small mb-0">QR Code-based attendance tracking with real-time monitoring and reporting dashboard.</p>
+      </div>
 
-        <!-- Additional Projects -->
-        <div class="bg-neo-blue neo-border neo-shadow-sm p-6">
-          <h3 class="text-xl font-black mb-3 text-white">AND MANY MORE...</h3>
-          <p class="text-lg font-bold text-white">Continuously developing innovative solutions that bridge hardware and software, creating real-world applications that solve everyday problems through technology.</p>
-        </div>
-        
+      <!-- Project 2 -->
+      <div class="project-box p-4 rounded neo-border">
+        <h5 class="fw-bold text-warning">🏠 Boarding House Management</h5>
+        <p class="small mb-0">Tenant management with billing, room assignment, and payment tracking.</p>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-box p-4 rounded neo-border">
+        <h5 class="fw-bold text-warning">🏥 Healthcare Management System</h5>
+        <p class="small mb-0">Appointment, patient records, and health worker management system.</p>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-box p-4 rounded neo-border">
+        <h5 class="fw-bold text-warning">💄 Inventory Management System</h5>
+        <p class="small mb-0">Stock monitoring with sales analytics and profit alerts for cosmetics.</p>
+      </div>
+
+      <!-- Arduino Projects -->
+      <h3 class="fw-bold mb-4 text-center text-info">Arduino + Database Projects</h3>
+
+      <!-- Arduino Project 1 -->
+      <div class="project-box p-4 rounded neo-border">
+        <h5 class="fw-bold text-info">🔐 RFID Attendance System</h5>
+        <p class="small mb-0">Arduino RFID with MySQL for automated logs and reports.</p>
+      </div>
+
+      <!-- Arduino Project 2 -->
+      <div class="project-box p-4 rounded neo-border">
+        <h5 class="fw-bold text-info">🐭 Smart Mousetrap System</h5>
+        <p class="small mb-0">Motion-sensor traps with database and SMS alert integration.</p>
+      </div>
+
+      <!-- Arduino Project 3 -->
+      <div class="project-box p-4 rounded neo-border">
+        <h5 class="fw-bold text-info">💡 Mood Lamp Controller</h5>
+        <p class="small mb-0">Lighting system with web dashboard and color automation.</p>
+      </div>
+
+      <!-- Arduino Project 4 -->
+      <div class="project-box p-4 rounded neo-border">
+        <h5 class="fw-bold text-info">🎮 Interactive Projects</h5>
+        <p class="small mb-0">Memory games with LCD, database score, and player profiles.</p>
+      </div>
+
+      <div class="text-center p-3 rounded bg-opacity-10">
+        <h6 class="fw-bold text-success">🚀 And Many More...</h6>
+        <p class="small fst-italic">Continuously building hardware-software solutions that matter.</p>
       </div>
     </section>
 
-    <section id="experience" class="bg-white neo-border neo-shadow p-8">
-      <h2 class="text-4xl font-black mb-4">EXPERIENCE</h2>
-      <p class="text-lg font-bold">Encoder Of A Grocery Store | Developed web systems and arduino projects | Group leader in multiple school IT projects</p>
+    <!-- Experience -->
+    <section id="experience" class="p-4 neo-border neo-shadow-sm fade-in-up">
+      <h2 class="fw-bold mb-2 text-warning">Experience</h2>
+      <p>Encoder in a grocery store | System developer | Group leader in various school projects</p>
     </section>
 
-    <section id="education" class="bg-white neo-border neo-shadow p-8">
-      <h2 class="text-4xl font-black mb-6">EDUCATION</h2>
-      <div class="space-y-6">
-        
-        <!-- College Education -->
-        <div class="bg-neo-blue neo-border neo-shadow-sm p-6">
-          <h3 class="text-xl font-black mb-2 text-white">COLLEGE</h3>
-          <p class="text-lg font-bold text-white">BS in Information Technology</p>
-          <p class="text-white font-bold">Sultan Kudarat State University, Isulan Campus</p>
-          <p class="text-white">Expected Graduation: 2027</p>
-        </div>
-
-        <!-- High School Education -->
-        <div class="bg-neo-yellow neo-border neo-shadow-sm p-6">
-          <h3 class="text-xl font-black mb-2 text-neo-dark">HIGH SCHOOL</h3>
-          <p class="text-lg font-bold text-neo-dark">STEM Graduate with Honors</p>
-          <p class="text-neo-dark font-bold">Sto. Niño National High School</p>
-          
-        </div>
-        
+    <!-- Education -->
+    <section id="education" class="p-4 neo-border neo-shadow-sm fade-in-up">
+      <h2 class="fw-bold mb-3 text-warning">Education</h2>
+      <div class="mb-3">
+        <h5 class="fw-bold">College</h5>
+        <p>BS in Information Technology<br>Sultan Kudarat State University, Isulan Campus<br><em>Expected Graduation: 2027</em></p>
+      </div>
+      <div>
+        <h5 class="fw-bold">High School</h5>
+        <p>STEM Graduate with Honors<br>Sto. Niño National High School</p>
       </div>
     </section>
 
-    <section id="contact" class="bg-white neo-border neo-shadow p-8">
-      <h2 class="text-4xl font-black mb-4">CONTACT</h2>
-      <p class="text-lg font-bold">Email: <a href="mailto:von.vergara.399@gmail.com" class="text-neo-blue underline">von.vergara.399@gmail.com</a></p>
-      <p class="text-lg font-bold">GitHub: <a href="https://github.com/Vonnnnnnnnn05" target="_blank" class="text-neo-blue underline">https://github.com/Vonnnnnnnnn05</a></p>
-      <p class="text-lg font-bold">Face Book: <a href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29" target="_blank" class="text-neo-blue underline">https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29</a></p>
+    <!-- Contact -->
+    <section id="contact" class="p-4 neo-border neo-shadow-sm fade-in-up">
+      <h2 class="fw-bold mb-3 text-warning">Contact</h2>
+      <p>Email: <a href="mailto:von.vergara.399@gmail.com">von.vergara.399@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/Vonnnnnnnnn05" target="_blank">Vonnnnnnnnn05</a></p>
+      <p>Facebook: <a href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29" target="_blank">Von FB</a></p>
     </section>
 
-    <section id="resume" class="bg-white neo-border neo-shadow p-8 text-center">
-      <h2 class="text-4xl font-black mb-4">MOTTO</h2>
-      <a  download class="bg-neo-pink text-white font-bold px-6 py-3 neo-border neo-shadow inline-block hover:bg-pink-600">"As long as we're breathing theres's always hope"</a>
+    <!-- Motto -->
+    <section id="resume" class="p-4 text-center neo-border neo-shadow-sm fade-in-up">
+      <h2 class="fw-bold mb-3 text-warning">Motto</h2>
+      <p class="fst-italic">"As long as we're breathing, there's always hope."</p>
     </section>
 
-  </div>
+  </main>
 
-  <footer class="bg-neo-dark text-white text-center py-4 neo-border-t">
+  <footer class="text-center py-3 text-white">
     © 2025 Von Vergara. All rights reserved.
   </footer>
 
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
