@@ -8,7 +8,7 @@
   <title>Von's Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -16,22 +16,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    .footer-social a {
-      color: #f8f9fa;
-      transition: color 0.3s, transform 0.3s;
-      margin: 0 8px;
-      display: inline-block;
-    }
-
-    .footer-social a:hover {
-      color: var(--accent-yellow);
-      transform: scale(1.2) translateY(-3px);
-    }
     :root {
-      --primary-blue: #0066FF;
-      --accent-yellow: #FFD700;
-      --deep-blue: #001F3F;
-      --dark-blue: #000A1F;
+      --primary-blue: #1e3a8a;
+      --accent-yellow: #f59e0b;
+      --deep-blue: #0f172a;
+      --dark-blue: #020617;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-hover: rgba(255, 255, 255, 0.08);
+      --gradient-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.15);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
 
     html {
@@ -39,71 +35,548 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom right, var(--deep-blue), #003366);
-      color: white;
+      font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--gradient-primary);
+      color: #f8fafc;
+      line-height: 1.7;
+      min-height: 100vh;
+      font-size: 15px;
+      font-weight: 400;
     }
 
-    a {
-      color: var(--accent-yellow);
-      transition: 0.3s;
-    }
-
-    a:hover {
-      color: white;
-      text-decoration: underline;
-    }
-
+    /* Modern Glass Effect Sections */
     section {
-      background-color: rgba(255, 255, 255, 0.07);
-      border-radius: 10px;
-      margin-bottom: 30px;
-      transition: background-color 0.3s ease;
+      background: var(--gradient-card);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-yellow), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
     section:hover {
-      background-color: rgba(255, 255, 255, 0.09);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
     }
 
-    .project-box {
-      background-color: rgba(255, 255, 255, 0.1);
-      color: white;
-      margin-bottom: 20px;
+    section:hover::before {
+      opacity: 1;
+    }
+
+    /* Enhanced Typography */
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--accent-yellow), #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 2rem;
+      position: relative;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent-yellow);
+      border-radius: 2px;
+    }
+
+    /* Project Cards */
+    .project-card {
+      background: var(--gradient-card);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.3), transparent);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(245, 158, 11, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .project-image {
+      width: 100%;
+      aspect-ratio: 2/1;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      display: block;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .project-image:hover {
+      transform: scale(1.02);
+      border-color: rgba(245, 158, 11, 0.3);
+      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.2);
+    }
+
+    .project-image-container {
+      width: 100%;
+      aspect-ratio: 2/1;
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .project-image-container:hover {
+      transform: scale(1.02);
+      border-color: rgba(245, 158, 11, 0.3);
+      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.2);
+    }
+
+    .project-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .project-image-placeholder {
+      width: 100%;
+      aspect-ratio: 2/1;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(59, 130, 246, 0.1));
+      border: 2px dashed rgba(245, 158, 11, 0.3);
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: rgba(245, 158, 11, 0.7);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image-placeholder img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .project-image-placeholder:hover {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(59, 130, 246, 0.15));
+      border-color: rgba(245, 158, 11, 0.5);
+    }
+
+    .project-image-placeholder i {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.6;
+    }
+
+    .project-title {
+      color: var(--accent-yellow);
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      letter-spacing: -0.01em;
+    }
+
+    .project-title::before {
+      content: '▶';
+      margin-right: 0.75rem;
+      color: var(--accent-yellow);
+      font-size: 15px;
+    }
+
+    .project-description {
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tech-badge {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--accent-yellow);
+      padding: 0.4rem 1rem;
+      border-radius: 25px;
+      font-size: 15px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      transition: all 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .tech-badge:hover {
+      background: rgba(245, 158, 11, 0.2);
+      transform: scale(1.05);
+    }
+
+    .project-category {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.3), rgba(59, 130, 246, 0.3));
+      color: #93c5fd;
+      padding: 0.75rem 1.5rem;
       border-radius: 10px;
-      padding: 20px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      margin: 2.5rem 0 2rem 0;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      letter-spacing: -0.01em;
     }
 
-    footer {
-      background-color: var(--dark-blue);
-      border-top: 3px solid #000;
-    }
-
+    /* Enhanced Tech Icons */
     img.tech-icon {
-      width: 48px;
-      height: 48px;
-      transition: all 0.4s ease;
+      width: 56px;
+      height: 56px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
+      border-radius: 8px;
+      padding: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     img.tech-icon:hover {
-      transform: translateY(-15px) scale(1.2) rotate(5deg);
-      filter: drop-shadow(0 8px 15px rgba(255, 215, 0, 0.6));
+      transform: translateY(-12px) scale(1.15) rotate(5deg);
+      filter: drop-shadow(0 12px 24px rgba(245, 158, 11, 0.4));
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.3);
     }
 
+    .tech-item {
+      transition: transform 0.3s ease;
+    }
+
+    .tech-item:hover {
+      transform: scale(1.05);
+    }
+
+    .tech-item p {
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #cbd5e1;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Enhanced Navbar */
     .navbar {
-      background-color: rgba(0, 0, 0, 0.8);
+      background: rgba(2, 6, 23, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-sm);
     }
 
     .navbar-brand {
-      color: var(--accent-yellow) ;
+      color: var(--accent-yellow) !important;
+      font-weight: 800;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .navbar-nav .nav-link {
-      color: white ;
+      color: #e2e8f0 !important;
+      font-weight: 500;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+      position: relative;
+      margin: 0 0.5rem;
+      padding: 0.75rem 1.25rem !important;
+      border-radius: 8px;
+      letter-spacing: 0.01em;
     }
 
     .navbar-nav .nav-link:hover {
-      color: var(--accent-yellow) ;
+      color: var(--accent-yellow) !important;
+      background: rgba(245, 158, 11, 0.1);
+    }
+
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--accent-yellow);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .navbar-nav .nav-link:hover::after {
+      width: 80%;
+    }
+
+    /* Hero Section Enhancements */
+    #hero {
+      background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border: 2px solid rgba(245, 158, 11, 0.1);
+    }
+
+    #hero img {
+      border: 3px solid var(--accent-yellow);
+      box-shadow: 0 8px 32px rgba(245, 158, 11, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    #hero img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(245, 158, 11, 0.4);
+    }
+
+    /* Footer Enhancements */
+    footer {
+      background: linear-gradient(135deg, var(--dark-blue), #0f1419);
+      border-top: 2px solid rgba(245, 158, 11, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .footer-social a {
+      color: #e2e8f0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      margin: 0 1rem;
+      display: inline-block;
+      padding: 0.75rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-social a:hover {
+      color: var(--accent-yellow);
+      transform: scale(1.2) translateY(-4px);
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.3);
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+    }
+
+    /* Links */
+    a {
+      color: var(--accent-yellow);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #fbbf24;
+      text-decoration: none;
+    }
+
+    /* Universal Font Size Override - ALL text to 15px */
+    * {
+      font-size: 15px !important;
+    }
+
+    /* Maintain responsive layout while keeping fonts uniform */
+    @media (max-width: 768px) {
+      body {
+        font-size: 15px;
+      }
+      
+      .section-title {
+        font-size: 2.25rem;
+      }
+      
+      section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .project-card {
+        padding: 1.5rem;
+      }
+      
+      .project-title {
+        font-size: 1.3rem;
+      }
+      
+      .project-description {
+        font-size: 1rem;
+      }
+      
+      img.tech-icon {
+        width: 48px;
+        height: 48px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+      
+      .navbar-nav .nav-link {
+        font-size: 1rem;
+        padding: 0.5rem 1rem !important;
+      }
+    }
+
+    /* Fallback for browsers that don't support aspect-ratio */
+    @supports not (aspect-ratio: 2/1) {
+      .project-image-container {
+        height: 0;
+        padding-bottom: 50%; /* 2:1 fallback (1/2 * 100) */
+        aspect-ratio: unset;
+      }
+      
+      .project-image-placeholder {
+        height: 0;
+        padding-bottom: 50%; /* 2:1 fallback */
+        aspect-ratio: unset;
+      }
+      
+      .project-image {
+        height: 0;
+        padding-bottom: 50%; /* 2:1 fallback */
+        aspect-ratio: unset;
+        position: relative;
+      }
+      
+      .project-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    /* Uniform Text Styles - All 15px */
+    .lead {
+      font-size: 15px !important;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .fs-5 {
+      font-size: 15px !important;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+    
+    .fs-4 {
+      font-size: 15px !important;
+      font-weight: 500;
+    }
+    
+    .display-5 {
+      font-size: 15px !important;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    
+    p {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      font-size: 15px;
+    }
+    
+    h5 {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    
+    h6 {
+      font-size: 15px;
+      font-weight: 500;
+    }
+    
+    blockquote p {
+      font-size: 15px !important;
+      font-style: italic;
+      font-weight: 400;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .blockquote-footer {
+      font-size: 1.1rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Subtle Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      animation: fadeInUp 0.6s ease-out;
     }
 
   </style>
@@ -111,7 +584,7 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top neo-border neo-shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid">
       <a class="navbar-brand fw-bold" href="#">VON.DEV</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -135,29 +608,29 @@
   <main class="container my-5">
 
     <!-- Hero -->
-    <section id="hero" class="p-4 neo-border neo-shadow">
+    <section id="hero" class="p-4">
       <div class="row align-items-center">
         <div class="col-md-4 text-center">
           <img src="6095761497855738746.jpg" alt="Von's Photo" class="img-fluid rounded-circle" style="width: 180px; height: 180px; object-fit: cover;">
         </div>
         <div class="col-md-8 mt-3 mt-md-0">
-          <h1 class="display-5 fw-bold text-warning">Hi, I'm Von Esson A. Vergara!</h1>
-          <p class="lead fw-semibold">Passionate IT Student & Developer</p>
-          <p>I create web systems & Arduino projects that solve real problems.</p>
+          <h1 class="display-5 fw-bold" style="background: linear-gradient(135deg, var(--accent-yellow), #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Hi, I'm Von Esson A. Vergara!</h1>
+          <p class="lead fw-semibold mb-3" style="color: #cbd5e1;">Passionate IT Student & Developer</p>
+          <p class="fs-4" style="color: #e2e8f0;">I create web systems & Arduino projects that solve real problems and make a meaningful impact in people's lives.</p>
         </div>
       </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="p-4 neo-border neo-shadow-sm">
-      <h2 class="fw-bold mb-3 text-warning">About Me</h2>
-      <p class="fs-5">Hi! I'm Von, a passionate IT student and developer. I enjoy creating web and Arduino projects that solve real problems. My journey in tech combines creativity with functionality, always pushing the boundaries of what's possible.</p>
+    <section id="about" class="p-4">
+      <h2 class="section-title">About Me</h2>
+      <p class="fs-4">Hi! I'm Von, a passionate IT student and developer. I enjoy creating web and Arduino projects that solve real problems. My journey in tech combines creativity with functionality, always pushing the boundaries of what's possible.</p>
     </section>
 
     <!-- Tech Stack -->
-    <section id="tech" class="p-4 neo-border neo-shadow-sm">
-      <h2 class="fw-bold mb-3 text-warning">Tech Stack</h2>
-      <div class="row text-center g-3">
+    <section id="tech" class="p-4">
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="row text-center g-4">
         <div class="col-4 col-md-2 tech-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="tech-icon mb-2" alt="HTML5"/>
           <p class="fw-bold">HTML5</p>
@@ -194,9 +667,9 @@
     </section>
 
     <!-- Tools -->
-    <section id="tools" class="p-4 neo-border neo-shadow-sm">
-      <h2 class="fw-bold mb-3 text-warning">Software & Tools</h2>
-      <div class="row text-center g-3">
+    <section id="tools" class="p-4">
+      <h2 class="section-title">Software & Tools</h2>
+      <div class="row text-center g-4">
         <div class="col-4 col-md-2 tech-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="tech-icon mb-2" alt="VS Code"/>
           <p class="fw-bold">VS Code</p>
@@ -217,90 +690,310 @@
     </section>
 
     <!-- My Projects -->
-    <section id="projects" class="p-4 neo-border neo-shadow-sm">
-      <h2 class="fw-bold mb-4 text-center text-warning">My Projects</h2>
+    <section id="projects" class="p-4">
+      <h2 class="section-title text-center">My Projects</h2>
 
-      <div class="project-box">
-        <h5 class="fw-bold text-warning">Attendance Management System</h5>
-        <p class="fs-5 mb-0 ">QR Code-based attendance tracking with real-time monitoring and reporting dashboard.</p>
+      <!-- Web Systems Projects -->
+      <div class="project-card">
+        <!-- Project Image -->
+        <div class="project-image-container">
+          <img src="images/ams.png" alt="Attendance Management System Screenshot">
+        </div>
+        
+        <h5 class="project-title">Attendance Management System</h5>
+        <p class="project-description">
+          A comprehensive QR Code-based attendance tracking system featuring real-time monitoring, automated reporting dashboard, and analytics. Built with modern web technologies to streamline attendance management for educational institutions and businesses.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">PHP</span>
+          <span class="tech-badge">MySQL</span>
+          <span class="tech-badge">JavaScript</span>
+          <span class="tech-badge">Bootstrap</span>
+          <span class="tech-badge">QR Code API</span>
+        </div>
       </div>
 
-      <div class="project-box">
-        <h5 class="fw-bold text-warning">Boarding House Management</h5>
-        <p class="fs-5 mb-0">Tenant management with billing, room assignment, and payment tracking.</p>
+      <div class="project-card">
+        <!-- Add your project image here -->
+        <div class="project-image-placeholder">
+          <i class="fas fa-image"></i>
+          <span><img src="images/bhv2.png" alt=""></span>
+          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
+        </div>
+        <!-- Alternative: Use this when you have an image -->
+        <!-- <img src="images/boarding-house.png" alt="Boarding House Management" class="project-image"> -->
+        
+        <h5 class="project-title">Boarding House Management</h5>
+        <p class="project-description">
+          Complete tenant management solution with automated billing system, room assignment features, and comprehensive payment tracking. Includes tenant profiles, lease management, and financial reporting capabilities.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">PHP</span>
+          <span class="tech-badge">MySQL</span>
+          <span class="tech-badge">HTML5</span>
+          <span class="tech-badge">CSS3</span>
+          <span class="tech-badge">jQuery</span>
+        </div>
       </div>
 
-      <div class="project-box">
-        <h5 class="fw-bold text-warning">Healthcare Management System</h5>
-        <p class="fs-5 mb-0">Appointment, patient records, and health worker management system.</p>
+      <div class="project-card">
+        <!-- Add your project image here -->
+        <div class="project-image-placeholder">
+          <i class="fas fa-image"></i>
+          <span><img src="images/health.png" alt=""></span>
+          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
+        </div>
+        <!-- Alternative: Use this when you have an image -->
+        <!-- <img src="images/healthcare-system.png" alt="Healthcare Management System" class="project-image"> -->
+        
+        <h5 class="project-title">Healthcare Management System</h5>
+        <p class="project-description">
+          Integrated healthcare platform managing patient appointments, comprehensive medical records, and health worker schedules. Features patient history tracking, appointment scheduling, and medical staff management.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">PHP</span>
+          <span class="tech-badge">MySQL</span>
+          <span class="tech-badge">Bootstrap</span>
+          <span class="tech-badge">JavaScript</span>
+          <span class="tech-badge">Chart.js</span>
+        </div>
       </div>
 
-      <div class="project-box">
-        <h5 class="fw-bold text-warning">Inventory Management System</h5>
-        <p class="fs-5 mb-0">Stock monitoring with sales analytics and profit alerts for cosmetics.</p>
+      <div class="project-card">
+        
+        <div class="project-image-placeholder">
+          <i class="fas fa-image"></i>
+          <span><img src="images/ims.png" alt=""></span>
+          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
+        </div>
+        <!-- Alternative: Use this when you have an image -->
+        <!-- <img src="images/inventory-system.png" alt="Inventory Management System" class="project-image"> -->
+        
+        <h5 class="project-title">Inventory Management System</h5>
+        <p class="project-description">
+          Advanced stock monitoring system with real-time sales analytics and automated profit alerts specifically designed for cosmetics retail. Features low-stock notifications, sales forecasting, and supplier management.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">PHP</span>
+          <span class="tech-badge">MySQL</span>
+          <span class="tech-badge">JavaScript</span>
+          <span class="tech-badge">Chart.js</span>
+          <span class="tech-badge">Bootstrap</span>
+        </div>
       </div>
 
-      <h3 class="fw-bold mb-4 text-center text-info">Arduino + Database Projects</h3>
-
-      <div class="project-box">
-        <h5 class="fw-bold text-info">RFID Attendance System</h5>
-        <p class="fs-5 mb-0">Arduino RFID with MySQL for automated logs and reports.</p>
+      <!-- Arduino Projects Category -->
+      <div class="project-category">
+        <h3 class="fw-bold mb-0">🔧 Arduino + Database Integration Projects</h3>
       </div>
 
-      <div class="project-box">
-        <h5 class="fw-bold text-info">Smart Mousetrap System</h5>
-        <p class="fs-5 mb-0">Motion-sensor traps with database and SMS alert integration.</p>
+      <div class="project-card">
+        <!-- Add your project image here -->
+        <div class="project-image-placeholder">
+          <i class="fas fa-microchip"></i>
+          <span>Photo Unavailable</span>
+          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
+        </div>
+        <!-- Alternative: Use this when you have an image -->
+        <!-- <img src="images/rfid-system.png" alt="RFID Attendance System" class="project-image"> -->
+        
+        <h5 class="project-title">RFID Attendance System</h5>
+        <p class="project-description">
+          Automated attendance tracking using RFID technology integrated with MySQL database. Features real-time data logging, automated report generation, and web-based dashboard for monitoring attendance patterns and statistics.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">Arduino</span>
+          <span class="tech-badge">RFID</span>
+          <span class="tech-badge">MySQL</span>
+          <span class="tech-badge">PHP</span>
+          <span class="tech-badge">ESP32</span>
+        </div>
       </div>
 
-      <div class="project-box">
-        <h5 class="fw-bold text-info">Mood Lamp Controller</h5>
-        <p class="fs-5 mb-0">Lighting system with web dashboard and color automation.</p>
+      
+      <div class="project-card">
+        <div class="project-image-placeholder">
+          <i class="fas fa-microchip"></i>
+          <span>Photo Unavailable</span>
+          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
+        </div>
+        
+        <h5 class="project-title">Smart Mousetrap System</h5>
+        <p class="project-description">
+          IoT-enabled motion-sensor mousetraps with database logging and SMS alert integration. Features trap status monitoring, catch statistics, and automated notifications to property managers when traps are triggered.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">Arduino</span>
+          <span class="tech-badge">Motion Sensor</span>
+          <span class="tech-badge">MySQL</span>
+          <span class="tech-badge">ESP32</span>
+        </div>
       </div>
 
-      <div class="project-box">
-        <h5 class="fw-bold text-info">Interactive Projects</h5>
-        <p class="fs-5 mb-0">Memory games with LCD, database score, and player profiles.</p>
+      <div class="project-card">
+        <!-- Add your project image here -->
+        <div class="project-image-placeholder">
+          <i class="fas fa-microchip"></i>
+          <span>Photo Unavailable</span>
+          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
+        </div>
+        <!-- Alternative: Use this when you have an image -->
+        <!-- <img src="images/smart-mousetrap.png" alt="Smart Mousetrap System" class="project-image"> -->
+        
+        <h5 class="project-title">Smart Mousetrap System</h5>
+        <p class="project-description">
+          IoT-enabled motion-sensor mousetraps with database logging and SMS alert integration. Features trap status monitoring, catch statistics, and automated notifications to property managers when traps are triggered.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">Arduino</span>
+          <span class="tech-badge">Motion Sensor</span>
+          <span class="tech-badge">SMS API</span>
+          <span class="tech-badge">MySQL</span>
+          <span class="tech-badge">ESP8266</span>
+        </div>
       </div>
 
-      <div class="text-center p-3 rounded bg-opacity-10">
-        <h6 class="fs-5 fw-bold text-success">And Many More...</h6>
-        <p class="fs-5 fst-italic">Continuously building hardware-software solutions that matter.</p>
+      <div class="project-card">
+        <!-- Add your project image here -->
+        <div class="project-image-placeholder">
+          <i class="fas fa-lightbulb"></i>
+          <span>Photo Unavailable</span>
+          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
+        </div>
+        <!-- Alternative: Use this when you have an image -->
+        <!-- <img src="images/mood-lamp.png" alt="Mood Lamp Controller" class="project-image"> -->
+        
+        <h5 class="project-title">Mood Lamp Controller</h5>
+        <p class="project-description">
+          Smart lighting system with web-based dashboard and automated color control. Features mood-based lighting presets, scheduled lighting changes, and mobile app integration for remote control and customization.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">Arduino</span>
+          <span class="tech-badge">RGB LED</span>
+          <span class="tech-badge">Web Dashboard</span>
+          <span class="tech-badge">WiFi Module</span>
+          <span class="tech-badge">JavaScript</span>
+        </div>
       </div>
+
+      <div class="project-card">
+        <!-- Add your project image here -->
+        <div class="project-image-placeholder">
+          <i class="fas fa-gamepad"></i>
+          <span>Photo Unavailable</span>
+          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
+        </div>
+        <!-- Alternative: Use this when you have an image -->
+        <!-- <img src="images/memory-games.png" alt="Interactive Memory Games" class="project-image"> -->
+        
+        <h5 class="project-title">Interactive Memory Games</h5>
+        <p class="project-description">
+          Arduino-based memory games featuring LCD display, database score tracking, and comprehensive player profile management. Includes multiple difficulty levels, leaderboards, and progress tracking functionality.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">Arduino</span>
+          <span class="tech-badge">LCD Display</span>
+          <span class="tech-badge">MySQL</span>
+          <span class="tech-badge">PHP</span>
+          <span class="tech-badge">Button Matrix</span>
+        </div>
+      </div>
+
+      
     </section>
 
     <!-- Experience -->
-    <section id="experience" class="p-4 neo-border neo-shadow-sm">
-      <h2 class="fw-bold mb-2 text-warning">Experience</h2>
-      <pre class="fs-5"> Encoder/Inventory Manager at Alocada Enterprises <br> System developer <br> Group leader in various school projects</pre>
+    <section id="experience" class="p-4">
+      <h2 class="section-title">Experience</h2>
+      <div class="project-card">
+        <h5 class="project-title">Encoder/Inventory Manager</h5>
+        <p class="project-description">
+          <strong>Alocada Enterprises</strong><br>
+          Managed comprehensive inventory systems and data encoding processes. Developed efficient workflows for stock management and implemented digital solutions to streamline business operations.
+        </p>
+      </div>
+      <div class="project-card">
+        <h5 class="project-title">System Developer</h5>
+        <p class="project-description">
+          Designed and developed custom management systems for various clients. Specialized in creating web-based solutions that integrate with hardware components for enhanced functionality.
+        </p>
+      </div>
+      <div class="project-card">
+        <h5 class="project-title">Team Leader</h5>
+        <p class="project-description">
+          Led multiple school project teams, coordinating development efforts and ensuring successful project deliveries. Managed cross-functional collaboration between hardware and software development teams.
+        </p>
+      </div>
     </section>
 
     <!-- Education -->
-    <section id="education" class="p-4 neo-border neo-shadow-sm">
-      <h2 class="fw-bold mb-3 text-warning">Education</h2>
-     
-        <h5 class="fw-bold">High School</h5>
-        <pre class="fs-5">Sto. Niño National High School <br>Graduated as With Honors(STEM) 
-        </pre>
+    <section id="education" class="p-4">
+      <h2 class="section-title">Education</h2>
+      <div class="project-card">
+        <h5 class="project-title">High School Education</h5>
+        <p class="project-description">
+          <strong>Sto. Niño National High School</strong><br>
+          Graduated with Honors in Science, Technology, Engineering, and Mathematics (STEM) track. Built a strong foundation in analytical thinking and problem-solving skills that continue to drive my technical pursuits.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">With Honors</span>
+          <span class="tech-badge">STEM Track</span>
+        </div>
       </div>
-      </div>
-        <h5 class="fw-bold">College</h5>
-        <pre class="fs-5">Sultan Kudarat State University<br>1st Year Dean's Lister <br>2nd Year President's Lister</pre>
+      <div class="project-card">
+        <h5 class="project-title">College Education</h5>
+        <p class="project-description">
+          <strong>Sultan Kudarat State University</strong><br>
+          Currently pursuing Information Technology degree with exceptional academic performance. Demonstrated consistent excellence through Dean's List and President's List recognitions.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">1st Year Dean's Lister</span>
+          <span class="tech-badge">2nd Year President's Lister</span>
+          <span class="tech-badge">IT Student</span>
+        </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="p-4 neo-border neo-shadow-sm">
-      <h2 class="fw-bold mb-3 text-warning">Contact</h2>
-      <p class="fs-5">Email: <a href="mailto:von.vergara.399@gmail.com">von.vergara.399@gmail.com</a></p>
-      <p class="fs-5">GitHub: <a href="https://github.com/Vonnnnnnnnn05" target="_blank">Vonnnnnnnnn05</a></p>
-      <p class="fs-5">Facebook: <a href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29" target="_blank">Von FB</a></p>
+    <section id="contact" class="p-4">
+      <h2 class="section-title">Contact</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="project-card text-center">
+            <div class="mb-3">
+              <i class="fas fa-envelope fa-2x" style="color: var(--accent-yellow);"></i>
+            </div>
+            <h6 class="fw-bold mb-2">Email</h6>
+            <p class="mb-0">
+              <a href="mailto:von.vergara.399@gmail.com">von.vergara.399@gmail.com</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="project-card text-center">
+            <div class="mb-3">
+              <i class="fab fa-github fa-2x" style="color: var(--accent-yellow);"></i>
+            </div>
+            <h6 class="fw-bold mb-2">GitHub</h6>
+            <p class="mb-0">
+              <a href="https://github.com/Vonnnnnnnnn05" target="_blank">Vonnnnnnnnn05</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="project-card text-center">
+            <div class="mb-3">
+              <i class="fab fa-facebook fa-2x" style="color: var(--accent-yellow);"></i>
+            </div>
+            <h6 class="fw-bold mb-2">Facebook</h6>
+            <p class="mb-0">
+              <a href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29" target="_blank">Von FB</a>
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Motto -->
-    <section id="resume" class="p-4 text-center neo-border neo-shadow-sm">
-      <h2 class="fw-bold mb-3 text-warning">Motto</h2>
-      <p class="fst-italic fs-5">"As long as we're breathing, there's always hope."</p>
-    </section>
 
   </main>
 
