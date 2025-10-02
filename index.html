@@ -36,16 +36,20 @@
 
     html {
       scroll-behavior: smooth;
+      background: var(--gradient-primary);
+      background-attachment: fixed;
     }
 
     body {
       font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--gradient-primary);
+      background-attachment: fixed;
       color: #f8fafc;
       line-height: 1.7;
       min-height: 100vh;
       font-size: 15px;
       font-weight: 400;
+      overflow-x: hidden;
     }
 
     /* Modern Glass Effect Sections */
@@ -567,11 +571,20 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* Subtle Animations */
+    /* Smooth Fade Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
       }
       to {
         opacity: 1;
@@ -579,9 +592,89 @@
       }
     }
 
-    section {
-      animation: fadeInUp 0.6s ease-out;
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Fade animation classes */
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    }
+
+    .fade-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    }
+
+    .fade-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Stagger animation delays for multiple elements */
+    .fade-delay-1 { transition-delay: 0.1s; }
+    .fade-delay-2 { transition-delay: 0.2s; }
+    .fade-delay-3 { transition-delay: 0.3s; }
+    .fade-delay-4 { transition-delay: 0.4s; }
+    .fade-delay-5 { transition-delay: 0.5s; }
+    .fade-delay-6 { transition-delay: 0.6s; }
+
+    /* Initial page load animation */
+    section {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    section:nth-child(1) { animation-delay: 0.1s; }
+    section:nth-child(2) { animation-delay: 0.2s; }
+    section:nth-child(3) { animation-delay: 0.3s; }
+    section:nth-child(4) { animation-delay: 0.4s; }
 
   </style>
 </head>
@@ -843,7 +936,7 @@
         </div>
         <!-- Alternative: Use this when you have an image -->
         <!-- <img src="images/smart-mousetrap.png" alt="Smart Mousetrap System" class="project-image"> -->
-     
+        
 
       <div class="project-card">
         <!-- Add your project image here -->
@@ -998,5 +1091,75 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Smooth fade-in animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade elements when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add fade-up class to all sections for smooth scroll reveal
+      const sections = document.querySelectorAll('section');
+      sections.forEach((section, index) => {
+        section.classList.add('fade-up');
+        fadeObserver.observe(section);
+      });
+
+      // Add fade animations to project cards
+      const projectCards = document.querySelectorAll('.project-card');
+      projectCards.forEach((card, index) => {
+        card.classList.add('fade-up', `fade-delay-${(index % 3) + 1}`);
+        fadeObserver.observe(card);
+      });
+
+      // Add fade animations to tech icons
+      const techItems = document.querySelectorAll('.tech-item');
+      techItems.forEach((item, index) => {
+        item.classList.add('fade-up', `fade-delay-${(index % 6) + 1}`);
+        fadeObserver.observe(item);
+      });
+
+      // Smooth navbar link highlighting on scroll
+      const navLinks = document.querySelectorAll('.nav-link');
+      const handleScroll = () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', handleScroll);
+    });
+
+    // Add smooth hover effect to images
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.style.transition = 'all 0.5s ease-in-out';
+      });
+    });
+  </script>
 </body>
 </html>
