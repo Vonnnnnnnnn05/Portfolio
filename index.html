@@ -1,1173 +1,1680 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
- 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Von's Portfolio - A showcase of web systems and Arduino projects by an IT student and developer." />
-  <title>Von's Portfolio</title>
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/logo.png">
-  <link rel="shortcut icon" type="image/png" href="images/logo.png">
+  <head>
+    <meta charset="UTF-8" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Von's Portfolio - A showcase of web systems and Arduino projects by an IT student and developer."
+    />
+    <title>Von's Portfolio</title>
 
-  <style>
-    :root {
-      --primary-blue: #0f0f0f;
-      --navy-blue: #0b0b0b;
-      --dark-navy: #000000;
-      --accent-coral: #1a1a1a;
-      --accent-teal: #4d4d4d;
-      --white: #ffffff;
-      --off-white: #f7f7f7;
-      --light-gray: #e6e6e6;
-      --text-dark: #0f0f0f;
-      --text-gray: #444444;
-      --card-bg: #ffffff;
-      --card-hover: #f7f7f7;
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
-      --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.15);
-    }
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <link rel="shortcut icon" type="image/png" href="images/logo.png" />
 
-    html {
-      scroll-behavior: smooth;
-      background: var(--white);
-    }
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-    body {
-      font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--white);
-      color: var(--text-dark);
-      line-height: 1.7;
-      min-height: 100vh;
-      font-size: 15px;
-      font-weight: 400;
-      overflow-x: hidden;
-    }
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-    /* Modern Clean Sections */
-    section {
-      background: var(--white);
-      border: 1px solid var(--light-gray);
-      border-radius: 16px;
-      margin-bottom: 2rem;
-      padding: 2.5rem;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--navy-blue), var(--accent-coral), var(--accent-teal));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 0 1px #000000;
-      border-color: #000000;
-    }
-
-    section:hover::before {
-      opacity: 1;
-    }
-
-    /* Enhanced Typography */
-    .section-title {
-      font-size: 2.25rem;
-      font-weight: 700;
-      font-family: 'Poppins', sans-serif;
-      color: var(--navy-blue);
-      margin-bottom: 2rem;
-      position: relative;
-      letter-spacing: -0.02em;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent-coral), var(--accent-teal));
-      border-radius: 2px;
-    }
-
-    /* Project Cards */
-    .project-card {
-      background: var(--white);
-      border: 2px solid var(--light-gray);
-      border-radius: 16px;
-      padding: 2rem;
-      margin-bottom: 1.5rem;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--accent-coral), var(--accent-teal));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 0 1px #000000;
-      border-color: #000000;
-    }
-
-    .project-card:hover::before {
-      opacity: 1;
-    }
-
-    .project-image {
-      width: 100%;
-      aspect-ratio: 2/1;
-      object-fit: contain;
-      border-radius: 12px;
-      margin-bottom: 1.25rem;
-      border: 2px solid var(--light-gray);
-      transition: all 0.3s ease;
-      display: block;
-      background: var(--off-white);
-    }
-
-    .project-image:hover {
-      transform: scale(1.02);
-      border-color: #000000;
-      box-shadow: 0 0 0 1px #000000;
-    }
-
-    .project-image-container {
-      width: 100%;
-      aspect-ratio: 2/1;
-      border-radius: 12px;
-      margin-bottom: 1.25rem;
-      overflow: hidden;
-      position: relative;
-      border: 2px solid var(--light-gray);
-      transition: all 0.3s ease;
-      background: var(--off-white);
-    }
-
-    .project-image-container:hover {
-      transform: scale(1.02);
-      border-color: #000000;
-      box-shadow: 0 0 0 1px #000000;
-    }
-
-    .project-image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .project-image-placeholder {
-      width: 100%;
-      aspect-ratio: 2/1;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.02));
-      border: 2px dashed var(--accent-coral);
-      border-radius: 12px;
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: var(--accent-coral);
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-image-placeholder img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 10px;
-    }
-
-    .project-image-placeholder:hover {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.04));
-      border-color: #000000;
-    }
-
-    .project-image-placeholder i {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      opacity: 0.6;
-    }
-
-    .project-title {
-      color: var(--accent-coral);
-      font-size: 1.4rem;
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      letter-spacing: -0.01em;
-    }
-
-    .project-title::before {
-      content: '▶';
-      margin-right: 0.75rem;
-      color: var(--accent-teal);
-      font-size: 1rem;
-    }
-
-    .project-description {
-      color: var(--text-gray);
-      line-height: 1.8;
-      margin-bottom: 1.25rem;
-      font-size: 1rem;
-      font-weight: 400;
-    }
-
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .tech-badge {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.02));
-      color: var(--navy-blue);
-      padding: 0.5rem 1.2rem;
-      border-radius: 25px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      border: 1px solid var(--accent-coral);
-      transition: all 0.2s ease;
-      letter-spacing: 0.02em;
-    }
-
-    .tech-badge:hover {
-      background: #ffffff;
-      color: var(--text-dark);
-      transform: scale(1.05);
-      box-shadow: 0 0 0 1px #000000;
-      border-color: #000000;
-    }
-
-    .project-category {
-      background: linear-gradient(135deg, var(--navy-blue), var(--dark-navy));
-      color: var(--white);
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      font-size: 1.3rem;
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
-      margin: 2.5rem 0 2rem 0;
-      border: 2px solid var(--accent-teal);
-      letter-spacing: -0.01em;
-      box-shadow: var(--shadow-md);
-    }
-
-    .project-category h3 {
-      color: var(--white) !important;
-      margin: 0;
-    }
-
-    /* Enhanced Tech Icons */
-    img.tech-icon {
-      width: 56px;
-      height: 56px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-      border-radius: 12px;
-      padding: 8px;
-      background: var(--off-white);
-      border: 2px solid var(--light-gray);
-    }
-
-    img.tech-icon:hover {
-      transform: translateY(-12px) scale(1.15);
-      filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.01));
-      border-color: #000000;
-    }
-
-    .tech-item {
-      transition: transform 0.3s ease;
-    }
-
-    .tech-item:hover {
-      transform: scale(1.05);
-    }
-
-    .tech-item p {
-      margin-top: 1rem;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text-gray);
-      font-family: 'Inter', sans-serif;
-    }
-
-    /* Enhanced Navbar */
-    .navbar {
-      background: var(--white) !important;
-      backdrop-filter: blur(12px);
-      border-bottom: 2px solid var(--light-gray);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .navbar-brand {
-      color: var(--navy-blue) !important;
-      font-weight: 800;
-      font-size: 1.5rem;
-      font-family: 'Poppins', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .navbar-nav .nav-link {
-      color: var(--text-dark) !important;
-      font-weight: 500;
-      font-size: 1rem;
-      font-family: 'Inter', sans-serif;
-      transition: all 0.3s ease;
-      position: relative;
-      margin: 0 0.5rem;
-      padding: 0.75rem 1.25rem !important;
-      border-radius: 8px;
-      letter-spacing: 0.01em;
-      border: 1px solid transparent;
-    }
-
-    .navbar-nav .nav-link:hover {
-      color: var(--text-dark) !important;
-      background: transparent;
-      border: 1px solid #000000;
-    }
-
-    .navbar-nav .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: var(--accent-coral);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-    }
-
-    .navbar-nav .nav-link:hover::after {
-      width: 80%;
-    }
-
-    /* Hero Section Enhancements */
-    #hero {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.01));
-      border: 2px solid var(--accent-coral);
-    }
-
-    #hero img {
-      border: 4px solid var(--navy-blue);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    #hero img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 0 2px #000000;
-      border-color: #000000;
-    }
-
-    /* Footer Enhancements */
-    footer {
-      background: linear-gradient(135deg, var(--navy-blue), var(--dark-navy));
-      border-top: 3px solid var(--accent-coral);
-      backdrop-filter: blur(10px);
-    }
-
-    .footer-social a {
-      color: var(--white);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      margin: 0 1rem;
-      display: inline-block;
-      padding: 0.75rem;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid var(--accent-teal);
-    }
-
-    .footer-social a:hover {
-      color: var(--white);
-      transform: scale(1.05);
-      background: transparent;
-      border-color: #000000;
-      box-shadow: 0 0 0 1px #000000;
-    }
-
-    /* Links */
-    a {
-      color: var(--accent-coral);
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: var(--accent-teal);
-      text-decoration: none;
-    }
-
-    /* Remove universal override to allow proper sizing */
-
-    /* Maintain responsive layout while keeping fonts uniform */
-    @media (max-width: 768px) {
-      body {
-        font-size: 15px;
+    <style>
+      :root {
+        --primary-blue: #0f0f0f;
+        --navy-blue: #0b0b0b;
+        --dark-navy: #000000;
+        --accent-coral: #1a1a1a;
+        --accent-teal: #4d4d4d;
+        --white: #ffffff;
+        --off-white: #f7f7f7;
+        --light-gray: #e6e6e6;
+        --text-dark: #0f0f0f;
+        --text-gray: #444444;
+        --card-bg: #ffffff;
+        --card-hover: #f7f7f7;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+        --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+        --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.15);
       }
-      
+
+      html {
+        scroll-behavior: smooth;
+        background: var(--white);
+      }
+
+      body {
+        font-family: "Inter", "Poppins", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: var(--white);
+        color: var(--text-dark);
+        line-height: 1.7;
+        min-height: 100vh;
+        font-size: 15px;
+        font-weight: 400;
+        overflow-x: hidden;
+      }
+
+      /* Modern Clean Sections */
+      section {
+        background: var(--white);
+        border: 1px solid var(--light-gray);
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        padding: 2.5rem;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--navy-blue),
+          var(--accent-coral),
+          var(--accent-teal)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      section:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 0 1px #000000;
+        border-color: #000000;
+      }
+
+      section:hover::before {
+        opacity: 1;
+      }
+
+      /* Enhanced Typography */
       .section-title {
         font-size: 2.25rem;
-      }
-      
-      section {
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-      }
-      
-      .project-card {
-        padding: 1.5rem;
-      }
-      
-      .project-title {
-        font-size: 1.3rem;
-      }
-      
-      .project-description {
-        font-size: 1rem;
-      }
-      
-      img.tech-icon {
-        width: 48px;
-        height: 48px;
-      }
-      
-      .navbar-brand {
-        font-size: 1.5rem;
-      }
-      
-      .navbar-nav .nav-link {
-        font-size: 1rem;
-        padding: 0.5rem 1rem !important;
-      }
-    }
-
-    /* Fallback for browsers that don't support aspect-ratio */
-    @supports not (aspect-ratio: 2/1) {
-      .project-image-container {
-        height: 0;
-        padding-bottom: 50%; /* 2:1 fallback (1/2 * 100) */
-        aspect-ratio: unset;
-      }
-      
-      .project-image-placeholder {
-        height: 0;
-        padding-bottom: 50%; /* 2:1 fallback */
-        aspect-ratio: unset;
-      }
-      
-      .project-image {
-        height: 0;
-        padding-bottom: 50%; /* 2:1 fallback */
-        aspect-ratio: unset;
+        font-weight: 700;
+        font-family: "Poppins", sans-serif;
+        color: var(--navy-blue);
+        margin-bottom: 2rem;
         position: relative;
+        letter-spacing: -0.02em;
       }
-      
-      .project-image img {
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-coral),
+          var(--accent-teal)
+        );
+        border-radius: 2px;
+      }
+
+      /* Project Cards */
+      .project-card {
+        background: var(--white);
+        border: 2px solid var(--light-gray);
+        border-radius: 16px;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          var(--accent-coral),
+          var(--accent-teal)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 0 0 1px #000000;
+        border-color: #000000;
+      }
+
+      .project-card:hover::before {
+        opacity: 1;
+      }
+
+      .project-image {
+        width: 100%;
+        aspect-ratio: 2/1;
+        object-fit: contain;
+        border-radius: 12px;
+        margin-bottom: 1.25rem;
+        border: 2px solid var(--light-gray);
+        transition: all 0.3s ease;
+        display: block;
+        background: var(--off-white);
+      }
+
+      .project-image:hover {
+        transform: scale(1.02);
+        border-color: #000000;
+        box-shadow: 0 0 0 1px #000000;
+      }
+
+      .project-image-container {
+        width: 100%;
+        aspect-ratio: 2/1;
+        border-radius: 12px;
+        margin-bottom: 1.25rem;
+        overflow: hidden;
+        position: relative;
+        border: 2px solid var(--light-gray);
+        transition: all 0.3s ease;
+        background: var(--off-white);
+      }
+
+      .project-image-container:hover {
+        transform: scale(1.02);
+        border-color: #000000;
+        box-shadow: 0 0 0 1px #000000;
+      }
+
+      .project-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .project-image-placeholder {
+        width: 100%;
+        aspect-ratio: 2/1;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.06),
+          rgba(0, 0, 0, 0.02)
+        );
+        border: 2px dashed var(--accent-coral);
+        border-radius: 12px;
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: var(--accent-coral);
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-image-placeholder img {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         object-fit: contain;
+        border-radius: 10px;
       }
-    }
 
-    /* Uniform Text Styles - All 15px */
-    .lead {
-      font-size: 1.15rem !important;
-      font-weight: 500;
-      font-family: 'Inter', sans-serif;
-      color: var(--text-gray);
-    }
-    
-    .fs-5 {
-      font-size: 1rem !important;
-      font-weight: 400;
-      line-height: 1.7;
-      color: var(--text-gray);
-    }
-    
-    .fs-4 {
-      font-size: 1.05rem !important;
-      font-weight: 500;
-      color: var(--text-gray);
-    }
-    
-    .display-5 {
-      font-size: 2.5rem !important;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, var(--navy-blue), var(--accent-coral));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    p {
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.7;
-      color: var(--text-gray);
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--navy-blue);
-    }
-    
-    h5 {
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-    
-    h6 {
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-    
-    blockquote p {
-      font-size: 1rem !important;
-      font-style: italic;
-      font-weight: 400;
-      font-family: 'Poppins', sans-serif;
-      color: var(--text-gray);
-    }
-    
-    .blockquote-footer {
-      font-size: 0.95rem;
-      font-family: 'Inter', sans-serif;
-      color: var(--text-gray);
-    }
+      .project-image-placeholder:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.08),
+          rgba(0, 0, 0, 0.04)
+        );
+        border-color: #000000;
+      }
 
-    /* Smooth Fade Animations */
-    @keyframes fadeIn {
-      from {
+      .project-image-placeholder i {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.6;
+      }
+
+      .project-title {
+        color: var(--accent-coral);
+        font-size: 1.4rem;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        letter-spacing: -0.01em;
+      }
+
+      .project-title::before {
+        content: "▶";
+        margin-right: 0.75rem;
+        color: var(--accent-teal);
+        font-size: 1rem;
+      }
+
+      .project-description {
+        color: var(--text-gray);
+        line-height: 1.8;
+        margin-bottom: 1.25rem;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .tech-badge {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.07),
+          rgba(0, 0, 0, 0.02)
+        );
+        color: var(--navy-blue);
+        padding: 0.5rem 1.2rem;
+        border-radius: 25px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        font-family: "Inter", sans-serif;
+        border: 1px solid var(--accent-coral);
+        transition: all 0.2s ease;
+        letter-spacing: 0.02em;
+      }
+
+      .tech-badge:hover {
+        background: #ffffff;
+        color: var(--text-dark);
+        transform: scale(1.05);
+        box-shadow: 0 0 0 1px #000000;
+        border-color: #000000;
+      }
+
+      .project-category {
+        background: linear-gradient(135deg, var(--navy-blue), var(--dark-navy));
+        color: var(--white);
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        margin: 2.5rem 0 2rem 0;
+        border: 2px solid var(--accent-teal);
+        letter-spacing: -0.01em;
+        box-shadow: var(--shadow-md);
+      }
+
+      .project-category h3 {
+        color: var(--white) !important;
+        margin: 0;
+      }
+
+      /* Enhanced Tech Icons */
+      img.tech-icon {
+        width: 56px;
+        height: 56px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        border-radius: 12px;
+        padding: 8px;
+        background: var(--off-white);
+        border: 2px solid var(--light-gray);
+      }
+
+      img.tech-icon:hover {
+        transform: translateY(-12px) scale(1.15);
+        filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.04),
+          rgba(0, 0, 0, 0.01)
+        );
+        border-color: #000000;
+      }
+
+      .tech-item {
+        transition: transform 0.3s ease;
+      }
+
+      .tech-item:hover {
+        transform: scale(1.05);
+      }
+
+      .tech-item p {
+        margin-top: 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-gray);
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Enhanced Navbar */
+      .navbar {
+        background: var(--white) !important;
+        backdrop-filter: blur(12px);
+        border-bottom: 2px solid var(--light-gray);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .navbar-brand {
+        color: var(--navy-blue) !important;
+        font-weight: 800;
+        font-size: 1.5rem;
+        font-family: "Poppins", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .navbar-nav .nav-link {
+        color: var(--text-dark) !important;
+        font-weight: 500;
+        font-size: 1rem;
+        font-family: "Inter", sans-serif;
+        transition: all 0.3s ease;
+        position: relative;
+        margin: 0 0.5rem;
+        padding: 0.75rem 1.25rem !important;
+        border-radius: 8px;
+        letter-spacing: 0.01em;
+        border: 1px solid transparent;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: var(--text-dark) !important;
+        background: transparent;
+        border: 1px solid #000000;
+      }
+
+      .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-coral);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .navbar-nav .nav-link:hover::after {
+        width: 80%;
+      }
+
+      /* Hero Section Enhancements */
+      #hero {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.04),
+          rgba(0, 0, 0, 0.01)
+        );
+        border: 2px solid var(--accent-coral);
+      }
+
+      #hero img {
+        border: 4px solid var(--navy-blue);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      #hero img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 2px #000000;
+        border-color: #000000;
+      }
+
+      /* Footer Enhancements */
+      footer {
+        background: linear-gradient(135deg, var(--navy-blue), var(--dark-navy));
+        border-top: 3px solid var(--accent-coral);
+        backdrop-filter: blur(10px);
+      }
+
+      .footer-social a {
+        color: var(--white);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        margin: 0 1rem;
+        display: inline-block;
+        padding: 0.75rem;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid var(--accent-teal);
+      }
+
+      .footer-social a:hover {
+        color: var(--white);
+        transform: scale(1.05);
+        background: transparent;
+        border-color: #000000;
+        box-shadow: 0 0 0 1px #000000;
+      }
+
+      /* Links */
+      a {
+        color: var(--accent-coral);
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--accent-teal);
+        text-decoration: none;
+      }
+
+      /* Remove universal override to allow proper sizing */
+
+      /* Maintain responsive layout while keeping fonts uniform */
+      @media (max-width: 768px) {
+        body {
+          font-size: 15px;
+        }
+
+        .section-title {
+          font-size: 2.25rem;
+        }
+
+        section {
+          padding: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .project-card {
+          padding: 1.5rem;
+        }
+
+        .project-title {
+          font-size: 1.3rem;
+        }
+
+        .project-description {
+          font-size: 1rem;
+        }
+
+        img.tech-icon {
+          width: 48px;
+          height: 48px;
+        }
+
+        .navbar-brand {
+          font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+          font-size: 1rem;
+          padding: 0.5rem 1rem !important;
+        }
+      }
+
+      /* Fallback for browsers that don't support aspect-ratio */
+      @supports not (aspect-ratio: 2/1) {
+        .project-image-container {
+          height: 0;
+          padding-bottom: 50%; /* 2:1 fallback (1/2 * 100) */
+          aspect-ratio: unset;
+        }
+
+        .project-image-placeholder {
+          height: 0;
+          padding-bottom: 50%; /* 2:1 fallback */
+          aspect-ratio: unset;
+        }
+
+        .project-image {
+          height: 0;
+          padding-bottom: 50%; /* 2:1 fallback */
+          aspect-ratio: unset;
+          position: relative;
+        }
+
+        .project-image img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      /* Uniform Text Styles - All 15px */
+      .lead {
+        font-size: 1.15rem !important;
+        font-weight: 500;
+        font-family: "Inter", sans-serif;
+        color: var(--text-gray);
+      }
+
+      .fs-5 {
+        font-size: 1rem !important;
+        font-weight: 400;
+        line-height: 1.7;
+        color: var(--text-gray);
+      }
+
+      .fs-4 {
+        font-size: 1.05rem !important;
+        font-weight: 500;
+        color: var(--text-gray);
+      }
+
+      .display-5 {
+        font-size: 2.5rem !important;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        background: linear-gradient(
+          135deg,
+          var(--navy-blue),
+          var(--accent-coral)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      p {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.7;
+        color: var(--text-gray);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        color: var(--navy-blue);
+      }
+
+      h5 {
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      h6 {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      blockquote p {
+        font-size: 1rem !important;
+        font-style: italic;
+        font-weight: 400;
+        font-family: "Poppins", sans-serif;
+        color: var(--text-gray);
+      }
+
+      .blockquote-footer {
+        font-size: 0.95rem;
+        font-family: "Inter", sans-serif;
+        color: var(--text-gray);
+      }
+
+      /* Smooth Fade Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Fade animation classes */
+      .fade-in {
         opacity: 0;
+        transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
       }
-      to {
+
+      .fade-in.visible {
         opacity: 1;
       }
-    }
 
-    @keyframes fadeInUp {
-      from {
+      .fade-up {
         opacity: 0;
         transform: translateY(40px);
+        transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
       }
-      to {
+
+      .fade-up.visible {
         opacity: 1;
         transform: translateY(0);
       }
-    }
 
-    @keyframes fadeInLeft {
-      from {
+      .fade-left {
         opacity: 0;
         transform: translateX(-40px);
+        transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
       }
-      to {
+
+      .fade-left.visible {
         opacity: 1;
         transform: translateX(0);
       }
-    }
 
-    @keyframes fadeInRight {
-      from {
+      .fade-right {
         opacity: 0;
         transform: translateX(40px);
+        transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
       }
-      to {
+
+      .fade-right.visible {
         opacity: 1;
         transform: translateX(0);
       }
-    }
 
-    /* Fade animation classes */
-    .fade-in {
-      opacity: 0;
-      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-    }
+      /* Stagger animation delays for multiple elements */
+      .fade-delay-1 {
+        transition-delay: 0.1s;
+      }
+      .fade-delay-2 {
+        transition-delay: 0.2s;
+      }
+      .fade-delay-3 {
+        transition-delay: 0.3s;
+      }
+      .fade-delay-4 {
+        transition-delay: 0.4s;
+      }
+      .fade-delay-5 {
+        transition-delay: 0.5s;
+      }
+      .fade-delay-6 {
+        transition-delay: 0.6s;
+      }
 
-    .fade-in.visible {
-      opacity: 1;
-    }
+      /* Initial page load animation */
+      section {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-    }
+      section:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      section:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      section:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      section:nth-child(4) {
+        animation-delay: 0.4s;
+      }
 
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+      .project-links {
+        margin-top: 1.2rem;
+        display: flex;
+        gap: 0.75rem;
+      }
 
-    .fade-left {
-      opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-    }
+      .github-card {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        background: #000000;
+        color: #ffffff;
+        border: 2px solid #000000;
+        transition: all 0.3s ease;
+      }
 
-    .fade-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
+      .github-card i {
+        font-size: 1.1rem;
+      }
 
-    .fade-right {
-      opacity: 0;
-      transform: translateX(40px);
-      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-    }
-
-    .fade-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    /* Stagger animation delays for multiple elements */
-    .fade-delay-1 { transition-delay: 0.1s; }
-    .fade-delay-2 { transition-delay: 0.2s; }
-    .fade-delay-3 { transition-delay: 0.3s; }
-    .fade-delay-4 { transition-delay: 0.4s; }
-    .fade-delay-5 { transition-delay: 0.5s; }
-    .fade-delay-6 { transition-delay: 0.6s; }
-
-    /* Initial page load animation */
-    section {
-      opacity: 0;
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    section:nth-child(1) { animation-delay: 0.1s; }
-    section:nth-child(2) { animation-delay: 0.2s; }
-    section:nth-child(3) { animation-delay: 0.3s; }
-    section:nth-child(4) { animation-delay: 0.4s; }
-
-  </style>
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="#">VON.DEV</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button> 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tech">Tech</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tools">Tools</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <main class="container my-5">
-
-    <!-- Hero -->
-    <section id="hero" class="p-4">
-      <div class="row align-items-center">
-        <div class="col-md-4 text-center">
-          <img src="6095761497855738746.jpg" alt="Von's Photo" class="img-fluid rounded-circle" style="width: 180px; height: 180px; object-fit: cover;">
-        </div>
-        <div class="col-md-8 mt-3 mt-md-0">
-          <h1 class="display-5 fw-bold">Hi, I'm Von Esson A. Vergara!</h1>
-          <p class="lead fw-semibold mb-3" style="color: var(--navy-blue);">Passionate IT Student & Developer</p>
-          <p class="fs-4" style="color: var(--text-gray);">I create web systems & Arduino projects that solve real problems and make a meaningful impact in people's lives.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="p-4">
-      <h2 class="section-title">About Me</h2>
-      <p class="fs-4">Hi! I'm Von, a passionate IT student and developer. I enjoy creating web and Arduino projects that solve real problems. My journey in tech combines creativity with functionality, always pushing the boundaries of what's possible.</p>
-    </section>
-
-    <!-- Tech Stack -->
-    <section id="tech" class="p-4">
-      <h2 class="section-title">Tech Stack</h2>
-      <div class="row text-center g-4">
-        <div class="col-4 col-md-2 tech-item">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="tech-icon mb-2" alt="HTML5"/>
-          <p class="fw-bold">HTML5</p>
-        </div>
-        <div class="col-4 col-md-2 tech-item">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="tech-icon mb-2" alt="CSS3"/>
-          <p class="fw-bold">CSS3</p>
-        </div>
-        <div class="col-4 col-md-2 tech-item">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="tech-icon mb-2" alt="JavaScript"/>
-          <p class="fw-bold">JavaScript</p>
-        </div>
-        <div class="col-4 col-md-2 tech-item">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="tech-icon mb-2" alt="PHP"/>
-          <p class="fw-bold">PHP</p>
-        </div>
-        <div class="col-4 col-md-2 tech-item">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="tech-icon mb-2" alt="MySQL"/>
-          <p class="fw-bold">MySQL</p>
-        </div>
-        <div class="col-4 col-md-2 tech-item">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="tech-icon mb-2" alt="Bootstrap"/>
-          <p class="fw-bold">Bootstrap</p>
-        </div>
-        <div class="col-4 col-md-2 tech-item">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" class="tech-icon mb-2" alt="Arduino"/>
-          <p class="fw-bold">Arduino</p>
-        </div>
-        <div class="col-4 col-md-2 tech-item">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg" class="tech-icon mb-2" alt="CodeIgniter"/>
-          <p class="fw-bold">CodeIgniter</p>
+      .github-card:hover {
+        background: #ffffff;
+        color: #000000;
+        box-shadow: 0 0 0 1px #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">VON.DEV</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#tech">Tech</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tools">Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </section>
+    </nav>
 
-    <!-- Tools -->
-    <section id="tools" class="p-4">
-      <h2 class="section-title">Software & Tools</h2>
-      <div class="row text-center g-4">
-        <div class="col-4 col-md-2 tech-item">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="tech-icon mb-2" alt="VS Code"/>
-          <p class="fw-bold">VS Code</p>
-        </div>
-        <div class="col-4 col-md-2 tech-item">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" class="tech-icon mb-2" alt="Arduino IDE"/>
-          <p class="fw-bold">Arduino IDE</p>
-        </div>
-        <div class="col-4 col-md-2 tech-item">
-          <img src="https://www.svgrepo.com/show/354575/xampp.svg" class="tech-icon mb-2" alt="XAMPP"/>
-          <p class="fw-bold">XAMPP</p>
-        </div>
-        <div class="col-4 col-md-2 tech-item">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="tech-icon mb-2" alt="Git"/>
-          <p class="fw-bold">Git</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- My Projects -->
-    <section id="projects" class="p-4">
-      <h2 class="section-title text-center">My Projects</h2>
-
-      <!-- Web Systems Projects -->
-      <div class="project-card">
-        <!-- Project Image -->
-        <div class="project-image-container">
-          <img src="images/ams.png" alt="Attendance Management System Screenshot">
-        </div>
-        
-        <h5 class="project-title">Attendance Management System</h5>
-        <p class="project-description">
-          A comprehensive QR Code-based attendance tracking system featuring real-time monitoring, automated reporting dashboard, and analytics. Built with modern web technologies to streamline attendance management for educational institutions and businesses.
-        </p>
-        <div class="project-tech">
-          <span class="tech-badge">PHP</span>
-          <span class="tech-badge">MySQL</span>
-          <span class="tech-badge">JavaScript</span>
-          <span class="tech-badge">Bootstrap</span>
-          <span class="tech-badge">QR Code API</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <!-- Add your project image here -->
-        <div class="project-image-placeholder">
-          <i class="fas fa-image"></i>
-          <span><img src="images/bhv2.png" alt=""></span>
-          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
-        </div>
-        <!-- Alternative: Use this when you have an image -->
-        <!-- <img src="images/boarding-house.png" alt="Boarding House Management" class="project-image"> -->
-        
-        <h5 class="project-title">Boarding House Management</h5>
-        <p class="project-description">
-          Complete tenant management solution with automated billing system, room assignment features, and comprehensive payment tracking. Includes tenant profiles, lease management, and financial reporting capabilities.
-        </p>
-        <div class="project-tech">
-          <span class="tech-badge">PHP</span>
-          <span class="tech-badge">MySQL</span>
-          <span class="tech-badge">HTML5</span>
-          <span class="tech-badge">CSS3</span>
-          <span class="tech-badge">JavaScript</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <!-- Add your project image here -->
-        <div class="project-image-placeholder">
-          <i class="fas fa-image"></i>
-          <span><img src="images/health.png" alt=""></span>
-          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
-        </div>
-        <!-- Alternative: Use this when you have an image -->
-        <!-- <img src="images/healthcare-system.png" alt="Healthcare Management System" class="project-image"> -->
-        
-        <h5 class="project-title">Healthcare Management System</h5>
-        <p class="project-description">
-          Integrated healthcare platform managing patient appointments, comprehensive medical records, and health worker schedules. Features patient history tracking, appointment scheduling, and medical staff management.
-        </p>
-        <div class="project-tech">
-          <span class="tech-badge">PHP</span>
-          <span class="tech-badge">MySQL</span>
-          <span class="tech-badge">Bootstrap</span>
-          <span class="tech-badge">JavaScript</span>
-          <span class="tech-badge">Chart.js</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        
-        <div class="project-image-placeholder">
-          <i class="fas fa-image"></i>
-          <span><img src="images/ims.png" alt=""></span>
-          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
-        </div>
-        <!-- Alternative: Use this when you have an image -->
-        <!-- <img src="images/inventory-system.png" alt="Inventory Management System" class="project-image"> -->
-        
-        <h5 class="project-title">Inventory Management System</h5>
-        <p class="project-description">
-          Advanced stock monitoring system with real-time sales analytics and automated profit alerts specifically designed for cosmetics retail. Features low-stock notifications, sales forecasting, and supplier management.
-        </p>
-        <div class="project-tech">
-          <span class="tech-badge">PHP</span>
-          <span class="tech-badge">MySQL</span>
-          <span class="tech-badge">JavaScript</span>
-          <span class="tech-badge">Chart.js</span>
-          <span class="tech-badge">Bootstrap</span>
-        </div>
-      </div>
-
-      <!-- Arduino Projects Category -->
-      <div class="project-category">
-        <h3 class="fw-bold mb-0">Arduino + Database Integration Projects</h3>
-      </div>
-
-      <div class="project-card">
-        <!-- Add your project image here -->
-        <div class="project-image-placeholder">
-          <i class="fas fa-microchip"></i>
-          <span>Photo Unavailable</span>
-          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
-        </div>
-        <!-- Alternative: Use this when you have an image -->
-        <!-- <img src="images/rfid-system.png" alt="RFID Attendance System" class="project-image"> -->
-        
-        <h5 class="project-title">RFID Attendance System</h5>
-        <p class="project-description">
-          Automated attendance tracking using RFID technology integrated with MySQL database. Features real-time data logging, automated report generation, and web-based dashboard for monitoring attendance patterns and statistics.
-        </p>
-        <div class="project-tech">
-          <span class="tech-badge">Arduino</span>
-          <span class="tech-badge">RFID</span>
-          <span class="tech-badge">MySQL</span>
-          <span class="tech-badge">PHP</span>
-          <span class="tech-badge">ESP32</span>
-        </div>
-      </div>
-
-      
-      <div class="project-card">
-        <div class="project-image-placeholder">
-          <i class="fas fa-microchip"></i>
-          <span>Photo Unavailable</span>
-          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
-        </div>
-        
-        <h5 class="project-title">Smart Mousetrap System</h5>
-        <p class="project-description">
-          IoT-enabled motion-sensor mousetraps with database logging and SMS alert integration. Features trap status monitoring, catch statistics, and automated notifications to property managers when traps are triggered.
-        </p>
-        <div class="project-tech">
-          <span class="tech-badge">Arduino</span>
-          <span class="tech-badge">Motion Sensor</span>
-          <span class="tech-badge">MySQL</span>
-          <span class="tech-badge">ESP32</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image-placeholder">
-          <i class="fas fa-microchip"></i>
-          <span>Photo Unavailable</span>
-          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
-        </div>
-      
-        <h5 class="project-title">Mood Lamp Controller</h5>
-        <p class="project-description">
-          Smart lighting system with web-based dashboard and automated color control. Features mood-based lighting presets, scheduled lighting changes, and mobile app integration for remote control and customization.
-        </p>
-        <div class="project-tech">
-          <span class="tech-badge">Arduino</span>
-          <span class="tech-badge">RGB LED</span>
-          <span class="tech-badge">Web Dashboard</span>
-          <span class="tech-badge">WiFi Module</span>
-          <span class="tech-badge">JavaScript</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <!-- Add your project image here -->
-        <div class="project-image-placeholder">
-          <i class="fas fa-gamepad"></i>
-          <span>Photo Unavailable</span>
-          <small style="margin-top: 0.25rem; opacity: 0.7;"></small>
-        </div>
-        <!-- Alternative: Use this when you have an image -->
-        <!-- <img src="images/memory-games.png" alt="Interactive Memory Games" class="project-image"> -->
-        
-        <h5 class="project-title">Interactive Memory Games</h5>
-        <p class="project-description">
-          Arduino-based memory games featuring LCD display, database score tracking, and comprehensive player profile management. Includes multiple difficulty levels, leaderboards, and progress tracking functionality.
-        </p>
-        <div class="project-tech">
-          <span class="tech-badge">Arduino</span>
-          <span class="tech-badge">LCD Display</span>
-          <span class="tech-badge">MySQL</span>
-          <span class="tech-badge">PHP</span>
-          <span class="tech-badge">Button Matrix</span>
-        </div>
-  
-
-      
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="p-4">
-      <h2 class="section-title">Experience</h2>
-      <div class="project-card">
-        <h5 class="project-title">Encoder/Inventory Manager</h5>
-        <p class="project-description">
-          <strong>Alocada Enterprises</strong><br>
-          Managed comprehensive inventory systems and data encoding processes. Developed efficient workflows for stock management and implemented digital solutions to streamline business operations.
-        </p>
-      </div>
-      <div class="project-card">
-        <h5 class="project-title">System Developer</h5>
-        <p class="project-description">
-          Designed and developed custom management systems for various clients. Specialized in creating web-based solutions that integrate with hardware components for enhanced functionality.
-        </p>
-      </div>
-      <div class="project-card">
-        <h5 class="project-title">Team Leader</h5>
-        <p class="project-description">
-          Led multiple school project teams, coordinating development efforts and ensuring successful project deliveries. Managed cross-functional collaboration between hardware and software development teams.
-        </p>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="p-4">
-      <h2 class="section-title">Education</h2>
-      <div class="project-card">
-        <h5 class="project-title">High School Education</h5>
-        <p class="project-description">
-          <strong>Sto. Niño National High School</strong><br>
-          Graduated with Honors in Science, Technology, Engineering, and Mathematics (STEM) track. Built a strong foundation in analytical thinking and problem-solving skills that continue to drive my technical pursuits.
-        </p>
-        <div class="project-tech">
-          <span class="tech-badge">With Honors</span>
-          <span class="tech-badge">STEM Track</span>
-        </div>
-      </div>
-      <div class="project-card">
-        <h5 class="project-title">College Education</h5>
-        <p class="project-description">
-          <strong>Sultan Kudarat State University</strong><br>
-          Currently pursuing Information Technology degree with exceptional academic performance. Demonstrated consistent excellence through Dean's List and President's List recognitions.
-        </p>
-        <div class="project-tech">
-          <span class="tech-badge">1st Year Dean's Lister</span>
-          <span class="tech-badge">2nd Year President's Lister</span>
-          <span class="tech-badge">IT Student</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="p-4">
-      <h2 class="section-title">Contact</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="project-card text-center">
-            <div class="mb-3">
-              <i class="fas fa-envelope fa-2x" style="color: var(--accent-coral);"></i>
-            </div>
-            <h6 class="fw-bold mb-2">Email</h6>
-            <p class="mb-0">
-              <a href="mailto:von.vergara.399@gmail.com">von.vergara.399@gmail.com</a>
+    <main class="container my-5">
+      <!-- Hero -->
+      <section id="hero" class="p-4">
+        <div class="row align-items-center">
+          <div class="col-md-4 text-center">
+            <img
+              src="port.jpg"
+              alt="Von's Photo"
+              class="img-fluid rounded-circle"
+              style="width: 180px; height: 180px; object-fit: cover"
+            />
+          </div>
+          <div class="col-md-8 mt-3 mt-md-0">
+            <h1 class="display-5 fw-bold">Hi, I'm Von Esson A. Vergara!</h1>
+            <p class="lead fw-semibold mb-3" style="color: var(--navy-blue)">
+              Passionate IT Student & Developer
+            </p>
+            <p class="fs-4" style="color: var(--text-gray)">
+              I create web systems & Arduino projects that solve real problems
+              and make a meaningful impact in people's lives.
             </p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="project-card text-center">
-            <div class="mb-3">
-              <i class="fab fa-github fa-2x" style="color: var(--accent-coral);"></i>
-            </div>
-            <h6 class="fw-bold mb-2">GitHub</h6>
-            <p class="mb-0">
-              <a href="https://github.com/Vonnnnnnnnn05" target="_blank">Vonnnnnnnnn05</a>
-            </p>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="p-4">
+        <h2 class="section-title">About Me</h2>
+        <p class="fs-4">
+          Hi! I'm Von, a passionate IT student and developer. I enjoy creating
+          web and Arduino projects that solve real problems. My journey in tech
+          combines creativity with functionality, always pushing the boundaries
+          of what's possible.
+        </p>
+      </section>
+
+      <!-- Tech Stack -->
+      <section id="tech" class="p-4">
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="row text-center g-4">
+          <div class="col-4 col-md-2 tech-item">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+              class="tech-icon mb-2"
+              alt="HTML5"
+            />
+            <p class="fw-bold">HTML5</p>
+          </div>
+          <div class="col-4 col-md-2 tech-item">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+              class="tech-icon mb-2"
+              alt="CSS3"
+            />
+            <p class="fw-bold">CSS3</p>
+          </div>
+          <div class="col-4 col-md-2 tech-item">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              class="tech-icon mb-2"
+              alt="JavaScript"
+            />
+            <p class="fw-bold">JavaScript</p>
+          </div>
+          <div class="col-4 col-md-2 tech-item">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+              class="tech-icon mb-2"
+              alt="PHP"
+            />
+            <p class="fw-bold">PHP</p>
+          </div>
+          <div class="col-4 col-md-2 tech-item">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+              class="tech-icon mb-2"
+              alt="MySQL"
+            />
+            <p class="fw-bold">MySQL</p>
+          </div>
+          <div class="col-4 col-md-2 tech-item">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+              class="tech-icon mb-2"
+              alt="Bootstrap"
+            />
+            <p class="fw-bold">Bootstrap</p>
+          </div>
+          <div class="col-4 col-md-2 tech-item">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg"
+              class="tech-icon mb-2"
+              alt="Arduino"
+            />
+            <p class="fw-bold">Arduino</p>
+          </div>
+          <div class="col-4 col-md-2 tech-item">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg"
+              class="tech-icon mb-2"
+              alt="CodeIgniter"
+            />
+            <p class="fw-bold">CodeIgniter</p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="project-card text-center">
-            <div class="mb-3">
-              <i class="fab fa-facebook fa-2x" style="color: var(--accent-coral);"></i>
-            </div>
-            <h6 class="fw-bold mb-2">Facebook</h6>
-            <p class="mb-0">
-              <a href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29" target="_blank">Von Vergara</a>
-            </p>
+      </section>
+
+      <!-- Tools -->
+      <section id="tools" class="p-4">
+        <h2 class="section-title">Software & Tools</h2>
+        <div class="row text-center g-4">
+          <div class="col-4 col-md-2 tech-item">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+              class="tech-icon mb-2"
+              alt="VS Code"
+            />
+            <p class="fw-bold">VS Code</p>
+          </div>
+          <div class="col-4 col-md-2 tech-item">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg"
+              class="tech-icon mb-2"
+              alt="Arduino IDE"
+            />
+            <p class="fw-bold">Arduino IDE</p>
+          </div>
+          <div class="col-4 col-md-2 tech-item">
+            <img
+              src="https://www.svgrepo.com/show/354575/xampp.svg"
+              class="tech-icon mb-2"
+              alt="XAMPP"
+            />
+            <p class="fw-bold">XAMPP</p>
+          </div>
+          <div class="col-4 col-md-2 tech-item">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+              class="tech-icon mb-2"
+              alt="Git"
+            />
+            <p class="fw-bold">Git</p>
           </div>
         </div>
+      </section>
+
+      <!-- My Projects -->
+      <section id="projects" class="p-4">
+        <h2 class="section-title text-center">My Projects</h2>
+
+        <!-- Web Systems Projects -->
+        <div class="project-card">
+          <!-- Project Image -->
+          <div class="project-image-container">
+            <img
+              src="images/sdp.png"
+              alt="Scholar's Data Profiling System Screenshot"
+            />
+          </div>
+
+          <h5 class="project-title">Scholarship Data Profiling System</h5>
+          <p class="project-description">
+            A centralized Scholarship Data Profiling System designed for
+            efficient encoding, management, and monitoring of scholar records.
+            The system supports structured data entry, real-time updates,
+            automated reporting, and visual analytics to ensure accurate
+            tracking of scholar information and program compliance.
+          </p>
+
+          <div class="project-tech">
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Chart.JS</span>
+            <span class="tech-badge">Chatbot Integration Using Tidio</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Vonnnnnnnnn05/Scholarship-Data-Profiling-System.git"
+              target="_blank"
+              class="github-card"
+            >
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <!-- Project Image -->
+          <div class="project-image-container">
+            <img
+              src="images/si-crud.png"
+              alt="Product Management System Screenshot"
+            />
+          </div>
+
+          <h5 class="project-title">Product Managment System</h5>
+          <p class="project-description">
+            A web-based Product Management System designed for efficient product
+            encoding, inventory tracking, and record management. The system
+            supports barcode generation, real-time updates, automated
+            notifications, and secure data handling to streamline business
+            operations.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">CodeIgniter4</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Bootstrap</span>
+            <span class="tech-badge">Sweet2Alert</span>
+            <span class="tech-badge">Barcode Using Composer</span>
+            <span class="tech-badge">PHPMailer</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Vonnnnnnnnn05/CodeIgnighter4-Crud"
+              target="_blank"
+              class="github-card"
+            >
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <!-- Project Image -->
+          <div class="project-image-container">
+            <img
+              src="images/carwash.png"
+              alt="Car Wash Management System Screenshot"
+            />
+          </div>
+
+          <h5 class="project-title">Carwash CRM</h5>
+          <p class="project-description">
+            A web-based Carwash Customer Relationship Management (CRM) system
+            designed to manage customer records, service transactions, and visit
+            history. The system supports real-time data updates, session-based
+            chatbot assistance, and streamlined workflow management to improve
+            customer engagement and operational efficiency.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Session Based Chatbot</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Vonnnnnnnnn05/Carwash-Management-System"
+              target="_blank"
+              class="github-card"
+            >
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <!-- Project Image -->
+          <div class="project-image-container">
+            <img
+              src="images/scholarship.png"
+              alt="Scholarship Eligibility Checker System Screenshot"
+            />
+          </div>
+
+          <h5 class="project-title">Scholarship Eligibility Checker System</h5>
+          <p class="project-description">
+            A web-based Scholarship Eligibility Checker System designed to
+            evaluate applicant qualifications based on predefined criteria. The
+            system allows users to input required information, automatically
+            validates eligibility, and provides instant results to support
+            transparent and efficient scholarship screening.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Vonnnnnnnnn05/Scholarship-System"
+              target="_blank"
+              class="github-card"
+            >
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <!-- Project Image -->
+          <div class="project-image-container">
+            <img
+              src="images/weather.png"
+              alt="Weather Forecasting System Screenshot"
+            />
+          </div>
+
+          <h5 class="project-title">Weather Forecasting System</h5>
+          <p class="project-description">
+            A web-based Weather Forecasting System that provides real-time
+            weather updates and forecasts using an external Weather API. The
+            system displays current conditions, temperature, and weather data
+            through a user-friendly interface to support weather monitoring and
+            planning.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">CodeIgniter4</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Weather-API</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Vonnnnnnnnn05/Weather-API-Integration"
+              target="_blank"
+              class="github-card"
+            >
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <!-- Project Image -->
+          <div class="project-image-container">
+            <img
+              src="images/ams.png"
+              alt="Attendance Management System Screenshot"
+            />
+          </div>
+
+          <h5 class="project-title">Attendance Management System</h5>
+          <p class="project-description">
+            A comprehensive QR Code-based attendance tracking system featuring
+            real-time monitoring, automated reporting dashboard, and analytics.
+            Built with modern web technologies to streamline attendance
+            management for educational institutions and businesses.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Bootstrap</span>
+            <span class="tech-badge">QR Code API</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Vonnnnnnnnn05/Ams"
+              target="_blank"
+              class="github-card"
+            >
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <!-- Add your project image here -->
+          <div class="project-image-placeholder">
+            <i class="fas fa-image"></i>
+            <span><img src="images/bhv2.png" alt="" /></span>
+            <small style="margin-top: 0.25rem; opacity: 0.7"></small>
+          </div>
+          <!-- Alternative: Use this when you have an image -->
+          <!-- <img src="images/boarding-house.png" alt="Boarding House Management" class="project-image"> -->
+
+          <h5 class="project-title">Boarding House Management</h5>
+          <p class="project-description">
+            Complete tenant management solution with automated billing system,
+            room assignment features, and comprehensive payment tracking.
+            Includes tenant profiles, lease management, and financial reporting
+            capabilities.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">HTML5</span>
+            <span class="tech-badge">CSS3</span>
+            <span class="tech-badge">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Vonnnnnnnnn05/Boarding-House-V2"
+              target="_blank"
+              class="github-card"
+            >
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <!-- Add your project image here -->
+          <div class="project-image-placeholder">
+            <i class="fas fa-image"></i>
+            <span><img src="images/health.png" alt="" /></span>
+            <small style="margin-top: 0.25rem; opacity: 0.7"></small>
+          </div>
+          <!-- Alternative: Use this when you have an image -->
+          <!-- <img src="images/healthcare-system.png" alt="Healthcare Management System" class="project-image"> -->
+
+          <h5 class="project-title">Healthcare Management System</h5>
+          <p class="project-description">
+            Integrated healthcare platform managing patient appointments,
+            comprehensive medical records, and health worker schedules. Features
+            patient history tracking, appointment scheduling, and medical staff
+            management.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">Bootstrap</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Chart.js</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Vonnnnnnnnn05/Healthworker-Patient-System"
+              target="_blank"
+              class="github-card"
+            >
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image-placeholder">
+            <i class="fas fa-image"></i>
+            <span><img src="images/ims.png" alt="" /></span>
+            <small style="margin-top: 0.25rem; opacity: 0.7"></small>
+          </div>
+          <!-- Alternative: Use this when you have an image -->
+          <!-- <img src="images/inventory-system.png" alt="Inventory Management System" class="project-image"> -->
+
+          <h5 class="project-title">Inventory Management System</h5>
+          <p class="project-description">
+            Advanced stock monitoring system with real-time sales analytics and
+            automated profit alerts specifically designed for cosmetics retail.
+            Features low-stock notifications, sales forecasting, and supplier
+            management.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Chart.js</span>
+            <span class="tech-badge">Bootstrap</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Vonnnnnnnnn05/cosmetics-Inventory-Management-System"
+              target="_blank"
+              class="github-card"
+            >
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <!-- Arduino Projects Category -->
+        <div class="project-category">
+          <h3 class="fw-bold mb-0">Arduino + Database Integration Projects</h3>
+        </div>
+
+        <div class="project-card">
+          <!-- Add your project image here -->
+          <div class="project-image-placeholder">
+            <i class="fas fa-microchip"></i>
+            <span>Photo Unavailable</span>
+            <small style="margin-top: 0.25rem; opacity: 0.7"></small>
+          </div>
+          <!-- Alternative: Use this when you have an image -->
+          <!-- <img src="images/rfid-system.png" alt="RFID Attendance System" class="project-image"> -->
+
+          <h5 class="project-title">RFID Attendance System</h5>
+          <p class="project-description">
+            Automated attendance tracking using RFID technology integrated with
+            MySQL database. Features real-time data logging, automated report
+            generation, and web-based dashboard for monitoring attendance
+            patterns and statistics.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">Arduino</span>
+            <span class="tech-badge">RFID</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">ESP32</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Vonnnnnnnnn05/RFID-ATTENDANCE-WITH-WEB-UI-AND-DATABASE"
+              target="_blank"
+              class="github-card"
+            >
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image-placeholder">
+            <i class="fas fa-microchip"></i>
+            <span>Photo Unavailable</span>
+            <small style="margin-top: 0.25rem; opacity: 0.7"></small>
+          </div>
+
+          <h5 class="project-title">Smart Mousetrap System</h5>
+          <p class="project-description">
+            IoT-enabled motion-sensor mousetraps with database logging and SMS
+            alert integration. Features trap status monitoring, catch
+            statistics, and automated notifications to property managers when
+            traps are triggered.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">Arduino</span>
+            <span class="tech-badge">Motion Sensor</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">ESP32</span>
+          </div>
+          <div class="project-links">
+            <a href="#" target="_blank" class="github-card">
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image-placeholder">
+            <i class="fas fa-microchip"></i>
+            <span>Photo Unavailable</span>
+            <small style="margin-top: 0.25rem; opacity: 0.7"></small>
+          </div>
+
+          <h5 class="project-title">Mood Lamp Controller</h5>
+          <p class="project-description">
+            Smart lighting system with web-based dashboard and automated color
+            control. Features mood-based lighting presets, scheduled lighting
+            changes, and mobile app integration for remote control and
+            customization.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">Arduino</span>
+            <span class="tech-badge">RGB LED</span>
+            <span class="tech-badge">Web Dashboard</span>
+            <span class="tech-badge">WiFi Module</span>
+            <span class="tech-badge">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="#" target="_blank" class="github-card">
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <!-- Add your project image here -->
+          <div class="project-image-placeholder">
+            <i class="fas fa-gamepad"></i>
+            <span>Photo Unavailable</span>
+            <small style="margin-top: 0.25rem; opacity: 0.7"></small>
+          </div>
+          <!-- Alternative: Use this when you have an image -->
+          <!-- <img src="images/memory-games.png" alt="Interactive Memory Games" class="project-image"> -->
+
+          <h5 class="project-title">Interactive Memory Games</h5>
+          <p class="project-description">
+            Arduino-based memory games featuring LCD display, database score
+            tracking, and comprehensive player profile management. Includes
+            multiple difficulty levels, leaderboards, and progress tracking
+            functionality.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">Arduino</span>
+            <span class="tech-badge">LCD Display</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">Button Matrix</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Vonnnnnnnnn05/Memory-Game-Arduino-X-PHP"
+              target="_blank"
+              class="github-card"
+            >
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="p-4">
+        <h2 class="section-title">Experience</h2>
+        <div class="project-card">
+          <h5 class="project-title">Encoder/Inventory Manager</h5>
+          <p class="project-description">
+            <strong>Alocada Enterprises</strong><br />
+            Managed comprehensive inventory systems and data encoding processes.
+            Developed efficient workflows for stock management and implemented
+            digital solutions to streamline business operations.
+          </p>
+        </div>
+        <div class="project-card">
+          <h5 class="project-title">System Developer</h5>
+          <p class="project-description">
+            Designed and developed custom management systems for various
+            clients. Specialized in creating web-based solutions that integrate
+            with hardware components for enhanced functionality.
+          </p>
+        </div>
+        <div class="project-card">
+          <h5 class="project-title">Team Leader</h5>
+          <p class="project-description">
+            Led multiple school project teams, coordinating development efforts
+            and ensuring successful project deliveries. Managed cross-functional
+            collaboration between hardware and software development teams.
+          </p>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="p-4">
+        <h2 class="section-title">Education</h2>
+        <div class="project-card">
+          <h5 class="project-title">High School Education</h5>
+          <p class="project-description">
+            <strong>Sto. Niño National High School</strong><br />
+            Graduated with Honors in Science, Technology, Engineering, and
+            Mathematics (STEM) track. Built a strong foundation in analytical
+            thinking and problem-solving skills that continue to drive my
+            technical pursuits.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">With Honors</span>
+            <span class="tech-badge">STEM Track</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h5 class="project-title">College Education</h5>
+          <p class="project-description">
+            <strong>Sultan Kudarat State University</strong><br />
+            Currently pursuing Information Technology degree with exceptional
+            academic performance. Demonstrated consistent excellence through
+            Dean's List and President's List recognitions.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">1st Year Dean's Lister</span>
+            <span class="tech-badge">2nd Year President's Lister</span>
+            <span class="tech-badge">IT Student</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="p-4">
+        <h2 class="section-title">Contact</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="project-card text-center">
+              <div class="mb-3">
+                <i
+                  class="fas fa-envelope fa-2x"
+                  style="color: var(--accent-coral)"
+                ></i>
+              </div>
+              <h6 class="fw-bold mb-2">Email</h6>
+              <p class="mb-0">
+                <a href="mailto:von.vergara.399@gmail.com"
+                  >von.vergara.399@gmail.com</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="project-card text-center">
+              <div class="mb-3">
+                <i
+                  class="fab fa-github fa-2x"
+                  style="color: var(--accent-coral)"
+                ></i>
+              </div>
+              <h6 class="fw-bold mb-2">GitHub</h6>
+              <p class="mb-0">
+                <a href="https://github.com/Vonnnnnnnnn05" target="_blank"
+                  >Vonnnnnnnnn05</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="project-card text-center">
+              <div class="mb-3">
+                <i
+                  class="fab fa-facebook fa-2x"
+                  style="color: var(--accent-coral)"
+                ></i>
+              </div>
+              <h6 class="fw-bold mb-2">Facebook</h6>
+              <p class="mb-0">
+                <a
+                  href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29"
+                  target="_blank"
+                  >Von Vergara</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center py-4 text-white fs-5">
+      <div class="mb-3 footer-social">
+        <a
+          href="https://github.com/Vonnnnnnnnn05"
+          target="_blank"
+          style="
+            width: 50px;
+            height: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+          "
+          ><i class="fab fa-github fa-lg"></i
+        ></a>
+        <a
+          href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29"
+          target="_blank"
+          style="
+            width: 50px;
+            height: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+          "
+          ><i class="fab fa-facebook fa-lg"></i
+        ></a>
       </div>
-    </section>
+      © 2025 Von Vergara. All rights reserved.
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
-  </main>
-
-  <footer class="text-center py-4 text-white fs-5">
-    <div class="mb-3 footer-social">
-      <a href="https://github.com/Vonnnnnnnnn05" target="_blank" style="width: 50px; height: 50px; display: inline-flex; align-items: center; justify-content: center;"><i class="fab fa-github fa-lg"></i></a>
-      <a href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29" target="_blank" style="width: 50px; height: 50px; display: inline-flex; align-items: center; justify-content: center;"><i class="fab fa-facebook fa-lg"></i></a>
-    </div>
-    © 2025 Von Vergara. All rights reserved.
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <script>
-    // Smooth fade-in animation on scroll
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const fadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    // Observe all fade elements when DOM is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-      // Add fade-up class to all sections for smooth scroll reveal
-      const sections = document.querySelectorAll('section');
-      sections.forEach((section, index) => {
-        section.classList.add('fade-up');
-        fadeObserver.observe(section);
-      });
-
-      // Add fade animations to project cards
-      const projectCards = document.querySelectorAll('.project-card');
-      projectCards.forEach((card, index) => {
-        card.classList.add('fade-up', `fade-delay-${(index % 3) + 1}`);
-        fadeObserver.observe(card);
-      });
-
-      // Add fade animations to tech icons
-      const techItems = document.querySelectorAll('.tech-item');
-      techItems.forEach((item, index) => {
-        item.classList.add('fade-up', `fade-delay-${(index % 6) + 1}`);
-        fadeObserver.observe(item);
-      });
-
-      // Smooth navbar link highlighting on scroll
-      const navLinks = document.querySelectorAll('.nav-link');
-      const handleScroll = () => {
-        let current = '';
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-          if (scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
-          }
-        });
-
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-          }
-        });
+    <script>
+      // Smooth fade-in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
       };
 
-      window.addEventListener('scroll', handleScroll);
-    });
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
 
-    // Add smooth hover effect to images
-    document.addEventListener('DOMContentLoaded', () => {
-      const images = document.querySelectorAll('img');
-      images.forEach(img => {
-        img.style.transition = 'all 0.5s ease-in-out';
+      // Observe all fade elements when DOM is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        // Add fade-up class to all sections for smooth scroll reveal
+        const sections = document.querySelectorAll("section");
+        sections.forEach((section, index) => {
+          section.classList.add("fade-up");
+          fadeObserver.observe(section);
+        });
+
+        // Add fade animations to project cards
+        const projectCards = document.querySelectorAll(".project-card");
+        projectCards.forEach((card, index) => {
+          card.classList.add("fade-up", `fade-delay-${(index % 3) + 1}`);
+          fadeObserver.observe(card);
+        });
+
+        // Add fade animations to tech icons
+        const techItems = document.querySelectorAll(".tech-item");
+        techItems.forEach((item, index) => {
+          item.classList.add("fade-up", `fade-delay-${(index % 6) + 1}`);
+          fadeObserver.observe(item);
+        });
+
+        // Smooth navbar link highlighting on scroll
+        const navLinks = document.querySelectorAll(".nav-link");
+        const handleScroll = () => {
+          let current = "";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= sectionTop - 200) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+              link.classList.add("active");
+            }
+          });
+        };
+
+        window.addEventListener("scroll", handleScroll);
       });
-    });
-  </script>
-</body>
+
+      // Add smooth hover effect to images
+      document.addEventListener("DOMContentLoaded", () => {
+        const images = document.querySelectorAll("img");
+        images.forEach((img) => {
+          img.style.transition = "all 0.5s ease-in-out";
+        });
+      });
+    </script>
+  </body>
 </html>
