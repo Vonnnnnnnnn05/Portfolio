@@ -21,22 +21,22 @@
 
   <style>
     :root {
-      --primary-blue: #1e3a8a;
-      --navy-blue: #0f3460;
-      --dark-navy: #16213e;
-      --accent-coral: #ff6b6b;
-      --accent-teal: #4ecdc4;
+      --primary-blue: #0f0f0f;
+      --navy-blue: #0b0b0b;
+      --dark-navy: #000000;
+      --accent-coral: #1a1a1a;
+      --accent-teal: #4d4d4d;
       --white: #ffffff;
-      --off-white: #f8f9fa;
-      --light-gray: #e9ecef;
-      --text-dark: #2d3748;
-      --text-gray: #4a5568;
+      --off-white: #f7f7f7;
+      --light-gray: #e6e6e6;
+      --text-dark: #0f0f0f;
+      --text-gray: #444444;
       --card-bg: #ffffff;
-      --card-hover: #f8f9fa;
-      --shadow-sm: 0 2px 8px rgba(15, 52, 96, 0.08);
-      --shadow-md: 0 4px 16px rgba(15, 52, 96, 0.12);
-      --shadow-lg: 0 8px 24px rgba(15, 52, 96, 0.16);
-      --shadow-hover: 0 12px 32px rgba(255, 107, 107, 0.15);
+      --card-hover: #f7f7f7;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+      --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.15);
     }
 
     html {
@@ -82,8 +82,8 @@
 
     section:hover {
       transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--navy-blue);
+      box-shadow: 0 0 0 1px #000000;
+      border-color: #000000;
     }
 
     section:hover::before {
@@ -139,8 +139,8 @@
 
     .project-card:hover {
       transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--accent-coral);
+      box-shadow: 0 0 0 1px #000000;
+      border-color: #000000;
     }
 
     .project-card:hover::before {
@@ -161,8 +161,8 @@
 
     .project-image:hover {
       transform: scale(1.02);
-      border-color: var(--accent-coral);
-      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.15);
+      border-color: #000000;
+      box-shadow: 0 0 0 1px #000000;
     }
 
     .project-image-container {
@@ -179,8 +179,8 @@
 
     .project-image-container:hover {
       transform: scale(1.02);
-      border-color: var(--accent-coral);
-      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.15);
+      border-color: #000000;
+      box-shadow: 0 0 0 1px #000000;
     }
 
     .project-image-container img {
@@ -193,7 +193,7 @@
     .project-image-placeholder {
       width: 100%;
       aspect-ratio: 2/1;
-      background: linear-gradient(135deg, rgba(255, 107, 107, 0.08), rgba(78, 205, 196, 0.08));
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.02));
       border: 2px dashed var(--accent-coral);
       border-radius: 12px;
       margin-bottom: 1.25rem;
@@ -220,8 +220,8 @@
     }
 
     .project-image-placeholder:hover {
-      background: linear-gradient(135deg, rgba(255, 107, 107, 0.12), rgba(78, 205, 196, 0.12));
-      border-color: var(--accent-teal);
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.04));
+      border-color: #000000;
     }
 
     .project-image-placeholder i {
@@ -264,7 +264,7 @@
     }
 
     .tech-badge {
-      background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.02));
       color: var(--navy-blue);
       padding: 0.5rem 1.2rem;
       border-radius: 25px;
@@ -277,10 +277,11 @@
     }
 
     .tech-badge:hover {
-      background: linear-gradient(135deg, var(--accent-coral), var(--accent-teal));
-      color: var(--white);
+      background: #ffffff;
+      color: var(--text-dark);
       transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+      box-shadow: 0 0 0 1px #000000;
+      border-color: #000000;
     }
 
     .project-category {
@@ -317,9 +318,9 @@
 
     img.tech-icon:hover {
       transform: translateY(-12px) scale(1.15);
-      filter: drop-shadow(0 12px 24px rgba(255, 107, 107, 0.25));
-      background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
-      border-color: var(--accent-coral);
+      filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.01));
+      border-color: #000000;
     }
 
     .tech-item {
@@ -366,11 +367,13 @@
       padding: 0.75rem 1.25rem !important;
       border-radius: 8px;
       letter-spacing: 0.01em;
+      border: 1px solid transparent;
     }
 
     .navbar-nav .nav-link:hover {
-      color: var(--white) !important;
-      background: linear-gradient(135deg, var(--accent-coral), var(--accent-teal));
+      color: var(--text-dark) !important;
+      background: transparent;
+      border: 1px solid #000000;
     }
 
     .navbar-nav .nav-link::after {
@@ -387,22 +390,24 @@
 
     .navbar-nav .nav-link:hover::after {
       width: 80%;
-    }* Hero Section Enhancements */
+    }
+
+    /* Hero Section Enhancements */
     #hero {
-      background: linear-gradient(135deg, rgba(255, 107, 107, 0.05), rgba(78, 205, 196, 0.05));
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.01));
       border: 2px solid var(--accent-coral);
     }
 
     #hero img {
       border: 4px solid var(--navy-blue);
-      box-shadow: 0 8px 32px rgba(15, 52, 96, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
     }
 
     #hero img:hover {
       transform: scale(1.05);
-      box-shadow: 0 12px 40px rgba(255, 107, 107, 0.3);
-      border-color: var(--accent-coral);
+      box-shadow: 0 0 0 2px #000000;
+      border-color: #000000;
     }
 
     /* Footer Enhancements */
@@ -425,10 +430,10 @@
 
     .footer-social a:hover {
       color: var(--white);
-      transform: scale(1.2) translateY(-4px);
-      background: var(--accent-coral);
-      border-color: var(--accent-coral);
-      box-shadow: 0 8px 24px rgba(255, 107, 107, 0.4);
+      transform: scale(1.05);
+      background: transparent;
+      border-color: #000000;
+      box-shadow: 0 0 0 1px #000000;
     }
 
     /* Links */
@@ -1075,7 +1080,7 @@
             </div>
             <h6 class="fw-bold mb-2">Facebook</h6>
             <p class="mb-0">
-              <a href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29" target="_blank">Von FB</a>
+              <a href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29" target="_blank">Von Vergara</a>
             </p>
           </div>
         </div>
