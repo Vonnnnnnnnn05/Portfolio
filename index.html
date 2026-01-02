@@ -51,6 +51,29 @@
         --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.15);
       }
 
+      :root.dark-mode {
+        --primary-blue: #f5f5f5;
+        --navy-blue: #f5f5f5;
+        --dark-navy: #000000;
+        --accent-coral: #ffffff;
+        --accent-teal: #dcdcdc;
+        --white: #0a0a0a;
+        --off-white: #0f0f0f;
+        --light-gray: #1e1e1e;
+        --text-dark: #f5f5f5;
+        --text-gray: #dcdcdc;
+        --card-bg: #0f0f0f;
+        --card-hover: #1a1a1a;
+        --shadow-sm: 0 2px 14px rgba(0, 0, 0, 0.45);
+        --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.5);
+        --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
+        --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.65);
+      }
+
+      html.dark-mode {
+        background: var(--white);
+      }
+
       html {
         scroll-behavior: smooth;
         background: var(--white);
@@ -802,6 +825,104 @@
         color: #000000;
         box-shadow: 0 0 0 1px #000000;
       }
+
+      .theme-toggle {
+        border: 1px solid var(--light-gray);
+        background: var(--off-white);
+        color: var(--text-dark);
+        padding: 0.4rem 0.9rem;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .theme-toggle:hover {
+        border-color: var(--accent-teal);
+        color: var(--accent-teal);
+        transform: translateY(-1px);
+      }
+
+      .theme-toggle i {
+        font-size: 1rem;
+      }
+
+      :root.dark-mode body {
+        background: var(--white);
+        color: var(--text-dark);
+      }
+
+      :root.dark-mode section,
+      :root.dark-mode .project-card {
+        background: var(--card-bg);
+        border-color: var(--light-gray);
+        box-shadow: var(--shadow-sm);
+      }
+
+      :root.dark-mode section:hover,
+      :root.dark-mode .project-card:hover,
+      :root.dark-mode .project-image:hover,
+      :root.dark-mode .project-image-container:hover,
+      :root.dark-mode .project-image-placeholder:hover {
+        border-color: #ffffff;
+        box-shadow: 0 0 0 1px #ffffff;
+      }
+
+      :root.dark-mode .project-image,
+      :root.dark-mode .project-image-container,
+      :root.dark-mode .project-image-placeholder {
+        background: var(--off-white);
+      }
+
+      :root.dark-mode .navbar {
+        background: var(--card-bg) !important;
+        border-bottom-color: var(--light-gray);
+      }
+
+      :root.dark-mode .navbar-nav .nav-link:hover {
+        color: var(--text-dark) !important;
+        border-color: #ffffff;
+      }
+
+      :root.dark-mode .project-category {
+        background: linear-gradient(135deg, #0f0f0f, #000000);
+        border-color: #ffffff;
+        color: var(--text-dark);
+      }
+
+      :root.dark-mode footer {
+        background: linear-gradient(135deg, #0f0f0f, #000000);
+      }
+
+      :root.dark-mode .footer-social a {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: #ffffff;
+      }
+
+      :root.dark-mode a {
+        color: #ffffff;
+      }
+
+      :root.dark-mode a:hover {
+        color: #dcdcdc;
+      }
+
+      :root.dark-mode .github-card {
+        background: var(--card-bg);
+        color: var(--text-dark);
+        border-color: #ffffff;
+      }
+
+      :root.dark-mode .github-card:hover {
+        background: transparent;
+        color: #ffffff;
+        box-shadow: 0 0 0 1px #ffffff;
+      }
     </style>
   </head>
   <body>
@@ -844,6 +965,15 @@
             </li>
           </ul>
         </div>
+        <button
+          id="themeToggle"
+          class="theme-toggle ms-3 ms-lg-4 ms-auto"
+          type="button"
+          aria-label="Toggle dark mode"
+        >
+          <i class="fas fa-moon"></i>
+          <span class="theme-toggle-label">Dark</span>
+        </button>
       </div>
     </nav>
 
@@ -1608,6 +1738,35 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+      const updateThemeToggleLabel = (mode) => {
+        const toggleBtn = document.getElementById("themeToggle");
+        if (!toggleBtn) return;
+
+        const icon = toggleBtn.querySelector("i");
+        const label = toggleBtn.querySelector(".theme-toggle-label");
+
+        if (mode === "dark") {
+          icon?.classList.remove("fa-moon");
+          icon?.classList.add("fa-sun");
+          if (label) label.textContent = "Light";
+        } else {
+          icon?.classList.remove("fa-sun");
+          icon?.classList.add("fa-moon");
+          if (label) label.textContent = "Dark";
+        }
+      };
+
+      const setTheme = (mode) => {
+        const root = document.documentElement;
+        if (mode === "dark") {
+          root.classList.add("dark-mode");
+        } else {
+          root.classList.remove("dark-mode");
+        }
+        updateThemeToggleLabel(mode);
+        localStorage.setItem("theme", mode);
+      };
+
       // Smooth fade-in animation on scroll
       const observerOptions = {
         threshold: 0.1,
@@ -1624,6 +1783,23 @@
 
       // Observe all fade elements when DOM is loaded
       document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.getElementById("themeToggle");
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+        setTheme(initialTheme);
+
+        if (toggleButton) {
+          toggleButton.addEventListener("click", () => {
+            const isDark = document.documentElement.classList.contains(
+              "dark-mode"
+            );
+            setTheme(isDark ? "light" : "dark");
+          });
+        }
+
         // Add fade-up class to all sections for smooth scroll reveal
         const sections = document.querySelectorAll("section");
         sections.forEach((section, index) => {
