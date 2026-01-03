@@ -32,58 +32,20 @@
     />
 
     <style>
-      :root {
-        --primary-blue: #0f0f0f;
-        --navy-blue: #0b0b0b;
-        --dark-navy: #000000;
-        --accent-coral: #1a1a1a;
-        --accent-teal: #4d4d4d;
-        --white: #ffffff;
-        --off-white: #f7f7f7;
-        --light-gray: #e6e6e6;
-        --text-dark: #0f0f0f;
-        --text-gray: #444444;
-        --card-bg: #ffffff;
-        --card-hover: #f7f7f7;
-        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-        --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
-        --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.15);
-      }
-
-      :root.dark-mode {
-        --primary-blue: #f5f5f5;
-        --navy-blue: #f5f5f5;
-        --dark-navy: #000000;
-        --accent-coral: #ffffff;
-        --accent-teal: #dcdcdc;
-        --white: #0a0a0a;
-        --off-white: #0f0f0f;
-        --light-gray: #1e1e1e;
-        --text-dark: #f5f5f5;
-        --text-gray: #dcdcdc;
-        --card-bg: #0f0f0f;
-        --card-hover: #1a1a1a;
-        --shadow-sm: 0 2px 14px rgba(0, 0, 0, 0.45);
-        --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.5);
-        --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
-        --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.65);
+      html {
+        scroll-behavior: smooth;
+        background: #ffffff;
       }
 
       html.dark-mode {
-        background: var(--white);
-      }
-
-      html {
-        scroll-behavior: smooth;
-        background: var(--white);
+        background: #0a0a0a;
       }
 
       body {
         font-family: "Inter", "Poppins", -apple-system, BlinkMacSystemFont,
           "Segoe UI", sans-serif;
-        background: var(--white);
-        color: var(--text-dark);
+        background: #ffffff;
+        color: #0f0f0f;
         line-height: 1.7;
         min-height: 100vh;
         font-size: 15px;
@@ -91,14 +53,19 @@
         overflow-x: hidden;
       }
 
+      html.dark-mode body {
+        background: #0a0a0a;
+        color: #f5f5f5;
+      }
+
       /* Modern Clean Sections */
       section {
-        background: var(--white);
-        border: 1px solid var(--light-gray);
+        background: #ffffff;
+        border: 1px solid #e6e6e6;
         border-radius: 16px;
         margin-bottom: 2rem;
         padding: 2.5rem;
-        box-shadow: var(--shadow-sm);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
@@ -113,9 +80,9 @@
         height: 3px;
         background: linear-gradient(
           90deg,
-          var(--navy-blue),
-          var(--accent-coral),
-          var(--accent-teal)
+          #0b0b0b,
+          #0f0f0f,
+          #4d4d4d
         );
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -136,7 +103,7 @@
         font-size: 2.25rem;
         font-weight: 700;
         font-family: "Poppins", sans-serif;
-        color: var(--navy-blue);
+        color: #0b0b0b;
         margin-bottom: 2rem;
         position: relative;
         letter-spacing: -0.02em;
@@ -151,20 +118,20 @@
         height: 4px;
         background: linear-gradient(
           90deg,
-          var(--accent-coral),
-          var(--accent-teal)
+          #0f0f0f,
+          #4d4d4d
         );
         border-radius: 2px;
       }
 
       /* Project Cards */
       .project-card {
-        background: var(--white);
-        border: 2px solid var(--light-gray);
+        background: #ffffff;
+        border: 2px solid #e6e6e6;
         border-radius: 16px;
         padding: 2rem;
         margin-bottom: 1.5rem;
-        box-shadow: var(--shadow-sm);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
@@ -179,8 +146,8 @@
         height: 100%;
         background: linear-gradient(
           180deg,
-          var(--accent-coral),
-          var(--accent-teal)
+          #0f0f0f,
+          #4d4d4d
         );
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -202,10 +169,10 @@
         object-fit: contain;
         border-radius: 12px;
         margin-bottom: 1.25rem;
-        border: 2px solid var(--light-gray);
+        border: 2px solid #e6e6e6;
         transition: all 0.3s ease;
         display: block;
-        background: var(--off-white);
+        background: #f7f7f7;
       }
 
       .project-image:hover {
@@ -221,9 +188,9 @@
         margin-bottom: 1.25rem;
         overflow: hidden;
         position: relative;
-        border: 2px solid var(--light-gray);
+        border: 2px solid #e6e6e6;
         transition: all 0.3s ease;
-        background: var(--off-white);
+        background: #f7f7f7;
       }
 
       .project-image-container:hover {
@@ -247,14 +214,14 @@
           rgba(0, 0, 0, 0.06),
           rgba(0, 0, 0, 0.02)
         );
-        border: 2px dashed var(--accent-coral);
+        border: 2px dashed #0f0f0f;
         border-radius: 12px;
         margin-bottom: 1.25rem;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        color: var(--accent-coral);
+        color: #0f0f0f;
         font-size: 0.9rem;
         font-weight: 500;
         transition: all 0.3s ease;
@@ -288,7 +255,7 @@
       }
 
       .project-title {
-        color: var(--accent-coral);
+        color: #0f0f0f;
         font-size: 1.4rem;
         font-weight: 600;
         font-family: "Poppins", sans-serif;
@@ -301,12 +268,12 @@
       .project-title::before {
         content: "▶";
         margin-right: 0.75rem;
-        color: var(--accent-teal);
+        color: #4d4d4d;
         font-size: 1rem;
       }
 
       .project-description {
-        color: var(--text-gray);
+        color: #444444;
         line-height: 1.8;
         margin-bottom: 1.25rem;
         font-size: 1rem;
@@ -326,20 +293,20 @@
           rgba(0, 0, 0, 0.07),
           rgba(0, 0, 0, 0.02)
         );
-        color: var(--navy-blue);
+        color: #0b0b0b;
         padding: 0.5rem 1.2rem;
         border-radius: 25px;
         font-size: 0.85rem;
         font-weight: 600;
         font-family: "Inter", sans-serif;
-        border: 1px solid var(--accent-coral);
+        border: 1px solid #0f0f0f;
         transition: all 0.2s ease;
         letter-spacing: 0.02em;
       }
 
       .tech-badge:hover {
         background: #ffffff;
-        color: var(--text-dark);
+        color: #0f0f0f;
         transform: scale(1.05);
         box-shadow: 0 0 0 1px #000000;
         border-color: #000000;
@@ -347,7 +314,7 @@
 
       .project-category {
         background: linear-gradient(135deg, #f9fafb, #e5e7eb);
-        color: var(--navy-blue);
+        color: #0b0b0b;
         padding: 1rem 1.5rem;
         border-radius: 12px;
         font-size: 1.3rem;
@@ -355,13 +322,13 @@
         font-family: "Poppins", sans-serif;
         text-align: center;
         margin: 2.5rem 0 2rem 0;
-        border: 2px solid var(--light-gray);
+        border: 2px solid #e6e6e6;
         letter-spacing: -0.01em;
-        box-shadow: var(--shadow-md);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
       }
 
       .project-category h3 {
-        color: var(--navy-blue) !important;
+        color: #0b0b0b !important;
         margin: 0;
       }
 
@@ -373,8 +340,8 @@
         cursor: pointer;
         border-radius: 12px;
         padding: 8px;
-        background: var(--off-white);
-        border: 2px solid var(--light-gray);
+        background: #f7f7f7;
+        border: 2px solid #e6e6e6;
       }
 
       img.tech-icon:hover {
@@ -400,36 +367,36 @@
         margin-top: 1rem;
         font-size: 1rem;
         font-weight: 500;
-        color: var(--text-gray);
+        color: #444444;
         font-family: "Inter", sans-serif;
       }
 
       /* Enhanced Navbar */
       .navbar {
-        background: var(--white) !important;
+        background: #ffffff !important;
         backdrop-filter: blur(12px);
-        border-bottom: 2px solid var(--light-gray);
-        box-shadow: var(--shadow-sm);
+        border-bottom: 2px solid #e6e6e6;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       }
 
       .navbar-toggler {
-        border-color: var(--text-dark);
+        border-color: #0f0f0f;
       }
 
       .navbar-toggler-icon {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
       }
 
-      :root.dark-mode .navbar-toggler {
+      html.dark-mode .navbar-toggler {
         border-color: #ffffff;
       }
 
-      :root.dark-mode .navbar-toggler-icon {
+      html.dark-mode .navbar-toggler-icon {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
       }
 
       .navbar-brand {
-        color: var(--navy-blue) !important;
+        color: #0b0b0b !important;
         font-weight: 800;
         font-size: 1.5rem;
         font-family: "Poppins", sans-serif;
@@ -438,7 +405,7 @@
       }
 
       .navbar-nav .nav-link {
-        color: var(--text-dark) !important;
+        color: #0f0f0f !important;
         font-weight: 500;
         font-size: 1rem;
         font-family: "Inter", sans-serif;
@@ -452,7 +419,7 @@
       }
 
       .navbar-nav .nav-link:hover {
-        color: var(--text-dark) !important;
+        color: #0f0f0f !important;
         background: transparent;
         border: 1px solid #000000;
       }
@@ -464,7 +431,7 @@
         left: 50%;
         width: 0;
         height: 2px;
-        background: var(--accent-coral);
+        background: #0f0f0f;
         transition: all 0.3s ease;
         transform: translateX(-50%);
       }
@@ -480,11 +447,11 @@
           rgba(0, 0, 0, 0.04),
           rgba(0, 0, 0, 0.01)
         );
-        border: 2px solid var(--accent-coral);
+        border: 2px solid #0f0f0f;
       }
 
       #hero img {
-        border: 4px solid var(--navy-blue);
+        border: 4px solid #0b0b0b;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
       }
@@ -497,24 +464,24 @@
 
       /* Footer Enhancements */
       footer {
-        background: linear-gradient(135deg, var(--navy-blue), var(--dark-navy));
-        border-top: 3px solid var(--accent-coral);
+        background: linear-gradient(135deg, #0b0b0b, #000000);
+        border-top: 3px solid #0f0f0f;
         backdrop-filter: blur(10px);
       }
 
       .footer-social a {
-        color: var(--white);
+        color: #ffffff;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         margin: 0 1rem;
         display: inline-block;
         padding: 0.75rem;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.1);
-        border: 2px solid var(--accent-teal);
+        border: 2px solid #4d4d4d;
       }
 
       .footer-social a:hover {
-        color: var(--white);
+        color: #ffffff;
         transform: scale(1.05);
         background: transparent;
         border-color: #000000;
@@ -523,14 +490,22 @@
 
       /* Links */
       a {
-        color: var(--accent-coral);
+        color: #0f0f0f;
         transition: all 0.3s ease;
         text-decoration: none;
       }
 
       a:hover {
-        color: var(--accent-teal);
+        color: #4d4d4d;
         text-decoration: none;
+      }
+
+      .contact-icon {
+        color: #0f0f0f;
+      }
+
+      html.dark-mode .contact-icon {
+        color: #ffffff;
       }
 
       /* Remove universal override to allow proper sizing */
@@ -613,20 +588,20 @@
         font-size: 1.15rem !important;
         font-weight: 500;
         font-family: "Inter", sans-serif;
-        color: var(--text-gray);
+        color: #444444;
       }
 
       .fs-5 {
         font-size: 1rem !important;
         font-weight: 400;
         line-height: 1.7;
-        color: var(--text-gray);
+        color: #444444;
       }
 
       .fs-4 {
         font-size: 1.05rem !important;
         font-weight: 500;
-        color: var(--text-gray);
+        color: #444444;
       }
 
       .display-5 {
@@ -636,8 +611,8 @@
         letter-spacing: -0.02em;
         background: linear-gradient(
           135deg,
-          var(--navy-blue),
-          var(--accent-coral)
+          #0b0b0b,
+          #0f0f0f
         );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -648,7 +623,7 @@
         font-size: 1rem;
         font-weight: 400;
         line-height: 1.7;
-        color: var(--text-gray);
+        color: #444444;
       }
 
       h1,
@@ -660,7 +635,7 @@
         font-family: "Poppins", sans-serif;
         font-weight: 600;
         letter-spacing: -0.01em;
-        color: var(--navy-blue);
+        color: #0b0b0b;
       }
 
       h5 {
@@ -678,13 +653,13 @@
         font-style: italic;
         font-weight: 400;
         font-family: "Poppins", sans-serif;
-        color: var(--text-gray);
+        color: #444444;
       }
 
       .blockquote-footer {
         font-size: 0.95rem;
         font-family: "Inter", sans-serif;
-        color: var(--text-gray);
+        color: #444444;
       }
 
       /* Smooth Fade Animations */
@@ -843,9 +818,9 @@
       }
 
       .theme-toggle {
-        border: 1px solid var(--light-gray);
-        background: var(--off-white);
-        color: var(--text-dark);
+        border: 1px solid #e6e6e6;
+        background: #f7f7f7;
+        color: #0f0f0f;
         padding: 0.4rem 0.9rem;
         border-radius: 999px;
         font-weight: 600;
@@ -855,12 +830,12 @@
         gap: 0.45rem;
         cursor: pointer;
         transition: all 0.25s ease;
-        box-shadow: var(--shadow-sm);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       }
 
       .theme-toggle:hover {
-        border-color: var(--accent-teal);
-        color: var(--accent-teal);
+        border-color: #4d4d4d;
+        color: #4d4d4d;
         transform: translateY(-1px);
       }
 
@@ -868,76 +843,123 @@
         font-size: 1rem;
       }
 
-      :root.dark-mode body {
-        background: var(--white);
-        color: var(--text-dark);
+      html.dark-mode .theme-toggle {
+        border-color: #1e1e1e;
+        background: #0f0f0f;
+        color: #f5f5f5;
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
       }
 
-      :root.dark-mode section,
-      :root.dark-mode .project-card {
-        background: var(--card-bg);
-        border-color: var(--light-gray);
-        box-shadow: var(--shadow-sm);
+      html.dark-mode .theme-toggle:hover {
+        border-color: #ffffff;
+        color: #ffffff;
       }
 
-      :root.dark-mode section:hover,
-      :root.dark-mode .project-card:hover,
-      :root.dark-mode .project-image:hover,
-      :root.dark-mode .project-image-container:hover,
-      :root.dark-mode .project-image-placeholder:hover {
+      html.dark-mode section,
+      html.dark-mode .project-card {
+        background: #0f0f0f;
+        border-color: #1e1e1e;
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+      }
+
+      html.dark-mode section:hover,
+      html.dark-mode .project-card:hover,
+      html.dark-mode .project-image:hover,
+      html.dark-mode .project-image-container:hover,
+      html.dark-mode .project-image-placeholder:hover {
         border-color: #ffffff;
         box-shadow: 0 0 0 1px #ffffff;
       }
 
-      :root.dark-mode .project-image,
-      :root.dark-mode .project-image-container,
-      :root.dark-mode .project-image-placeholder {
-        background: var(--off-white);
+      html.dark-mode .project-image,
+      html.dark-mode .project-image-container,
+      html.dark-mode .project-image-placeholder {
+        background: #0f0f0f;
       }
 
-      :root.dark-mode .navbar {
-        background: var(--card-bg) !important;
-        border-bottom-color: var(--light-gray);
+      html.dark-mode .navbar {
+        background: #0f0f0f !important;
+        border-bottom-color: #1e1e1e;
       }
 
-      :root.dark-mode .navbar-nav .nav-link:hover {
-        color: var(--text-dark) !important;
+      html.dark-mode .navbar-nav .nav-link:hover {
+        color: #f5f5f5 !important;
         border-color: #ffffff;
       }
 
-      :root.dark-mode .project-category {
+      html.dark-mode .project-category {
         background: linear-gradient(135deg, #0f0f0f, #000000);
         border-color: #ffffff;
-        color: var(--text-dark);
+        color: #f5f5f5;
       }
 
-      :root.dark-mode footer {
+      html.dark-mode footer {
         background: linear-gradient(135deg, #0f0f0f, #000000);
       }
 
-      :root.dark-mode .footer-social a {
+      html.dark-mode .footer-social a {
         background: rgba(255, 255, 255, 0.08);
         border-color: #ffffff;
       }
 
-      :root.dark-mode a {
+      html.dark-mode a {
         color: #ffffff;
       }
 
-      :root.dark-mode a:hover {
+      html.dark-mode a:hover {
         color: #dcdcdc;
       }
 
-      :root.dark-mode .github-card {
-        background: var(--card-bg);
-        color: var(--text-dark);
+      html.dark-mode .github-card {
+        background: #0f0f0f;
+        color: #f5f5f5;
         border-color: #ffffff;
       }
 
-      :root.dark-mode .github-card:hover {
+      html.dark-mode .github-card:hover {
         background: transparent;
         color: #ffffff;
         box-shadow: 0 0 0 1px #ffffff;
+      }
+
+      html.dark-mode .navbar-brand,
+      html.dark-mode .navbar-nav .nav-link,
+      html.dark-mode .section-title,
+      html.dark-mode .project-title,
+      html.dark-mode .project-category h3 {
+        color: #f5f5f5 !important;
+      }
+
+      html.dark-mode .project-title::before {
+        color: #dcdcdc;
+      }
+
+      html.dark-mode .project-description,
+      html.dark-mode .project-tech .tech-badge,
+      html.dark-mode .tech-item p,
+      html.dark-mode p,
+      html.dark-mode .lead,
+      html.dark-mode .fs-4,
+      html.dark-mode .fs-5,
+      html.dark-mode .blockquote-footer,
+      html.dark-mode blockquote p {
+        color: #dcdcdc !important;
+      }
+
+      html.dark-mode .tech-badge {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.04)
+        );
+        border-color: #ffffff;
+      }
+
+      html.dark-mode .project-image,
+      html.dark-mode .project-image-container,
+      html.dark-mode .project-image-placeholder {
+        border-color: #1e1e1e;
+        color: #dcdcdc;
       }
     </style>
   </head>
@@ -1007,10 +1029,10 @@
           </div>
           <div class="col-md-8 mt-3 mt-md-0">
             <h1 class="display-5 fw-bold">Hi, I'm Von Esson A. Vergara!</h1>
-            <p class="lead fw-semibold mb-3" style="color: var(--navy-blue)">
+            <p class="lead fw-semibold mb-3" style="color: #0b0b0b">
               Passionate IT Student & Developer
             </p>
-            <p class="fs-4" style="color: var(--text-gray)">
+            <p class="fs-4" style="color: #444444">
               I create web systems & Arduino projects that solve real problems
               and make a meaningful impact in people's lives.
             </p>
@@ -1671,8 +1693,7 @@
             <div class="project-card text-center">
               <div class="mb-3">
                 <i
-                  class="fas fa-envelope fa-2x"
-                  style="color: var(--accent-coral)"
+                  class="fas fa-envelope fa-2x contact-icon"
                 ></i>
               </div>
               <h6 class="fw-bold mb-2">Email</h6>
@@ -1687,8 +1708,7 @@
             <div class="project-card text-center">
               <div class="mb-3">
                 <i
-                  class="fab fa-github fa-2x"
-                  style="color: var(--accent-coral)"
+                  class="fab fa-github fa-2x contact-icon"
                 ></i>
               </div>
               <h6 class="fw-bold mb-2">GitHub</h6>
@@ -1703,8 +1723,7 @@
             <div class="project-card text-center">
               <div class="mb-3">
                 <i
-                  class="fab fa-facebook fa-2x"
-                  style="color: var(--accent-coral)"
+                  class="fab fa-facebook fa-2x contact-icon"
                 ></i>
               </div>
               <h6 class="fw-bold mb-2">Facebook</h6>
@@ -1870,3 +1889,4 @@
     </script>
   </body>
 </html>
+  
