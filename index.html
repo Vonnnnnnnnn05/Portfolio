@@ -463,6 +463,41 @@
         border-color: #000000;
       }
 
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+
+      .hero-action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.25rem;
+        border-radius: 999px;
+        border: 2px solid #0f0f0f;
+        background: #0f0f0f;
+        color: #ffffff;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+
+      .hero-action-btn.secondary {
+        background: #ffffff;
+        color: #0f0f0f;
+      }
+
+      .hero-action-btn:hover {
+        color: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+      }
+
+      .hero-action-btn.secondary:hover {
+        color: #0f0f0f;
+      }
+
       /* Footer Enhancements */
       footer {
         background: linear-gradient(135deg, #0b0b0b, #000000);
@@ -507,6 +542,12 @@
 
       html.dark-mode .contact-icon {
         color: #ffffff;
+      }
+
+      #contact .project-card p,
+      #contact .project-card a {
+        overflow-wrap: anywhere;
+        word-break: break-word;
       }
 
       /* Remove universal override to allow proper sizing */
@@ -1016,7 +1057,7 @@
         <div class="row align-items-center">
           <div class="col-md-4 text-center">
             <img
-              src="port.jpg"
+              src="image.png"
               alt="Von's Photo"
               class="img-fluid rounded-circle"
               style="width: 180px; height: 180px; object-fit: cover"
@@ -1031,6 +1072,25 @@
               I create web systems & Arduino projects that solve real problems
               and make a meaningful impact in people's lives.
             </p>
+            <div class="hero-actions">
+              <a
+                href="CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hero-action-btn"
+              >
+                <i class="fas fa-file-pdf"></i>
+                View CV
+              </a>
+              <a
+                href="CV.pdf"
+                download
+                class="hero-action-btn secondary"
+              >
+                <i class="fas fa-download"></i>
+                Download CV
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1684,7 +1744,7 @@
       <section id="contact" class="p-4">
         <h2 class="section-title">Contact</h2>
         <div class="row g-4">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="project-card text-center">
               <div class="mb-3">
                 <i
@@ -1699,7 +1759,7 @@
               </p>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="project-card text-center">
               <div class="mb-3">
                 <i
@@ -1714,7 +1774,7 @@
               </p>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="project-card text-center">
               <div class="mb-3">
                 <i
@@ -1727,6 +1787,24 @@
                   href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29"
                   target="_blank"
                   >Von Vergara</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="project-card text-center">
+              <div class="mb-3">
+                <i
+                  class="fab fa-linkedin fa-2x contact-icon"
+                ></i>
+              </div>
+              <h6 class="fw-bold mb-2">LinkedIn</h6>
+              <p class="mb-0">
+                <a
+                  href="https://ph.linkedin.com/in/von-esson-vergara-8454063b8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Von Esson Vergara</a
                 >
               </p>
             </div>
@@ -1752,6 +1830,7 @@
         <a
           href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29"
           target="_blank"
+          rel="noopener noreferrer"
           style="
             width: 50px;
             height: 50px;
@@ -1760,6 +1839,19 @@
             justify-content: center;
           "
           ><i class="fab fa-facebook fa-lg"></i
+        ></a>
+        <a
+          href="https://ph.linkedin.com/in/von-esson-vergara-8454063b8"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            width: 50px;
+            height: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+          "
+          ><i class="fab fa-linkedin-in fa-lg"></i
         ></a>
       </div>
       © 2025 Von Vergara. All rights reserved.
