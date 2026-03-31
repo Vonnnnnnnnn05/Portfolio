@@ -1,13 +1,31 @@
 export default async function handler(req, res) {
+  const deploymentEnvironment =
+    process.env.VERCEL_ENV || process.env.NODE_ENV || 'unknown';
+  const hasGroqApiKey = Boolean(process.env.GROQ_API_KEY);
+
+  if (req.method === 'GET') {
+    return res.status(200).json({
+      ok: true,
+      route: '/api/chat',
+      environment: deploymentEnvironment,
+      hasGroqApiKey,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
   if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
+    res.setHeader('Allow', 'GET, POST');
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const groqApiKey = process.env.GROQ_API_KEY;
 
   if (!groqApiKey) {
-    return res.status(500).json({ error: 'Missing GROQ_API_KEY on the server.' });
+    return res.status(500).json({
+      error: 'Missing GROQ_API_KEY on the server.',
+      environment: deploymentEnvironment,
+      hasGroqApiKey,
+    });
   }
 
   try {

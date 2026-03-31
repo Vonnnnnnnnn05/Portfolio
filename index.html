@@ -2448,7 +2448,10 @@
             
             if (data.error) {
               console.error('API Error:', data.error);
-              addMessage(`Error: ${data.error}`, false);
+              const friendlyError = data.error.includes('Missing GROQ_API_KEY')
+                ? 'The chatbot is still being configured on the server. Please try again in a few minutes.'
+                : 'The chatbot is temporarily unavailable right now. Please try again later.';
+              addMessage(friendlyError, false);
             } else {
               addMessage(data.reply, false);
             }
