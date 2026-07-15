@@ -1,12 +1,17 @@
-const CACHE_NAME = 'von-portfolio-v1';
+const CACHE_NAME = 'von-portfolio-v2';
 const urlsToCache = [
   '/',
   '/index.html',
   '/manifest.json',
+  '/styles.css',
+  '/chat.css',
+  '/script.js',
   '/images/logo.png',
-  'https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap'
+  '/Von_Esson_Vergara_Resume.pdf',
+  '/image.png',
+  '/images/sdp.png',
+  '/images/carwash.png',
+  '/images/ams.png'
 ];
 
 // Install event - cache resources
