@@ -1,10 +1,11 @@
-const CACHE_NAME = 'von-portfolio-v2';
+const CACHE_NAME = 'von-portfolio-v5';
 const urlsToCache = [
   '/',
   '/index.html',
   '/manifest.json',
   '/styles.css',
   '/chat.css',
+  '/enhancements.css',
   '/script.js',
   '/images/logo.png',
   '/Von_Esson_Vergara_Resume.pdf',
@@ -26,8 +27,23 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-// Fetch event - serve from cache, fallback to network
+// Keep navigation fresh; use the cache for static assets and offline fallback.
 self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put('/index.html', copy));
+          return response;
+        })
+        .catch(() => caches.match('/index.html'))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
@@ -41,7 +57,7 @@ self.addEventListener('fetch', (event) => {
         
         return fetch(fetchRequest).then((response) => {
           // Check if valid response
-          if (!response || response.status !== 200 || response.type !== 'basic') {
+          if (!response || response.status !== 200 || !['basic', 'cors'].includes(response.type)) {
             return response;
           }
           

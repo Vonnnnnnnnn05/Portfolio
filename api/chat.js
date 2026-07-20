@@ -5,7 +5,15 @@ export default async function handler(req, res) {
   }
   if (!process.env.GROQ_API_KEY) return res.status(503).json({ error: 'The assistant is being configured. Please email Von directly.' });
   const message = req.body?.message;
-  if (!message || typeof message !== 'string' || message.length > 1000) return res.status(400).json({ error: 'Please enter a shorter message.' });
+  if (!message || typeof message !== 'string' || message.trim().length > 1000) return res.status(400).json({ error: 'Please enter a shorter message.' });
+  const origin = req.headers.origin;
+  if (origin) {
+    try {
+      if (new URL(origin).host !== req.headers.host) return res.status(403).json({ error: 'Request origin is not allowed.' });
+    } catch {
+      return res.status(403).json({ error: 'Request origin is not allowed.' });
+    }
+  }
   try {
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
@@ -47,7 +55,7 @@ Contact and links:
 - A resume is available from the portfolio's View Resume link.
 
 For hiring, collaboration, or project inquiries, invite visitors to email Von. Do not claim that Von is currently available, employed, or accepting work unless the visitor asks how to contact him.` },
-          { role: 'user', content: message }
+          { role: 'user', content: message.trim() }
         ]
       })
     });

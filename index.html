@@ -4,7 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Von Esson A. Vergara — IT student and developer building practical web systems and Arduino projects.">
+  <link rel="canonical" href="https://vonvergara.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vonvergara.vercel.app/">
+  <meta property="og:title" content="Von Vergara — Web Developer &amp; IoT Builder">
+  <meta property="og:description" content="A portfolio of PHP, MySQL, JavaScript, and IoT systems built by Von Esson Vergara.">
+  <meta property="og:image" content="https://vonvergara.vercel.app/image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#111111">
+  <script>try{const t=localStorage.getItem('portfolio-theme');const d=t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=d?'dark':'light'}catch(e){}</script>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="apple-touch-icon" href="images/logo.png">
@@ -13,7 +21,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="chat.css">
+  <link rel="stylesheet" href="enhancements.css">
   <title>Von Vergara — Developer Portfolio</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Von Esson Vergara","url":"https://vonvergara.vercel.app/","image":"https://vonvergara.vercel.app/image.png","jobTitle":"Information Technology Student and Developer","email":"mailto:von.vergara.399@gmail.com","sameAs":["https://github.com/Vonnnnnnnnn05","https://ph.linkedin.com/in/von-esson-vergara-8454063b8"],"knowsAbout":["PHP","JavaScript","MySQL","CodeIgniter","Laravel","Arduino","ESP32"]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -24,6 +34,10 @@
       <nav id="site-nav" class="site-nav" aria-label="Main navigation">
         <a href="#about">About</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
       </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.2 15.7A8.5 8.5 0 0 1 8.3 3.8 8.5 8.5 0 1 0 20.2 15.7Z"/></svg>
+        <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
       <a class="nav-cta" href="Von_Esson_Vergara_Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume <span aria-hidden="true">↗</span></a>
     </div>
   </header>
@@ -32,8 +46,9 @@
       <div class="hero-copy">
         <p class="eyebrow">IT student · Web developer · IoT builder</p>
         <h1>Von Esson<br>Vergara<span>.</span></h1>
-        <p class="hero-summary">I build practical web systems and connected hardware projects that make everyday work clearer, faster, and more reliable.</p>
-        <div class="hero-actions"><a class="button button-primary" href="#work">Explore selected work <span aria-hidden="true">↓</span></a><a class="text-link" href="mailto:von.vergara.399@gmail.com">von.vergara.399@gmail.com <span aria-hidden="true">↗</span></a></div>
+        <p class="hero-summary">I build PHP and MySQL applications that turn manual school and small-business workflows into dependable digital systems.</p>
+        <p class="availability"><span aria-hidden="true"></span> Open to internships, junior opportunities, and project collaborations.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#work">View my best work <span aria-hidden="true">↓</span></a><a class="button button-secondary" href="Von_Esson_Vergara_Resume.pdf" download>Download résumé</a></div>
         <ul class="social-list" aria-label="Professional links"><li><a href="https://github.com/Vonnnnnnnnn05" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li><li><a href="https://ph.linkedin.com/in/von-esson-vergara-8454063b8" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li></ul>
       </div>
       <figure class="portrait-frame"><img src="image.png" width="1024" height="1055" alt="Portrait of Von Esson Vergara"></figure>
@@ -47,9 +62,9 @@
     <section id="work" class="shell section work-section reveal">
       <div class="section-heading"><div class="section-label">02 / Selected work</div><p>Three systems that show how I approach real operational problems.</p></div>
       <div class="selected-grid">
-        <article class="project"><a class="project-image" href="https://github.com/Vonnnnnnnnn05/Scholarship-Data-Profiling-System.git" target="_blank" rel="noopener noreferrer"><img src="images/sdp.png" width="1898" height="866" loading="lazy" alt="Dashboard of the Scholarship Data Profiling System"></a><div class="project-meta"><span>01</span><span>Web system</span></div><h2>Scholarship Data Profiling</h2><p>Centralizes scholar records, reporting, and visual analytics to support accurate monitoring and program compliance.</p><div class="tag-row"><span>PHP</span><span>MySQL</span><span>Chart.js</span></div><a class="project-link" href="https://github.com/Vonnnnnnnnn05/Scholarship-Data-Profiling-System.git" target="_blank" rel="noopener noreferrer">View source ↗</a></article>
-        <article class="project"><a class="project-image" href="https://github.com/Vonnnnnnnnn05/Carwash-Management-System" target="_blank" rel="noopener noreferrer"><img src="images/carwash.png" width="1919" height="878" loading="lazy" alt="Interface of the Carwash CRM system"></a><div class="project-meta"><span>02</span><span>CRM system</span></div><h2>Carwash CRM</h2><p>Organizes customer records, service transactions, and visit history in a streamlined operational workflow.</p><div class="tag-row"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div><a class="project-link" href="https://github.com/Vonnnnnnnnn05/Carwash-Management-System" target="_blank" rel="noopener noreferrer">View source ↗</a></article>
-        <article class="project"><a class="project-image" href="https://github.com/Vonnnnnnnnn05/Ams" target="_blank" rel="noopener noreferrer"><img src="images/ams.png" width="1919" height="873" loading="lazy" alt="Dashboard of the Attendance Management System"></a><div class="project-meta"><span>03</span><span>QR attendance</span></div><h2>Attendance Management</h2><p>Tracks attendance through QR codes with real-time monitoring, automated reporting, and analytics.</p><div class="tag-row"><span>PHP</span><span>MySQL</span><span>QR Code API</span></div><a class="project-link" href="https://github.com/Vonnnnnnnnn05/Ams" target="_blank" rel="noopener noreferrer">View source ↗</a></article>
+        <article class="project"><a class="project-image" href="https://github.com/Vonnnnnnnnn05/Scholarship-Data-Profiling-System" target="_blank" rel="noopener noreferrer"><img src="images/sdp.png" width="1898" height="866" loading="lazy" alt="Dashboard of the Scholarship Data Profiling System"></a><div class="project-meta"><span>01</span><span>Records &amp; analytics</span></div><h2>Scholarship Data Profiling</h2><p class="project-lead">A centralized workspace for maintaining scholar records and supporting program monitoring.</p><dl class="case-study"><div><dt>Problem</dt><dd>Scholar information, reporting, and compliance data can be difficult to review when handled across disconnected records.</dd></div><div><dt>Approach</dt><dd>Combined structured profiles, reporting tools, and visual analytics in one MySQL-backed system.</dd></div><div><dt>Key features</dt><dd>Scholar profiles · Reports · Analytics dashboard</dd></div></dl><div class="tag-row"><span>PHP</span><span>MySQL</span><span>Chart.js</span></div><div class="project-actions"><a class="project-link" href="https://github.com/Vonnnnnnnnn05/Scholarship-Data-Profiling-System" target="_blank" rel="noopener noreferrer">Explore repository ↗</a><span>Demo not hosted</span></div></article>
+        <article class="project"><a class="project-image" href="https://github.com/Vonnnnnnnnn05/Carwash-Management-System" target="_blank" rel="noopener noreferrer"><img src="images/carwash.png" width="1919" height="878" loading="lazy" alt="Interface of the Carwash CRM system"></a><div class="project-meta"><span>02</span><span>Customer workflow</span></div><h2>Carwash CRM</h2><p class="project-lead">An operational system that keeps customer details, services, and visit history together.</p><dl class="case-study"><div><dt>Problem</dt><dd>Manual customer and transaction records make it harder to follow service history and daily activity.</dd></div><div><dt>Approach</dt><dd>Designed a connected workflow around reusable customer records and service transactions.</dd></div><div><dt>Key features</dt><dd>Customer records · Transactions · Visit history</dd></div></dl><div class="tag-row"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div><div class="project-actions"><a class="project-link" href="https://github.com/Vonnnnnnnnn05/Carwash-Management-System" target="_blank" rel="noopener noreferrer">Explore repository ↗</a><span>Demo not hosted</span></div></article>
+        <article class="project"><a class="project-image" href="https://github.com/Vonnnnnnnnn05/Ams" target="_blank" rel="noopener noreferrer"><img src="images/ams.png" width="1919" height="873" loading="lazy" alt="Dashboard of the Attendance Management System"></a><div class="project-meta"><span>03</span><span>QR workflow</span></div><h2>Attendance Management</h2><p class="project-lead">A QR-based attendance workflow with live monitoring and report generation.</p><dl class="case-study"><div><dt>Problem</dt><dd>Manual attendance recording is repetitive and makes timely monitoring and reporting more difficult.</dd></div><div><dt>Approach</dt><dd>Connected QR-based check-ins to centralized records, analytics, and automated reports.</dd></div><div><dt>Key features</dt><dd>QR check-in · Live monitoring · Reports</dd></div></dl><div class="tag-row"><span>PHP</span><span>MySQL</span><span>QR Code API</span></div><div class="project-actions"><a class="project-link" href="https://github.com/Vonnnnnnnnn05/Ams" target="_blank" rel="noopener noreferrer">Explore repository ↗</a><span>Demo not hosted</span></div></article>
       </div>
       <div class="additional-work"><div class="section-heading"><div class="section-label">Additional work</div><p>A selection of web systems and Arduino prototypes.</p></div><div class="work-index">
         <div class="work-group"><h3>Web systems</h3><a href="https://github.com/Vonnnnnnnnn05/CodeIgnighter4-Crud" target="_blank" rel="noopener noreferrer"><span>Product Management System</span><small>CodeIgniter 4 · MySQL</small><b>↗</b></a><a href="https://github.com/Vonnnnnnnnn05/Scholarship-System" target="_blank" rel="noopener noreferrer"><span>Scholarship Eligibility Checker</span><small>PHP · MySQL</small><b>↗</b></a><a href="https://github.com/Vonnnnnnnnn05/Weather-API-Integration" target="_blank" rel="noopener noreferrer"><span>Weather Forecasting System</span><small>CodeIgniter 4 · API</small><b>↗</b></a><a href="https://github.com/Vonnnnnnnnn05/Boarding-House-V2" target="_blank" rel="noopener noreferrer"><span>Boarding House Management</span><small>PHP · MySQL</small><b>↗</b></a><a href="https://github.com/Vonnnnnnnnn05/Healthworker-Patient-System" target="_blank" rel="noopener noreferrer"><span>Healthcare Management System</span><small>PHP · MySQL</small><b>↗</b></a><a href="https://github.com/Vonnnnnnnnn05/cosmetics-Inventory-Management-System" target="_blank" rel="noopener noreferrer"><span>Inventory Management System</span><small>PHP · Chart.js</small><b>↗</b></a></div>
@@ -61,13 +76,14 @@
   </main>
   <aside class="chat-widget" aria-label="Portfolio assistant">
     <button class="chat-toggle" type="button" aria-expanded="false" aria-controls="chat-panel">Ask AI</button>
-    <section id="chat-panel" class="chat-panel" hidden aria-label="Von's portfolio assistant">
+    <section id="chat-panel" class="chat-panel" hidden role="dialog" aria-modal="false" aria-label="Von's portfolio assistant">
       <header><div><strong>Portfolio assistant</strong><span>Ask about Von’s work</span></div><button class="chat-close" type="button" aria-label="Close assistant">×</button></header>
       <div class="chat-messages" aria-live="polite"><p class="chat-message bot">Hi — ask me about Von’s skills, selected work, or how to get in touch.</p></div>
       <div class="chat-suggestions"><button type="button" data-message="What are Von's skills?">Skills</button><button type="button" data-message="Tell me about Von's projects">Projects</button><button type="button" data-message="How can I contact Von?">Contact</button></div>
+      <p class="chat-privacy">Messages are processed by an external AI service. Please don’t share sensitive information.</p>
       <form class="chat-form"><label class="sr-only" for="chat-input">Your message</label><input id="chat-input" name="message" autocomplete="off" placeholder="Ask a question…" required><button type="submit">Send</button></form>
     </section>
   </aside>
-  <footer class="site-footer"><div class="shell"><span>© 2026 Von Esson Vergara</span><div><a href="https://github.com/Vonnnnnnnnn05" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.facebook.com/Vonnnnnnnnnnnnnnnnn29" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://ph.linkedin.com/in/von-esson-vergara-8454063b8" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></footer>
+  <footer class="site-footer"><div class="shell"><span>© 2026 Von Esson Vergara</span><div><a href="mailto:von.vergara.399@gmail.com">Email</a><a href="https://github.com/Vonnnnnnnnn05" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://ph.linkedin.com/in/von-esson-vergara-8454063b8" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></footer>
   <button class="back-to-top" type="button" aria-label="Back to top">↑</button><script src="script.js"></script>
 </body></html>
