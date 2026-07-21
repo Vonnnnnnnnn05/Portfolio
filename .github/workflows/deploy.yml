@@ -1,0 +1,33 @@
+name: Deploy Portfolio
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Azure VM
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+
+            echo "Starting deployment..."
+
+            cd /var/www/app/Portfolio
+
+            echo "Current version:"
+            git log -1 --oneline
+
+            echo "Pulling latest code..."
+            git pull --ff-only origin main
+
+            echo "New version:"
+            git log -1 --oneline
+
+            echo "Deployment completed successfully."
