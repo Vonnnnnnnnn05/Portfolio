@@ -1,0 +1,6 @@
+# Apache/XAMPP local dev: route the old /api/chat path to the PHP handler.
+# The frontend now calls /api/chat.php directly, so this only helps stale cached pages.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^api/chat$ api/chat.php [L,QSA]
+</IfModule>

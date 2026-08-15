@@ -49,11 +49,18 @@
     footerObserver.observe(footer);
   }
   const chatToggle = document.querySelector('.chat-toggle');
+  const chatWidget = document.querySelector('.chat-widget');
   const chatPanel = document.querySelector('.chat-panel');
   const chatClose = document.querySelector('.chat-close');
   const chatForm = document.querySelector('.chat-form');
   const chatInput = document.querySelector('#chat-input');
   const chatMessages = document.querySelector('.chat-messages');
+  if (footer && chatWidget) {
+    const chatFooterObserver = new IntersectionObserver(([entry]) => {
+      chatWidget.classList.toggle('footer-visible', entry.isIntersecting);
+    });
+    chatFooterObserver.observe(footer);
+  }
   let chatTrigger = null;
   const setChatOpen = (open) => {
     if (!chatPanel || !chatToggle) return;
@@ -83,10 +90,14 @@
     submit.disabled = true;
     const pending = addMessage('Thinking…', 'bot');
     try {
-      const response = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text }) });
+      const response = await fetch('api/chat.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text }) });
       const data = await response.json();
+      if (!response.ok) {
+        console.error('Chat API error:', response.status, data);
+      }
       pending.textContent = data.reply || data.error || 'I could not generate a response. Please email Von directly.';
-    } catch {
+    } catch (error) {
+      console.error('Chat request failed:', error);
       pending.textContent = 'The assistant is unavailable right now. Please email Von directly.';
     } finally {
       submit.disabled = false;
