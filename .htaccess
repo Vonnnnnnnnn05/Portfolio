@@ -1,6 +1,11 @@
-# Apache/XAMPP local dev: route the old /api/chat path to the PHP handler.
-# The frontend now calls /api/chat.php directly, so this only helps stale cached pages.
+# The application root is private. Serve this project through public/.
+# Prefer a virtual host pointing at public/; also protect XAMPP's /Portfolio URL.
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteRule ^api/chat$ api/chat.php [L,QSA]
+    RewriteRule ^$ %{REQUEST_URI}public/ [R=302,L]
+    RewriteRule ^public(?:/|$) - [L]
+    RewriteRule ^ - [F,L]
+</IfModule>
+<IfModule !mod_rewrite.c>
+    Require all denied
 </IfModule>

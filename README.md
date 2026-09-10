@@ -1,183 +1,112 @@
-# Hi, I'm Von Esson A. Vergara!
+# Von Esson Vergara — Laravel Portfolio
 
-Passionate IT Student & Developer
+Personal portfolio built with Laravel 12, Blade, CSS, and vanilla JavaScript. It preserves the project galleries, resume download, theme switcher, Groq assistant, and installable offline portfolio. PHP 8.2+ and Composer are required. No Node build, database, or queue worker is needed.
 
-I create web systems & Arduino projects that solve real problems and make a meaningful impact in people's lives.
+## Run locally
 
-## About Me
+From the project directory:
 
-Hi! I'm Von, a passionate IT student and developer. I enjoy creating web and Arduino projects that solve real problems. My journey in tech combines creativity with functionality, always pushing the boundaries of what's possible.
-
-## This Repository
-
-This is my developer portfolio website:
-
-- **Static site** — plain HTML, CSS, and JavaScript (no build step).
-- **Chat assistant** — a Groq-powered AI widget. The backend is a PHP endpoint in [`api/chat.php`](api/chat.php) that runs on your own server (Nginx + PHP-FPM). Your `GROQ_API_KEY` never touches the browser — it lives in `api/config.php` (gitignored) or the `GROQ_API_KEY` environment variable.
-
-## Local Development
-
-You only need PHP (7.4+; no extra extensions required) to run everything locally:
-
-```bash
-cp api/config.example.php api/config.php   # then paste your real Groq key into it
-php -S localhost:8000 api/router.php
+```powershell
+composer install
+Copy-Item .env.example .env   # Only on a fresh clone; keep an existing .env
+php artisan key:generate     # Only on first setup
+php artisan serve
 ```
 
-The router script (`api/router.php`) maps `POST /api/chat` to `chat.php` and serves everything else as static files. Open `http://localhost:8000` — the chat assistant works exactly as it will in production.
+Open **http://localhost:8000**. Set `GROQ_API_KEY` in `.env` to enable chat; `GROQ_MODEL` defaults to `openai/gpt-oss-20b`. For this migrated workspace, dependencies, the application key, and the existing local Groq configuration have already been set up.
 
-### Debugging the chat assistant
+Sessions, cache/rate limits, and logs use `storage/`. Chat failures appear in `storage/logs/laravel.log`. Missing credentials show a friendly configuration message; provider failures show a generic error without exposing credentials or provider internals. The old `api/config.php` is no longer loaded.
 
-- **Every failure is logged** to `api/logs/chat.log` (created automatically, gitignored) and to PHP's standard error log.
-- **Enable `APP_DEBUG`** in `api/config.php` (see `config.example.php`) to have the real error message shown right in the chat widget while developing. Keep it off in production.
-- The frontend also logs request failures to the **browser console** (F12 → Console).
+After changing configuration on a cached installation, run `php artisan config:clear` locally or `php artisan config:cache` in production.
 
-## Featured Projects
+## XAMPP
 
-### Web Systems Projects
+The preferred Apache virtual host has `DocumentRoot "C:/xampp/htdocs/Portfolio/public"`, with `AllowOverride All` and `Require all granted` for that directory. Enable `mod_rewrite`. Set `APP_URL` to the host you use.
 
-**Attendance Management System**
+The default XAMPP layout also supports **http://localhost/Portfolio/public/**; visiting `/Portfolio/` redirects there. Set `APP_URL=http://localhost/Portfolio/public` for this layout. Root `.htaccess` blocks direct access to application files. Always use `public/` as the document root on production servers.
 
-Description: A comprehensive QR Code-based attendance tracking system featuring real-time monitoring, automated reporting dashboard, and analytics. Built with modern web technologies to streamline attendance management for educational institutions and businesses.
+Keep routes uncached when using XAMPP's subdirectory URL (`php artisan optimize:clear`). The installed framework's cached router does not correctly match that subdirectory's home page. The production cache commands below target a domain whose document root is `public/`.
 
-Tech Stack: PHP, MySQL, JavaScript, Bootstrap, QR Code API
+## Project structure
 
-**Boarding House Management**
+- `resources/views/portfolio.blade.php`: page content and generated asset/API URLs.
+- `public/`: CSS, JavaScript, images, galleries, resume, manifest, and service worker.
+- `routes/web.php`: portfolio and legacy `/index.html` redirect.
+- `routes/api.php`: `POST /api/chat` and compatible `POST /api/chat.php`.
+- `app/Http/Controllers/ChatController.php`: validation, origin checking, Groq requests, and JSON responses.
+- `resources/prompts/portfolio.txt`: assistant knowledge and instructions.
+- `config/services.php`: Groq environment settings.
+- `tests/Feature/`: portfolio and chat regression tests; HTTP provider calls are faked.
 
-Description: Complete tenant management solution with automated billing system, room assignment features, and comprehensive payment tracking. Includes tenant profiles, lease management, and financial reporting capabilities.
+Chat accepts JSON `{"message":"What does Von build?"}` and returns `{"reply":"..."}` or `{"error":"..."}`. Messages are limited to 1,000 UTF-8 bytes. Both URLs share a limit of 20 requests per minute per IP. These are stateless API routes, with origin checks and no session authentication.
 
-Tech Stack: PHP, MySQL, HTML5, CSS3, JavaScript
-
-**Healthcare Management System**
-
-Description: Integrated healthcare platform managing patient appointments, comprehensive medical records, and health worker schedules. Features patient history tracking, appointment scheduling, and medical staff management.
-
-Tech Stack: PHP, MySQL, Bootstrap, JavaScript, Chart.js
-
-**Inventory Management System**
-
-Description: Advanced stock monitoring system with real-time sales analytics and automated profit alerts specifically designed for cosmetics retail. Features low-stock notifications, sales forecasting, and supplier management.
-
-Tech Stack: PHP, MySQL, JavaScript, Chart.js, Bootstrap
-
-### Arduino + Database Integration Projects
-
-**RFID Attendance System**
-
-Description: Automated attendance tracking using RFID technology integrated with MySQL database. Features real-time data logging, automated report generation, and web-based dashboard for monitoring attendance patterns and statistics.
-
-Tech Stack: Arduino, RFID, MySQL, PHP, ESP32
-
-**Smart Mousetrap System**
-
-Description: IoT-enabled motion-sensor mousetraps with database logging and SMS alert integration. Features trap status monitoring, catch statistics, and automated notifications to property managers when traps are triggered.
-
-Tech Stack: Arduino, Motion Sensor, MySQL, ESP32
-
-## What I Focus On
-
-- **Problem-Solving**: Creating solutions that address real-world challenges
-- **Integration**: Combining hardware (Arduino) with software (Web Systems)
-- **User Experience**: Building intuitive interfaces and functional systems
-- **Database Management**: Designing efficient data structures and relationships
-- **IoT Development**: Connecting physical devices with digital platforms
-
-## Progressive Web App (PWA) Features
-
-This portfolio is now a fully functional Progressive Web App! 🎉
-
-### Features
-
-- ✨ **Installable**: Add to your home screen on mobile and desktop
-- 🚀 **Offline Support**: View the portfolio even without internet connection
-- ⚡ **Fast Loading**: Cached resources for lightning-fast performance
-- 📱 **Mobile Optimized**: Native app-like experience on all devices
-
-### How to Test the PWA
-
-1. **On Desktop (Chrome/Edge)**:
-   - Visit your deployed site (see the VPS guide below)
-   - Look for the install icon in the address bar
-   - Click "Install" to add to your desktop
-
-2. **On Mobile (Android/iOS)**:
-   - Open in Chrome/Safari
-   - Tap the menu (⋮) and select "Add to Home Screen"
-   - The app icon will appear on your home screen
-
-3. **Test Offline Mode**:
-   - Visit the site first to cache resources
-   - Turn off your internet connection
-   - Refresh the page - it should still work!
-
-## Deploy to a VPS
-
-The site is fully self-hosted: Nginx serves the static files and PHP-FPM runs the chat API. No containers, no external platforms.
-
-**1. Install the stack (on Ubuntu, for example):**
+## Verify
 
 ```bash
-sudo apt update && sudo apt install -y nginx php-fpm certbot python3-certbot-nginx
+composer test
+php vendor/bin/pint --test
+php artisan route:list
 ```
 
-**2. Copy the site files to the server:**
+For offline testing, load the site online once, wait for the service worker to activate, and reload offline. The worker caches the portfolio and visited local assets; chat requires internet access. HTTPS is required for installation/service workers except on localhost. External fonts and icons may be unavailable offline. The worker and manifest support both a domain root and the XAMPP subdirectory.
+
+## Deploy to the existing Azure VM / Nginx
+
+Install PHP 8.2+ with Laravel's required extensions, Composer, Nginx, and PHP-FPM. Clone the repository to `/var/www/app/Portfolio`, then:
 
 ```bash
-# From your machine:
-scp -r index.html styles.css enhancements.css chat.css script.js sw.js manifest.json \
-      image.png port.jpg Von_Esson_Vergara_Resume.pdf api \
-      user@your-server:/var/www/vonvergara/
+composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+cp .env.example .env   # First setup only
+php artisan key:generate
 ```
 
-**3. Add your Groq API key on the server** (never commit it):
+Edit `.env`: set `APP_ENV=production`, `APP_DEBUG=false`, `APP_URL=https://your-domain.example`, and `GROQ_API_KEY`. Preserve this file and its `APP_KEY` across deployments. Ensure the PHP-FPM user and deployment user can write to `storage/` and `bootstrap/cache/`.
 
-```bash
-scp api/config.php user@your-server:/var/www/vonvergara/api/   # or create it there
-```
-
-**4. Create the Nginx site config** at `/etc/nginx/sites-available/vonvergara`:
+Replace the old static-site Nginx configuration with a Laravel document root:
 
 ```nginx
 server {
     listen 80;
-    server_name vonvergara.example.com;  # ← your domain
-
-    root /var/www/vonvergara;
-    index index.html;
+    server_name your-domain.example;
+    root /var/www/app/Portfolio/public;
+    index index.php;
 
     location / {
-        try_files $uri $uri/ /index.html;
+        try_files $uri $uri/ /index.php?$query_string;
     }
 
-    # Chat assistant → PHP endpoint (handles both /api/chat and /api/chat.php).
-    location ~ ^/api/chat(\.php)?$ {
-        include fastcgi_params;
-        fastcgi_pass unix:/run/php/php8.1-fpm.sock;   # match your PHP version
-        fastcgi_param SCRIPT_FILENAME $document_root/api/chat.php;
-        fastcgi_read_timeout 30s;
+    # Route legacy chat clients through Laravel as well.
+    location = /api/chat.php {
+        rewrite ^ /index.php last;
     }
+
+    location = /index.php {
+        include fastcgi_params;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root/index.php;
+        fastcgi_param DOCUMENT_ROOT $realpath_root;
+        fastcgi_read_timeout 60s;
+    }
+
+    location ~ \.php$ { return 404; }
+    location ~ /\.(?!well-known).* { deny all; }
 }
 ```
 
-If your PHP version is different (e.g. `php8.3-fpm`), adjust the socket name — check with `ls /run/php/`.
-
-**5. Enable the site and get HTTPS:**
+Match the PHP-FPM socket to the server's PHP version, validate with `sudo nginx -t`, reload Nginx, and configure HTTPS (for example with Certbot).
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/vonvergara /etc/nginx/sites-enabled/
-sudo nginx -t && sudo systemctl reload nginx
-sudo certbot --nginx -d vonvergara.example.com   # free HTTPS, auto-renews
+php artisan optimize:clear
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
 ```
 
-**6. Update the site URL** in `index.html` (the `url` field in the JSON-LD block) and redeploy.
+The existing GitHub deployment workflow now runs tests before pulling code on the VM, installing production dependencies, and rebuilding Laravel caches. Configure the server's `.env`, document root, PHP version, and writable directories before pushing the migration to `main`. No database migration is required for portfolio features. Nothing has been deployed by the local conversion.
 
-That's it — the static site and the chat assistant both run from your VPS.
+Laravel reference: [deployment documentation](https://laravel.com/docs/12.x/deployment).
 
-## Let's Connect
-
-I'm always interested in collaborating on projects and learning new technologies. Feel free to reach out!
+## Contact
 
 - Email: von.vergara.399@gmail.com
 - GitHub: https://github.com/Vonnnnnnnnn05
-
-⭐️ From Vonnnnnnnnn05

@@ -8,7 +8,20 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, xml, curl, sqlite3, pdo_sqlite
+          coverage: none
+      - run: composer install --no-interaction --prefer-dist --no-progress
+      - run: php artisan test
+
   deploy:
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -30,6 +43,14 @@ jobs:
 
             echo "Pulling latest code..."
             git pull --ff-only origin main
+
+            # First deployment requires .env and a web root pointing to public/.
+            test -f .env || { echo "Create the Laravel .env before deployment."; exit 1; }
+            composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+            php artisan optimize:clear
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
 
             echo "New version:"
             git log -1 --oneline

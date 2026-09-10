@@ -2,8 +2,8 @@
   "name": "Von Vergara Portfolio",
   "short_name": "VON.DEV",
   "description": "Von's Portfolio - Web systems and Arduino projects showcase",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#ffffff",
@@ -16,6 +16,10 @@
       "purpose": "any"
     }
   ],
-  "categories": ["portfolio", "development", "technology"],
+  "categories": [
+    "portfolio",
+    "development",
+    "technology"
+  ],
   "screenshots": []
 }

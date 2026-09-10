@@ -90,7 +90,7 @@
     submit.disabled = true;
     const pending = addMessage('Thinking…', 'bot');
     try {
-      const response = await fetch('api/chat.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text }) });
+      const response = await fetch(document.querySelector('meta[name="chat-endpoint"]').content, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ message: text }) });
       const data = await response.json();
       if (!response.ok) {
         console.error('Chat API error:', response.status, data);
@@ -108,5 +108,5 @@
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && chatPanel && !chatPanel.hidden) setChatOpen(false);
   });
-  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register(document.querySelector('meta[name="service-worker-url"]').content).catch(() => {}));
 })();
