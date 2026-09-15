@@ -108,5 +108,250 @@
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && chatPanel && !chatPanel.hidden) setChatOpen(false);
   });
+  // ==========================================
+  // GitHub Activity & Contributions Integration
+  // ==========================================
+  const initGitHubActivity = async () => {
+    const calendarStage = document.getElementById('calendar-stage');
+    const totalCountEl = document.getElementById('github-total-contributions');
+    const yearLabelEl = document.getElementById('github-selected-year');
+    const yearButtons = document.querySelectorAll('.year-btn');
+    const tooltip = document.getElementById('calendar-tooltip');
+    const endpoint = document.querySelector('meta[name="github-activity-endpoint"]')?.content || '/github-activity';
+
+    if (!calendarStage) return;
+
+    let cachedData = null;
+    let currentYear = 2026;
+
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const fullMonthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    const formatTooltipDate = (dateStr, count) => {
+      const parts = dateStr.split('-');
+      if (parts.length !== 3) return `${count} contributions`;
+      const y = parts[0];
+      const m = parseInt(parts[1], 10) - 1;
+      const d = parseInt(parts[2], 10);
+      const countText = count === 0 ? 'No contributions' : (count === 1 ? '1 contribution' : `${count} contributions`);
+      return `${countText} on ${fullMonthNames[m]} ${d}, ${y}`;
+    };
+
+    const buildCalendarTable = (year, contribList) => {
+      const dateMap = new Map();
+      if (Array.isArray(contribList)) {
+        contribList.forEach(c => {
+          if (c && c.date) dateMap.set(c.date, c);
+        });
+      }
+
+      const startDate = new Date(year, 0, 1);
+      const endDate = new Date(year, 11, 31);
+      const firstSunday = new Date(startDate);
+      firstSunday.setDate(startDate.getDate() - startDate.getDay());
+
+      const weeks = [];
+      let cur = new Date(firstSunday);
+
+      while (cur <= endDate || cur.getDay() !== 0) {
+        const weekIndex = Math.floor((cur.getTime() - firstSunday.getTime()) / (7 * 86400000));
+        if (!weeks[weekIndex]) weeks[weekIndex] = [];
+
+        const y = cur.getFullYear();
+        const m = String(cur.getMonth() + 1).padStart(2, '0');
+        const d = String(cur.getDate()).padStart(2, '0');
+        const dateStr = `${y}-${m}-${d}`;
+        const inYear = cur.getFullYear() === year;
+        const contrib = dateMap.get(dateStr);
+
+        weeks[weekIndex].push({
+          date: dateStr,
+          month: cur.getMonth(),
+          inYear: inYear,
+          count: inYear ? (contrib ? contrib.count : 0) : null,
+          level: inYear ? (contrib ? contrib.level : 0) : null
+        });
+
+        cur.setDate(cur.getDate() + 1);
+        if (cur.getFullYear() > year && cur.getDay() === 0) break;
+      }
+
+      // Compute month colspans
+      const monthSpans = [];
+      let lastMonth = -1;
+      let currentSpan = 0;
+
+      weeks.forEach((week) => {
+        const primaryDay = week.find(day => day.inYear) || week[0];
+        const m = primaryDay.month;
+        if (m !== lastMonth) {
+          if (lastMonth !== -1) {
+            monthSpans.push({ month: monthNames[lastMonth], span: currentSpan });
+          }
+          lastMonth = m;
+          currentSpan = 1;
+        } else {
+          currentSpan++;
+        }
+      });
+      if (lastMonth !== -1) {
+        monthSpans.push({ month: monthNames[lastMonth], span: currentSpan });
+      }
+
+      let html = '<table class="calendar-table" role="grid" aria-label="GitHub Contributions Calendar">';
+      html += '<thead><tr class="calendar-month-row"><th></th>';
+      monthSpans.forEach(m => {
+        html += `<th colspan="${m.span}">${m.month}</th>`;
+      });
+      html += '</tr></thead><tbody>';
+
+      const dayLabels = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
+
+      for (let day = 0; day < 7; day++) {
+        html += `<tr><td class="calendar-weekday-header">${dayLabels[day]}</td>`;
+        for (let w = 0; w < weeks.length; w++) {
+          const cell = weeks[w] ? weeks[w][day] : null;
+          if (!cell || !cell.inYear) {
+            html += '<td class="calendar-day-cell" style="visibility:hidden" aria-hidden="true"></td>';
+          } else {
+            html += `<td class="calendar-day-cell level-${cell.level}" data-date="${cell.date}" data-count="${cell.count}" tabindex="0" role="gridcell" aria-label="${formatTooltipDate(cell.date, cell.count)}"></td>`;
+          }
+        }
+        html += '</tr>';
+      }
+
+      html += '</tbody></table>';
+      return html;
+    };
+
+    const attachTooltipListeners = () => {
+      if (!tooltip) return;
+      const cells = calendarStage.querySelectorAll('.calendar-day-cell[data-date]');
+
+      const showTooltip = (cell) => {
+        const date = cell.dataset.date;
+        const count = parseInt(cell.dataset.count || '0', 10);
+        tooltip.textContent = formatTooltipDate(date, count);
+
+        const rect = cell.getBoundingClientRect();
+        const padding = 12;
+        const estHalfWidth = 95;
+        let left = rect.left + rect.width / 2;
+        left = Math.max(padding + estHalfWidth, Math.min(window.innerWidth - padding - estHalfWidth, left));
+
+        tooltip.style.left = `${left}px`;
+        if (rect.top < 60) {
+          tooltip.style.top = `${rect.bottom + 8}px`;
+          tooltip.style.transform = 'translate(-50%, 0)';
+        } else {
+          tooltip.style.top = `${rect.top}px`;
+          tooltip.style.transform = 'translate(-50%, -100%) translateY(-8px)';
+        }
+
+        tooltip.classList.add('visible');
+        tooltip.setAttribute('aria-hidden', 'false');
+      };
+
+      const hideTooltip = () => {
+        tooltip.classList.remove('visible');
+        tooltip.setAttribute('aria-hidden', 'true');
+      };
+
+      cells.forEach(cell => {
+        cell.addEventListener('mouseenter', () => showTooltip(cell));
+        cell.addEventListener('mouseleave', hideTooltip);
+        cell.addEventListener('focus', () => showTooltip(cell));
+        cell.addEventListener('blur', hideTooltip);
+        cell.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showTooltip(cell);
+        });
+      });
+    };
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.calendar-day-cell') && tooltip) {
+        tooltip.classList.remove('visible');
+        tooltip.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    const scrollToLatest = (year) => {
+      const scrollWrapper = document.getElementById('calendar-scroll-wrapper');
+      if (scrollWrapper && window.innerWidth <= 768) {
+        if (year === 2026) {
+          requestAnimationFrame(() => {
+            scrollWrapper.scrollLeft = scrollWrapper.scrollWidth - scrollWrapper.clientWidth;
+          });
+        } else {
+          scrollWrapper.scrollLeft = 0;
+        }
+      }
+    };
+
+    const renderYear = (year) => {
+      currentYear = year;
+      if (yearLabelEl) yearLabelEl.textContent = year;
+      if (totalCountEl && cachedData?.totals) {
+        totalCountEl.textContent = cachedData.totals[year] ?? 0;
+      }
+
+      yearButtons.forEach(btn => {
+        const isActive = parseInt(btn.dataset.year, 10) === year;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', String(isActive));
+      });
+
+      const yearContribs = cachedData?.contributions?.filter(c => c && c.date && c.date.startsWith(`${year}-`)) || [];
+      calendarStage.innerHTML = buildCalendarTable(year, yearContribs);
+      attachTooltipListeners();
+      scrollToLatest(year);
+    };
+
+    yearButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selected = parseInt(btn.dataset.year, 10);
+        if (selected && selected !== currentYear) {
+          renderYear(selected);
+        }
+      });
+    });
+
+    // 1. Instantly render from pre-populated SSR initial data if available
+    const initialDataEl = document.getElementById('github-initial-data');
+    if (initialDataEl && initialDataEl.textContent.trim()) {
+      try {
+        const parsed = JSON.parse(initialDataEl.textContent);
+        if (parsed && Array.isArray(parsed.contributions) && parsed.contributions.length > 0) {
+          cachedData = parsed;
+          renderYear(2026);
+        }
+      } catch (e) {
+        console.warn('Initial data parse notice:', e);
+      }
+    }
+
+    // 2. Fetch fresh updates from API endpoint
+    try {
+      const res = await fetch(endpoint, { headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        const fresh = await res.json();
+        if (fresh && Array.isArray(fresh.contributions) && fresh.contributions.length > 0) {
+          cachedData = fresh;
+          renderYear(currentYear);
+        }
+      }
+    } catch (err) {
+      if (!cachedData) {
+        console.warn('Could not fetch GitHub activity:', err);
+        if (calendarStage) {
+          calendarStage.innerHTML = '<p class="calendar-skeleton">Could not load live GitHub activity at this time. Please visit <a href="https://github.com/Vonnnnnnnnn05" target="_blank" class="text-link">GitHub ↗</a>.</p>';
+        }
+      }
+    }
+  };
+
+  initGitHubActivity();
+
   if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register(document.querySelector('meta[name="service-worker-url"]').content).catch(() => {}));
 })();
