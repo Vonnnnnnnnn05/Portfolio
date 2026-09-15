@@ -132,6 +132,10 @@ html[data-theme="dark"] .chat-toggle:focus-visible {
   border-top: 1px solid var(--ink);
 }
 
+.team-leader-timeline {
+  margin-top: 36px;
+}
+
 .leadership-gallery { margin-top: 22px; }
 .leadership-gallery-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
 .leadership-gallery-heading strong { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; }

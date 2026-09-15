@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('styles.css') }}">
-  <link rel="stylesheet" href="{{ asset('enhancements.css?v=5') }}">
+  <link rel="stylesheet" href="{{ asset('enhancements.css?v=6') }}">
   <title>Von Vergara — Developer Portfolio</title>
   <script type="application/ld+json">{"@@context":"https://schema.org","@@type":"Person","name":"Von Esson Vergara","url":"{{ url('/') }}","image":"{{ asset('image.png') }}","jobTitle":"Information Technology Student and Developer","email":"mailto:von.vergara.399@gmail.com","sameAs":["https://github.com/Vonnnnnnnnn05","https://ph.linkedin.com/in/von-esson-vergara-8454063b8"],"knowsAbout":["PHP","JavaScript","MySQL","CodeIgniter","Laravel","Arduino","Microsoft Azure","Nginx","Ubuntu"]}</script>
 </head>
@@ -116,7 +116,84 @@
       </div>
       <div id="calendar-tooltip" class="calendar-tooltip" role="tooltip" aria-hidden="true"></div>
     </section>
-    <section id="experience" class="shell section reveal"><div class="section-label">04 / Experience &amp; education</div><div class="resume-grid"><div><h2>Experience</h2><ol class="timeline"><li><h3>Encoder / Inventory Manager</h3><p>Alocada Enterprises</p><span>Managed inventory data and improved stock-management workflows through digital tools.</span><div class="leadership-gallery"><div class="leadership-gallery-heading"><strong>Inventory data operations</strong><span>Encode · Verify · Label</span></div><div class="encoding-photos"><figure><img src="{{ asset('encoding/3e722534-94c3-49df-983e-1b0d50a564e6.jpg') }}" width="950" height="1920" loading="lazy" alt="Inventory master list with product descriptions and prices being encoded"></figure><figure><img src="{{ asset('encoding/437ce2a5-4f83-4c12-89d6-4c4228d42acf.jpg') }}" width="950" height="1920" loading="lazy" alt="Product inventory and barcode data being verified in a spreadsheet"></figure><figure><img src="{{ asset('encoding/4b063139-381c-4c83-81e0-e0362e49c835.jpg') }}" width="950" height="1920" loading="lazy" alt="Product records displayed in inventory management software"></figure><figure><img src="{{ asset('encoding/6e092d96-e090-48fd-a9b0-a52dba3f642f.jpg') }}" width="950" height="1920" loading="lazy" alt="Hardware inventory item codes, prices, and descriptions in a spreadsheet"></figure><figure><img src="{{ asset('encoding/9437138e-c6fe-4bd7-b8bf-177586fd13e7.jpg') }}" width="950" height="1920" loading="lazy" alt="Barcode label being prepared from encoded product information"></figure></div></div></li><li><h3>System Developer</h3><p>Independent projects</p><span>Designed custom web-based management systems and hardware-integrated solutions.</span><div class="leadership-gallery"><div class="leadership-gallery-heading"><strong>Development in practice</strong><span>Build · Test · Iterate</span></div><div class="leadership-photos"><figure><img src="{{ asset('developer/developer.jpg') }}" width="1536" height="2048" loading="lazy" alt="Von developing a software project on a laptop"></figure><figure><img src="{{ asset('developer/download%20(2).jpg') }}" width="1536" height="2048" loading="lazy" alt="A dual-screen development workspace with source code open"></figure><figure><img src="{{ asset('developer/image.png') }}" width="3024" height="4032" loading="lazy" alt="Von working on a laptop while away from his usual workspace"></figure></div></div></li><li><h3>Team Leader</h3><p>Academic projects</p><span>Coordinated school development teams across software and hardware work.</span><div class="leadership-gallery"><div class="leadership-gallery-heading"><strong>Capstone defense</strong><span>Project leadership · Team delivery</span></div><div class="leadership-photos leadership-photos-mixed"><figure><img src="{{ asset('team_leader/team_leader.jpg') }}" width="2048" height="1152" loading="lazy" alt="Von and his project team after successfully completing their capstone defense"></figure><figure><img src="{{ asset('team_leader/team_leader2.jpg') }}" width="960" height="1280" loading="lazy" alt="Von holding a laptop displaying the word Defended after the capstone presentation"></figure><figure><img src="{{ asset('team_leader/team_leader3.jpg') }}" width="960" height="1280" loading="lazy" alt="Von standing beside the successful capstone defense presentation screen"></figure></div></div></li></ol></div><div><h2>Education</h2><ol class="timeline"><li><h3>BS Information Technology</h3><p>Sultan Kudarat State University</p><span>Current student; recognized on the Dean's List and President's List.</span></li><li><h3>STEM Track, With Honors</h3><p>Sto. Niño National High School</p><span>Built a foundation in analytical thinking and technical problem-solving.</span></li></ol><div class="education-gallery"><div class="education-gallery-heading"><h3>Academic recognition</h3><span>Dean’s List · President’s List</span></div><div class="education-photos"><figure class="education-photo education-photo-featured"><img src="{{ asset('education/photo_2026-01-18_14-28-47.jpg') }}" width="1920" height="2560" loading="lazy" alt="Von holding President's List certificates at the university academic recognition ceremony"></figure><figure class="education-photo"><img src="{{ asset('education/photo_2026-08-07_17-30-48.jpg') }}" width="1920" height="2560" loading="lazy" alt="President's List certificates and university academic recognition program"></figure><figure class="education-photo"><img src="{{ asset('education/photo_2026-01-18_14-28-44.jpg') }}" width="1920" height="2560" loading="lazy" alt="Von showing an academic honor ribbon and recognition certificates"></figure><figure class="education-photo"><img src="{{ asset('education/download%20(1).jpg') }}" width="960" height="1280" loading="lazy" alt="Von holding two academic certificates outside the university administration building"></figure><figure class="education-photo"><img src="{{ asset('education/download.jpg') }}" width="960" height="1280" loading="lazy" alt="Von holding an academic certificate on the university campus"></figure></div></div></div></div></section>
+    <section id="experience" class="shell section reveal">
+      <div class="section-label">04 / Experience &amp; education</div>
+      <div class="resume-grid">
+        <div>
+          <h2>Experience</h2>
+          <ol class="timeline">
+            <li>
+              <h3>Encoder / Inventory Manager</h3>
+              <p>Alocada Enterprises</p>
+              <span>Managed inventory data and improved stock-management workflows through digital tools.</span>
+              <div class="leadership-gallery">
+                <div class="leadership-gallery-heading"><strong>Inventory data operations</strong><span>Encode · Verify · Label</span></div>
+                <div class="encoding-photos">
+                  <figure><img src="{{ asset('encoding/3e722534-94c3-49df-983e-1b0d50a564e6.jpg') }}" width="950" height="1920" loading="lazy" alt="Inventory master list with product descriptions and prices being encoded"></figure>
+                  <figure><img src="{{ asset('encoding/437ce2a5-4f83-4c12-89d6-4c4228d42acf.jpg') }}" width="950" height="1920" loading="lazy" alt="Product inventory and barcode data being verified in a spreadsheet"></figure>
+                  <figure><img src="{{ asset('encoding/4b063139-381c-4c83-81e0-e0362e49c835.jpg') }}" width="950" height="1920" loading="lazy" alt="Product records displayed in inventory management software"></figure>
+                  <figure><img src="{{ asset('encoding/6e092d96-e090-48fd-a9b0-a52dba3f642f.jpg') }}" width="950" height="1920" loading="lazy" alt="Hardware inventory item codes, prices, and descriptions in a spreadsheet"></figure>
+                  <figure><img src="{{ asset('encoding/9437138e-c6fe-4bd7-b8bf-177586fd13e7.jpg') }}" width="950" height="1920" loading="lazy" alt="Barcode label being prepared from encoded product information"></figure>
+                </div>
+              </div>
+            </li>
+            <li>
+              <h3>System Developer</h3>
+              <p>Independent projects</p>
+              <span>Designed custom web-based management systems and hardware-integrated solutions.</span>
+              <div class="leadership-gallery">
+                <div class="leadership-gallery-heading"><strong>Development in practice</strong><span>Build · Test · Iterate</span></div>
+                <div class="leadership-photos">
+                  <figure><img src="{{ asset('developer/developer.jpg') }}" width="1536" height="2048" loading="lazy" alt="Von developing a software project on a laptop"></figure>
+                  <figure><img src="{{ asset('developer/download%20(2).jpg') }}" width="1536" height="2048" loading="lazy" alt="A dual-screen development workspace with source code open"></figure>
+                  <figure><img src="{{ asset('developer/image.png') }}" width="3024" height="4032" loading="lazy" alt="Von working on a laptop while away from his usual workspace"></figure>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div>
+          <h2>Education</h2>
+          <ol class="timeline">
+            <li>
+              <h3>BS Information Technology</h3>
+              <p>Sultan Kudarat State University</p>
+              <span>Current student; recognized on the Dean's List and President's List.</span>
+            </li>
+            <li>
+              <h3>STEM Track, With Honors</h3>
+              <p>Sto. Niño National High School</p>
+              <span>Built a foundation in analytical thinking and technical problem-solving.</span>
+            </li>
+          </ol>
+          <div class="education-gallery">
+            <div class="education-gallery-heading"><h3>Academic recognition</h3><span>Dean’s List · President’s List</span></div>
+            <div class="education-photos">
+              <figure class="education-photo education-photo-featured"><img src="{{ asset('education/photo_2026-01-18_14-28-47.jpg') }}" width="1920" height="2560" loading="lazy" alt="Von holding President's List certificates at the university academic recognition ceremony"></figure>
+              <figure class="education-photo"><img src="{{ asset('education/photo_2026-08-07_17-30-48.jpg') }}" width="1920" height="2560" loading="lazy" alt="President's List certificates and university academic recognition program"></figure>
+              <figure class="education-photo"><img src="{{ asset('education/photo_2026-01-18_14-28-44.jpg') }}" width="1920" height="2560" loading="lazy" alt="Von showing an academic honor ribbon and recognition certificates"></figure>
+              <figure class="education-photo"><img src="{{ asset('education/download%20(1).jpg') }}" width="960" height="1280" loading="lazy" alt="Von holding two academic certificates outside the university administration building"></figure>
+              <figure class="education-photo"><img src="{{ asset('education/download.jpg') }}" width="960" height="1280" loading="lazy" alt="Von holding an academic certificate on the university campus"></figure>
+            </div>
+          </div>
+          <ol class="timeline team-leader-timeline">
+            <li>
+              <h3>Team Leader</h3>
+              <p>Academic projects</p>
+              <span>Coordinated school development teams across software and hardware work.</span>
+              <div class="leadership-gallery">
+                <div class="leadership-gallery-heading"><strong>Capstone defense</strong><span>Project leadership · Team delivery</span></div>
+                <div class="leadership-photos leadership-photos-mixed">
+                  <figure><img src="{{ asset('team_leader/team_leader.jpg') }}" width="2048" height="1152" loading="lazy" alt="Von and his project team after successfully completing their capstone defense"></figure>
+                  <figure><img src="{{ asset('team_leader/team_leader2.jpg') }}" width="960" height="1280" loading="lazy" alt="Von holding a laptop displaying the word Defended after the capstone presentation"></figure>
+                  <figure><img src="{{ asset('team_leader/team_leader3.jpg') }}" width="960" height="1280" loading="lazy" alt="Von standing beside the successful capstone defense presentation screen"></figure>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
     <section id="contact" class="contact-section reveal"><div class="shell contact-inner"><div><p class="eyebrow">05 / Contact</p><h2>Let’s build something useful.</h2></div><div><p>I’m open to opportunities, collaboration, and conversations about web systems and hardware projects.</p><a class="button button-light" href="mailto:von.vergara.399@gmail.com">Email Von ↗</a></div></div></section>
   </main>
   <footer class="site-footer"><div class="shell"><span>© 2026 Von Esson Vergara</span><div><a href="mailto:von.vergara.399@gmail.com">Email</a><a href="https://github.com/Vonnnnnnnnn05" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://ph.linkedin.com/in/von-esson-vergara-8454063b8" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></footer>
