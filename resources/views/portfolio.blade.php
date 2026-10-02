@@ -14,24 +14,79 @@
   <meta property="og:description" content="A portfolio of PHP, MySQL, JavaScript, and hardware systems built by Von Esson Vergara.">
   <meta property="og:image" content="{{ asset('image.png') }}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#111111">
-  <script>try{const t=localStorage.getItem('portfolio-theme');const d=t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=d?'dark':'light'}catch(e){}</script>
-  <link rel="manifest" href="{{ asset('manifest.json') }}">
-  <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
-  <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
+  <meta name="theme-color" content="#ffffff">
+  <script>try{const t=localStorage.getItem('portfolio-theme');document.documentElement.dataset.theme=t==='dark'?'dark':'light'}catch(e){}</script>
+  <link rel="manifest" href="{{ asset('manifest.json?v=3') }}">
+  <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg?v=3') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png?v=3') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png?v=3') }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('images/vt-logo-badge.png?v=3') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/vt-logo-badge.png?v=3') }}">
+  <link rel="shortcut icon" href="{{ asset('favicon.ico?v=3') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('styles.css') }}">
-  <link rel="stylesheet" href="{{ asset('enhancements.css?v=6') }}">
+  <link rel="stylesheet" href="{{ asset('enhancements.css?v=17') }}">
+  <style>
+    body.splash-active { overflow: hidden !important; height: 100vh !important; }
+    #splash-screen {
+      position: fixed; inset: 0; width: 100vw; height: 100vh;
+      background-color: #ffffff; z-index: 999999;
+      display: flex; align-items: center; justify-content: center;
+    }
+  </style>
   <title>Von Vergara — Developer Portfolio</title>
   <script type="application/ld+json">{"@@context":"https://schema.org","@@type":"Person","name":"Von Esson Vergara","url":"{{ url('/') }}","image":"{{ asset('image.png') }}","jobTitle":"Information Technology Student and Developer","email":"mailto:von.vergara.399@gmail.com","sameAs":["https://github.com/Vonnnnnnnnn05","https://ph.linkedin.com/in/von-esson-vergara-8454063b8"],"knowsAbout":["PHP","JavaScript","MySQL","CodeIgniter","Laravel","Arduino","Microsoft Azure","Nginx","Ubuntu"]}</script>
 </head>
-<body>
+<body class="splash-active">
+  <!-- Splash Screen / Preloader -->
+  <div id="splash-screen" class="splash-screen" role="status" aria-live="polite" aria-label="Loading Von Tech Portfolio">
+    <div class="splash-backdrop">
+      <div class="splash-cyber-grid"></div>
+      <div class="splash-radial-glow"></div>
+    </div>
+    <div class="splash-container">
+      <div class="splash-badge-wrap">
+        <div class="splash-pulse-rings">
+          <div class="splash-ring-wave splash-ring-wave-1"></div>
+          <div class="splash-ring-wave splash-ring-wave-2"></div>
+        </div>
+        <div class="splash-orbit-outer"></div>
+        <div class="splash-orbit-inner"></div>
+        <div class="splash-logo-core">
+          <img src="{{ asset('images/vt-logo-dark.png?v=5') }}" alt="Von Tech Logo" class="splash-logo-image" width="112" height="112">
+        </div>
+      </div>
+      <div class="splash-text-group">
+        <div class="splash-title">
+          <span class="brand-von">VON</span><span class="brand-tech">TECH</span>
+        </div>
+        <p class="splash-caption">VON ESSON VERGARA &bull; IT &bull; SYSTEMS</p>
+      </div>
+      <div class="splash-progress-container">
+        <div class="splash-progress-track">
+          <div class="splash-progress-bar" id="splash-progress-bar"></div>
+        </div>
+        <div class="splash-status-row">
+          <span class="splash-status-label" id="splash-status-label">INITIALIZING SYSTEM...</span>
+          <span class="splash-percent" id="splash-percent">0%</span>
+        </div>
+      </div>
+      <button type="button" class="splash-skip" id="splash-skip-btn" aria-label="Skip splash screen">
+        <span>Skip</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="shell nav-wrap">
-      <a class="wordmark" href="#top" aria-label="Von Vergara, home">Von Esson Vergara<span>.</span></a>
+      <div class="wordmark" aria-label="Von Vergara">
+        <img src="{{ asset('images/vt-logo-badge.png?v=3') }}" alt="" class="nav-brand-icon" width="28" height="28">
+        <span>Von Esson Vergara<span>.</span></span>
+      </div>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav id="site-nav" class="site-nav" aria-label="Main navigation">
         <a href="#about">About</a><a href="#work">Work</a><a href="#activity">Activity</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
@@ -68,10 +123,38 @@
         <article class="project"><a class="project-image" href="https://github.com/Vonnnnnnnnn05/Carwash-Management-System" target="_blank" rel="noopener noreferrer"><img src="{{ asset('images/carwash.png') }}" width="1919" height="878" loading="lazy" alt="Interface of the Carwash CRM system"></a><div class="project-meta"><span>02</span><span>Customer workflow</span></div><h2>Carwash CRM</h2><p class="project-lead">An operational system that keeps customer details, services, and visit history together.</p><dl class="case-study"><div><dt>Problem</dt><dd>Manual customer and transaction records make it harder to follow service history and daily activity.</dd></div><div><dt>Approach</dt><dd>Designed a connected workflow around reusable customer records and service transactions.</dd></div><div><dt>Key features</dt><dd>Customer records · Transactions · Visit history</dd></div></dl><div class="tag-row"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div><div class="project-actions"><a class="project-link" href="https://github.com/Vonnnnnnnnn05/Carwash-Management-System" target="_blank" rel="noopener noreferrer">Explore repository ↗</a><span>Demo not hosted</span></div></article>
         <article class="project"><a class="project-image" href="https://github.com/Vonnnnnnnnn05/Ams" target="_blank" rel="noopener noreferrer"><img src="{{ asset('images/ams.png') }}" width="1919" height="873" loading="lazy" alt="Dashboard of the Attendance Management System"></a><div class="project-meta"><span>03</span><span>QR workflow</span></div><h2>Attendance Management</h2><p class="project-lead">A QR-based attendance workflow with live monitoring and report generation.</p><dl class="case-study"><div><dt>Problem</dt><dd>Manual attendance recording is repetitive and makes timely monitoring and reporting more difficult.</dd></div><div><dt>Approach</dt><dd>Connected QR-based check-ins to centralized records, analytics, and automated reports.</dd></div><div><dt>Key features</dt><dd>QR check-in · Live monitoring · Reports</dd></div></dl><div class="tag-row"><span>PHP</span><span>MySQL</span><span>QR Code API</span></div><div class="project-actions"><a class="project-link" href="https://github.com/Vonnnnnnnnn05/Ams" target="_blank" rel="noopener noreferrer">Explore repository ↗</a><span>Demo not hosted</span></div></article>
       </div>
-      <div class="additional-work"><div class="section-heading"><div class="section-label">Additional work</div><p>A selection of web systems and Arduino prototypes.</p></div><div class="work-index">
-        <div class="work-group"><h3>Web systems</h3><a href="https://github.com/Vonnnnnnnnn05/CodeIgnighter4-Crud" target="_blank" rel="noopener noreferrer"><span>Product Management System</span><small>CodeIgniter 4 · MySQL</small><b>↗</b></a><a href="https://github.com/Vonnnnnnnnn05/Scholarship-System" target="_blank" rel="noopener noreferrer"><span>Scholarship Eligibility Checker</span><small>PHP · MySQL</small><b>↗</b></a><a href="https://github.com/Vonnnnnnnnn05/Weather-API-Integration" target="_blank" rel="noopener noreferrer"><span>Weather Forecasting System</span><small>CodeIgniter 4 · API</small><b>↗</b></a><a href="https://github.com/Vonnnnnnnnn05/Boarding-House-V2" target="_blank" rel="noopener noreferrer"><span>Boarding House Management</span><small>PHP · MySQL</small><b>↗</b></a><a href="https://github.com/Vonnnnnnnnn05/Healthworker-Patient-System" target="_blank" rel="noopener noreferrer"><span>Healthcare Management System</span><small>PHP · MySQL</small><b>↗</b></a><a href="https://github.com/Vonnnnnnnnn05/cosmetics-Inventory-Management-System" target="_blank" rel="noopener noreferrer"><span>Inventory Management System</span><small>PHP · Chart.js</small><b>↗</b></a></div>
-        <div class="work-group"><h3>Arduino &amp; Hardware</h3><a href="https://github.com/Vonnnnnnnnn05/RFID-ATTENDANCE-WITH-WEB-UI-AND-DATABASE" target="_blank" rel="noopener noreferrer"><span>RFID Attendance System</span><small>Arduino · RFID · MySQL</small><b>↗</b></a><div class="work-unavailable"><span>Smart Mousetrap System</span><small>Arduino · SMS alerts</small><b>Source unavailable</b></div><div class="work-unavailable"><span>Mood Lamp Controller</span><small>Arduino · RGB LED · WiFi</small><b>Source unavailable</b></div><a href="https://github.com/Vonnnnnnnnn05/Memory-Game-Arduino-X-PHP" target="_blank" rel="noopener noreferrer"><span>Interactive Memory Games</span><small>Arduino · LCD · PHP</small><b>↗</b></a></div>
-      </div></div>
+      <div class="additional-work">
+        <div class="section-heading">
+          <div class="section-label">Additional work</div>
+          <p>Technical services, practical client work, web systems, and hardware prototypes.</p>
+        </div>
+
+        <div class="work-index">
+          <div class="work-group">
+            <h3>Web systems</h3>
+            <a href="https://github.com/Vonnnnnnnnn05/CodeIgnighter4-Crud" target="_blank" rel="noopener noreferrer"><span>Product Management System</span><small>CodeIgniter 4 · MySQL</small><b>↗</b></a>
+            <a href="https://github.com/Vonnnnnnnnn05/Scholarship-System" target="_blank" rel="noopener noreferrer"><span>Scholarship Eligibility Checker</span><small>PHP · MySQL</small><b>↗</b></a>
+            <a href="https://github.com/Vonnnnnnnnn05/Weather-API-Integration" target="_blank" rel="noopener noreferrer"><span>Weather Forecasting System</span><small>CodeIgniter 4 · API</small><b>↗</b></a>
+            <a href="https://github.com/Vonnnnnnnnn05/Boarding-House-V2" target="_blank" rel="noopener noreferrer"><span>Boarding House Management</span><small>PHP · MySQL</small><b>↗</b></a>
+            <a href="https://github.com/Vonnnnnnnnn05/Healthworker-Patient-System" target="_blank" rel="noopener noreferrer"><span>Healthcare Management System</span><small>PHP · MySQL</small><b>↗</b></a>
+            <a href="https://github.com/Vonnnnnnnnn05/cosmetics-Inventory-Management-System" target="_blank" rel="noopener noreferrer"><span>Inventory Management System</span><small>PHP · Chart.js</small><b>↗</b></a>
+          </div>
+          <div class="work-group">
+            <h3>Arduino &amp; Hardware</h3>
+            <a href="https://github.com/Vonnnnnnnnn05/RFID-ATTENDANCE-WITH-WEB-UI-AND-DATABASE" target="_blank" rel="noopener noreferrer"><span>RFID Attendance System</span><small>Arduino · RFID · MySQL</small><b>↗</b></a>
+            <div class="work-unavailable"><span>Smart Mousetrap System</span><small>Arduino · SMS alerts</small><b>Source unavailable</b></div>
+            <div class="work-unavailable"><span>Mood Lamp Controller</span><small>Arduino · RGB LED · WiFi</small><b>Source unavailable</b></div>
+            <a href="https://github.com/Vonnnnnnnnn05/Memory-Game-Arduino-X-PHP" target="_blank" rel="noopener noreferrer"><span>Interactive Memory Games</span><small>Arduino · LCD · PHP</small><b>↗</b></a>
+          </div>
+          <div class="work-group">
+            <h3>Technical &amp; IT Services</h3>
+            <a href="#experience" class="work-service-item"><span>Contract Making (Rabbitry)</span><small>Documentation · MS Word</small><b>View ↘</b></a>
+            <a href="#experience" class="work-service-item"><span>Reformatting Windows</span><small>OS Clean Install · Recovery</small><b>View ↘</b></a>
+            <a href="#experience" class="work-service-item"><span>Microsoft Office Setup</span><small>Download &amp; Activation</small><b>View ↘</b></a>
+            <a href="#experience" class="work-service-item"><span>System Prototyping</span><small>Ubuntu · Nginx · Staging</small><b>View ↘</b></a>
+          </div>
+        </div>
+      </div>
     </section>
     <section id="activity" class="shell section activity-section reveal">
       <script id="github-initial-data" type="application/json">{!! json_encode($githubData ?? null) !!}</script>
@@ -150,6 +233,37 @@
                 </div>
               </div>
             </li>
+            <li class="timeline-it-services">
+              <h3>IT Support &amp; Technical Services</h3>
+              <p>Freelance &amp; Client Projects</p>
+              <span>Delivered practical technical solutions including contract making (Rabbitry), reformatting Windows, activation or download of Microsoft Office, and development prototyping.</span>
+              <div class="leadership-gallery it-services-gallery">
+                <div class="leadership-gallery-heading it-services-heading"><strong>Additional works in practice</strong><span>Contract · Reformat · Prototype</span></div>
+                <div class="leadership-photos additional-works-photos">
+                  <figure><img src="{{ asset('images/additional/rabbitry-contract.png') }}" class="media-contract" width="768" height="1024" loading="lazy" alt="Contract making (Rabbitry) document layout in Microsoft Word"></figure>
+                  <figure><img src="{{ asset('images/additional/windows-reformat.png') }}" width="1024" height="768" loading="lazy" alt="Reformatting Windows, driver setup, and Microsoft Office installation"></figure>
+                  <figure><img src="{{ asset('images/additional/server-prototyping.png') }}" width="1024" height="768" loading="lazy" alt="System prototyping on multi-display setup with Ubuntu Linux, Nginx, and MariaDB"></figure>
+                </div>
+                <div class="additional-works-list">
+                  <div class="work-detail-item">
+                    <strong>Contract making (Rabbitry)</strong>
+                    <span>Custom sales agreement &amp; document formatting</span>
+                  </div>
+                  <div class="work-detail-item">
+                    <strong>Reformatting Windows</strong>
+                    <span>Clean OS installation, recovery &amp; driver setup</span>
+                  </div>
+                  <div class="work-detail-item">
+                    <strong>Microsoft Office Suite</strong>
+                    <span>Download, productivity setup &amp; activation</span>
+                  </div>
+                  <div class="work-detail-item">
+                    <strong>System Prototyping</strong>
+                    <span>Ubuntu Linux, Nginx &amp; MariaDB staging lab</span>
+                  </div>
+                </div>
+              </div>
+            </li>
           </ol>
         </div>
         <div>
@@ -183,10 +297,15 @@
               <span>Coordinated school development teams across software and hardware work.</span>
               <div class="leadership-gallery">
                 <div class="leadership-gallery-heading"><strong>Capstone defense</strong><span>Project leadership · Team delivery</span></div>
-                <div class="leadership-photos leadership-photos-mixed">
-                  <figure><img src="{{ asset('team_leader/team_leader.jpg') }}" width="2048" height="1152" loading="lazy" alt="Von and his project team after successfully completing their capstone defense"></figure>
-                  <figure><img src="{{ asset('team_leader/team_leader2.jpg') }}" width="960" height="1280" loading="lazy" alt="Von holding a laptop displaying the word Defended after the capstone presentation"></figure>
-                  <figure><img src="{{ asset('team_leader/team_leader3.jpg') }}" width="960" height="1280" loading="lazy" alt="Von standing beside the successful capstone defense presentation screen"></figure>
+                <div class="capstone-lead-wrap">
+                  <figure class="capstone-lead-figure"><img src="{{ asset('team_leader/team_leader.jpg') }}" width="2048" height="1152" loading="lazy" alt="Von and his project team after successfully completing their capstone defense"></figure>
+                </div>
+                <div class="capstone-sub-container">
+                  <div class="leadership-gallery-heading capstone-subheading"><strong>Defense results</strong><span>Outcome · Defended</span></div>
+                  <div class="leadership-photos capstone-subphotos">
+                    <figure><img src="{{ asset('team_leader/team_leader2.jpg') }}" width="960" height="1280" loading="lazy" alt="Von holding a laptop displaying the word Defended after the capstone presentation"></figure>
+                    <figure><img src="{{ asset('team_leader/team_leader3.jpg') }}" width="960" height="1280" loading="lazy" alt="Von standing beside the successful capstone defense presentation screen"></figure>
+                  </div>
                 </div>
               </div>
             </li>
@@ -197,5 +316,5 @@
     <section id="contact" class="contact-section reveal"><div class="shell contact-inner"><div><p class="eyebrow">05 / Contact</p><h2>Let’s build something useful.</h2></div><div><p>I’m open to opportunities, collaboration, and conversations about web systems and hardware projects.</p><a class="button button-light" href="mailto:von.vergara.399@gmail.com">Email Von ↗</a></div></div></section>
   </main>
   <footer class="site-footer"><div class="shell"><span>© 2026 Von Esson Vergara</span><div><a href="mailto:von.vergara.399@gmail.com">Email</a><a href="https://github.com/Vonnnnnnnnn05" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://ph.linkedin.com/in/von-esson-vergara-8454063b8" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></footer>
-  <button class="back-to-top" type="button" aria-label="Back to top"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button><script src="{{ asset('script.js?v=15') }}"></script>
+  <button class="back-to-top" type="button" aria-label="Back to top"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button><script src="{{ asset('script.js?v=21') }}"></script>
 </body></html>

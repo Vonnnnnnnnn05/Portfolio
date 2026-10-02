@@ -1,7 +1,61 @@
 (() => {
+  /* -------------------------------------------------------------------------
+     VON TECH Splash Screen Controller
+     ------------------------------------------------------------------------- */
+  const splashScreen = document.getElementById('splash-screen');
+  if (splashScreen) {
+    document.body.classList.add('splash-active');
+    const progressBar = document.getElementById('splash-progress-bar');
+    const statusLabel = document.getElementById('splash-status-label');
+    const percentLabel = document.getElementById('splash-percent');
+    const skipBtn = document.getElementById('splash-skip-btn');
+
+    let currentProgress = 0;
+    let isDismissed = false;
+
+    const setProgress = (value, status) => {
+      currentProgress = Math.min(100, Math.max(0, value));
+      if (progressBar) progressBar.style.width = `${currentProgress}%`;
+      if (percentLabel) percentLabel.textContent = `${Math.round(currentProgress)}%`;
+      if (status && statusLabel) statusLabel.textContent = status;
+    };
+
+    const dismissSplash = () => {
+      if (isDismissed) return;
+      isDismissed = true;
+      setProgress(100, 'SYSTEM READY');
+      splashScreen.classList.add('splash-fading');
+      document.body.classList.remove('splash-active');
+      setTimeout(() => {
+        splashScreen.classList.add('splash-hidden');
+        splashScreen.setAttribute('aria-hidden', 'true');
+      }, 900);
+    };
+
+    skipBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dismissSplash();
+    });
+
+    splashScreen.addEventListener('click', dismissSplash);
+
+    window.addEventListener('keydown', (e) => {
+      if (!isDismissed && (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ')) {
+        dismissSplash();
+      }
+    });
+
+    // Staged progress milestones for a smoother, slower, cinematic experience (~3.4s total)
+    setTimeout(() => { if (!isDismissed) setProgress(18, 'INITIALIZING CORE'); }, 350);
+    setTimeout(() => { if (!isDismissed) setProgress(42, 'LOADING MODULES'); }, 950);
+    setTimeout(() => { if (!isDismissed) setProgress(68, 'CALIBRATING INTERFACE'); }, 1650);
+    setTimeout(() => { if (!isDismissed) setProgress(88, 'PREPARING SHOWCASE'); }, 2350);
+    setTimeout(() => { if (!isDismissed) setProgress(100, 'SYSTEM READY'); }, 2950);
+    setTimeout(() => { if (!isDismissed) dismissSplash(); }, 3450);
+  }
+
   const themeToggle = document.querySelector('.theme-toggle');
   const themeColor = document.querySelector('meta[name="theme-color"]');
-  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
   const applyTheme = (theme) => {
     const dark = theme === 'dark';
     document.documentElement.dataset.theme = theme;
@@ -9,18 +63,13 @@
     themeToggle?.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} mode`);
     themeColor?.setAttribute('content', dark ? '#111111' : '#ffffff');
   };
-  applyTheme(document.documentElement.dataset.theme || (systemTheme.matches ? 'dark' : 'light'));
+  const savedTheme = localStorage.getItem('portfolio-theme');
+  // Light mode is the default mode
+  applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
   themeToggle?.addEventListener('click', () => {
     const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
     applyTheme(nextTheme);
     try { localStorage.setItem('portfolio-theme', nextTheme); } catch {}
-  });
-  systemTheme.addEventListener('change', (event) => {
-    try {
-      if (!localStorage.getItem('portfolio-theme')) applyTheme(event.matches ? 'dark' : 'light');
-    } catch {
-      applyTheme(event.matches ? 'dark' : 'light');
-    }
   });
   const menuButton = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
@@ -28,7 +77,6 @@
   const sections = navLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
   const backToTop = document.querySelector('.back-to-top');
   const footer = document.querySelector('.site-footer');
-  menuButton?.addEventListener('click', () => { const open = nav.classList.toggle('open'); menuButton.setAttribute('aria-expanded', String(open)); });
   navLinks.forEach((link) => link.addEventListener('click', () => { nav?.classList.remove('open'); menuButton?.setAttribute('aria-expanded', 'false'); }));
   document.addEventListener('click', (event) => {
     if (nav?.classList.contains('open') && !nav.contains(event.target) && !menuButton?.contains(event.target)) {
@@ -352,6 +400,52 @@
   };
 
   initGitHubActivity();
+
+  // Align Experience additional works gallery and Capstone defense subphotos level on desktop
+  const alignExperienceGalleries = () => {
+    const leftPhotos = document.querySelector('.additional-works-photos');
+    const rightContainer = document.querySelector('.capstone-sub-container');
+    const rightPhotos = document.querySelector('.capstone-subphotos');
+
+    if (!leftPhotos || !rightPhotos) return;
+
+    if (window.innerWidth <= 800) {
+      if (rightContainer) rightContainer.style.marginTop = '';
+      rightPhotos.style.marginTop = '';
+      leftPhotos.style.marginTop = '';
+      return;
+    }
+
+    // Reset to calculate natural positions
+    if (rightContainer) rightContainer.style.marginTop = '18px';
+    rightPhotos.style.marginTop = '';
+    leftPhotos.style.marginTop = '';
+
+    const leftRect = leftPhotos.getBoundingClientRect();
+    const rightRect = rightPhotos.getBoundingClientRect();
+    const diff = leftRect.top - rightRect.top;
+
+    if (Math.abs(diff) > 1) {
+      if (diff > 0) {
+        if (rightContainer) {
+          const baseMargin = 18;
+          rightContainer.style.marginTop = `${baseMargin + diff}px`;
+        } else {
+          rightPhotos.style.marginTop = `${diff}px`;
+        }
+      } else {
+        leftPhotos.style.marginTop = `${-diff}px`;
+      }
+    }
+  };
+
+  window.addEventListener('load', alignExperienceGalleries);
+  window.addEventListener('resize', alignExperienceGalleries);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(alignExperienceGalleries);
+  }
+  setTimeout(alignExperienceGalleries, 350);
+  setTimeout(alignExperienceGalleries, 1200);
 
   if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register(document.querySelector('meta[name="service-worker-url"]').content).catch(() => {}));
 })();
