@@ -151,7 +151,7 @@
             <a href="#experience" class="work-service-item"><span>Contract Making (Rabbitry)</span><small>Documentation · MS Word</small><b>View ↘</b></a>
             <a href="#experience" class="work-service-item"><span>Reformatting Windows</span><small>OS Clean Install · Recovery</small><b>View ↘</b></a>
             <a href="#experience" class="work-service-item"><span>Microsoft Office Setup</span><small>Download &amp; Activation</small><b>View ↘</b></a>
-            <a href="#experience" class="work-service-item"><span>System Prototyping</span><small>Ubuntu · Nginx · Staging</small><b>View ↘</b></a>
+            <a href="#experience" class="work-service-item"><span>Web Prototyping</span><small>HTML · CSS · JS · Bootstrap · Tailwind</small><b>View ↘</b></a>
           </div>
         </div>
       </div>
@@ -236,13 +236,13 @@
             <li class="timeline-it-services">
               <h3>IT Support &amp; Technical Services</h3>
               <p>Freelance &amp; Client Projects</p>
-              <span>Delivered practical technical solutions including contract making (Rabbitry), reformatting Windows, activation or download of Microsoft Office, and development prototyping.</span>
+              <span>Delivered practical technical solutions including contract making (Rabbitry), reformatting Windows, activation or download of Microsoft Office, and web prototyping.</span>
               <div class="leadership-gallery it-services-gallery">
                 <div class="leadership-gallery-heading it-services-heading"><strong>Additional works in practice</strong><span>Contract · Reformat · Prototype</span></div>
                 <div class="leadership-photos additional-works-photos">
                   <figure><img src="{{ asset('images/additional/rabbitry-contract.png') }}" class="media-contract" width="768" height="1024" loading="lazy" alt="Contract making (Rabbitry) document layout in Microsoft Word"></figure>
                   <figure><img src="{{ asset('images/additional/windows-reformat.png') }}" width="1024" height="768" loading="lazy" alt="Reformatting Windows, driver setup, and Microsoft Office installation"></figure>
-                  <figure><img src="{{ asset('images/additional/server-prototyping.png') }}" width="1024" height="768" loading="lazy" alt="System prototyping on multi-display setup with Ubuntu Linux, Nginx, and MariaDB"></figure>
+                  <figure><img src="{{ asset('images/additional/server-prototyping.png') }}" width="1024" height="768" loading="lazy" alt="Web prototyping on multi-display setup with HTML, CSS, JavaScript, Bootstrap, and Tailwind CSS"></figure>
                 </div>
                 <div class="additional-works-list">
                   <div class="work-detail-item">
@@ -258,8 +258,8 @@
                     <span>Download, productivity setup &amp; activation</span>
                   </div>
                   <div class="work-detail-item">
-                    <strong>System Prototyping</strong>
-                    <span>Ubuntu Linux, Nginx &amp; MariaDB staging lab</span>
+                    <strong>Web Prototyping</strong>
+                    <span>HTML, CSS, JS, Bootstrap &amp; Tailwind</span>
                   </div>
                 </div>
               </div>
