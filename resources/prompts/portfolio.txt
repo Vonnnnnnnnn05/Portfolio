@@ -14,7 +14,7 @@ Tech stack:
 - Recent portfolio work includes server deployment, cloud hosting, and Groq-powered AI/API integration.
 
 Selected work:
-- Scholarship Data Profiling: a PHP, MySQL, and Chart.js web system for centralized scholar records, reporting, visual analytics, monitoring, and program compliance.
+- Scholarship Data Profiling: a PHP, MySQL, and Chart.js web system for centralized scholar records, reporting, visual analytics, monitoring, and program compliance. Live demo: https://scholarship.vonessonvergara.me/.
 - Carwash CRM: a PHP, MySQL, and JavaScript system for customer records, service transactions, visit history, and operational workflow.
 - Attendance Management: a PHP, MySQL, and QR Code API system for QR attendance tracking, real-time monitoring, automated reporting, and analytics.
 - Other web projects include product management, scholarship eligibility checking, weather forecasting, boarding-house management, healthcare management, and inventory management.
