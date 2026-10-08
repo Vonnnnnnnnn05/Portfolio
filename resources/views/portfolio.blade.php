@@ -274,10 +274,10 @@
               href="https://scholarship.vonessonvergara.me/" target="_blank" rel="noopener noreferrer"><span
                 class="live-dot" aria-hidden="true"></span>Live demo ↗</a></div>
         </article>
-        <article class="project"><a class="project-image"
-            href="https://github.com/Vonnnnnnnnn05/Carwash-Management-System" target="_blank"
-            rel="noopener noreferrer"><img src="{{ asset('images/carwash.png') }}" width="1919" height="878"
-              loading="lazy" alt="Interface of the Carwash CRM system"></a>
+        <article class="project"><a class="project-image" href="https://carwash.vongarces.tech/" target="_blank"
+            rel="noopener noreferrer" title="View live Carwash CRM system"><img src="{{ asset('images/carwash.png') }}" width="1919" height="878"
+              loading="lazy" alt="Interface of the Carwash CRM system"><span class="live-pill"><span class="live-dot"
+                aria-hidden="true"></span>Live Demo</span></a>
           <div class="project-meta"><span>02</span><span>Customer workflow</span></div>
           <h2>Carwash CRM</h2>
           <p class="project-lead">An operational system that keeps customer details, services, and visit history
@@ -300,7 +300,9 @@
           <div class="tag-row"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div>
           <div class="project-actions"><a class="project-link"
               href="https://github.com/Vonnnnnnnnn05/Carwash-Management-System" target="_blank"
-              rel="noopener noreferrer">Explore repository ↗</a><span>Demo not hosted</span></div>
+              rel="noopener noreferrer">Explore repository ↗</a><a class="project-link project-live-link"
+              href="https://carwash.vongarces.tech/" target="_blank" rel="noopener noreferrer"><span
+                class="live-dot" aria-hidden="true"></span>Live demo ↗</a></div>
         </article>
         <article class="project"><a class="project-image" href="https://dentaflow.vonessonvergara.me/" target="_blank"
             rel="noopener noreferrer" title="View live DentaFlow system"><img src="{{ asset('images/dentaflow.png') }}"
