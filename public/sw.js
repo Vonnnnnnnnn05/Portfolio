@@ -1,11 +1,11 @@
 const BASE = new URL('./', self.location.href);
 const CACHE_PREFIX = `von-portfolio-${BASE.pathname}-`;
-const CACHE_NAME = `${CACHE_PREFIX}v9`;
+const CACHE_NAME = `${CACHE_PREFIX}v13`;
 const HOME = BASE.href;
 const urlsToCache = [
   './', 'manifest.json', 'styles.css', 'chat.css', 'enhancements.css',
   'script.js?v=9', 'images/logo.png', 'Von_Esson_Vergara_Resume.pdf',
-  'image.png', 'images/sdp.png', 'images/carwash.png', 'images/ams.png'
+  'image.png', 'images/sdp.png', 'images/carwash.png', 'images/dentaflow.png'
 ].map(path => new URL(path, BASE).href);
 
 self.addEventListener('install', event => {

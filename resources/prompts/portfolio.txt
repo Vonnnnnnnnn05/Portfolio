@@ -15,8 +15,8 @@ Tech stack:
 
 Selected work:
 - Scholarship Data Profiling: a PHP, MySQL, and Chart.js web system for centralized scholar records, reporting, visual analytics, monitoring, and program compliance. Live demo: https://scholarship.vonessonvergara.me/.
-- Carwash CRM: a PHP, MySQL, and JavaScript system for customer records, service transactions, visit history, and operational workflow.
-- Attendance Management: a PHP, MySQL, and QR Code API system for QR attendance tracking, real-time monitoring, automated reporting, and analytics.
+- Carwash CRM: a PHP, MySQL, and JavaScript system for customer records, service transactions, visit history, and operational workflow. Live demo: https://carwash.vongarces.tech/.
+- DentaFlow: a PHP, MySQL, Nginx, and Azure-hosted dental clinic management system that centralizes patient profiles, appointments, clinical treatments, and billing into an administrative web platform. Live demo: https://dentaflow.vonessonvergara.me/.
 - Other web projects include product management, scholarship eligibility checking, weather forecasting, boarding-house management, healthcare management, and inventory management.
 - Other Arduino and hardware projects include RFID attendance, a smart mousetrap, a mood lamp controller, and interactive memory games.
 
