@@ -9,9 +9,11 @@
    - `healthcare-system.png` - Healthcare Management System
    - `inventory-system.png` - Inventory Management System
    - `rfid-system.png` - RFID Attendance System
-   - `smart-mousetrap.png` - Smart Mousetrap System
-   - `mood-lamp.png` - Mood Lamp Controller
-   - `memory-games.png` - Interactive Memory Games
+   - `reaction-time-game.png` - Reaction Time Game
+   - `fortune-teller.png` - Fortune Teller System
+   - `motion-detector.png` - Motion Detector System
+   - `keypad-security.png` - Keypad Security System
+   - `ldr-system.png` - LDR Sensor System
 
 3. **Update the HTML:**
    - Replace the `<div class="project-image-placeholder">` sections

@@ -18,7 +18,7 @@ Selected work:
 - Carwash CRM: a PHP, MySQL, and JavaScript system for customer records, service transactions, visit history, and operational workflow. Live demo: https://carwash.vongarces.tech/.
 - DentaFlow: a PHP, MySQL, Nginx, and Azure-hosted dental clinic management system that centralizes patient profiles, appointments, clinical treatments, and billing into an administrative web platform. Live demo: https://dentaflow.vonessonvergara.me/.
 - Other web projects include product management, scholarship eligibility checking, weather forecasting, boarding-house management, healthcare management, and inventory management.
-- Other Arduino and hardware projects include RFID attendance, a smart mousetrap, a mood lamp controller, and interactive memory games.
+- Other Arduino and hardware projects include RFID attendance, a reaction time game, a fortune teller system, a motion detector system, a keypad security system, and an LDR sensor system (all connected with web UIs and MySQL databases).
 
 Experience and education:
 - Von has worked as an Encoder / Inventory Manager at Alocada Enterprises, managing inventory data and stock-management workflows.

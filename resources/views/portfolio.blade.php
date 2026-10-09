@@ -367,13 +367,21 @@
             <a href="https://github.com/Vonnnnnnnnn05/RFID-ATTENDANCE-WITH-WEB-UI-AND-DATABASE" target="_blank"
               rel="noopener noreferrer"><span>RFID Attendance System</span><small>Arduino · RFID ·
                 MySQL</small><b>↗</b></a>
-            <div class="work-unavailable"><span>Smart Mousetrap System</span><small>Arduino · SMS
-                alerts</small><b>Source unavailable</b></div>
-            <div class="work-unavailable"><span>Mood Lamp Controller</span><small>Arduino · RGB LED ·
-                WiFi</small><b>Source unavailable</b></div>
-            <a href="https://github.com/Vonnnnnnnnn05/Memory-Game-Arduino-X-PHP" target="_blank"
-              rel="noopener noreferrer"><span>Interactive Memory Games</span><small>Arduino · LCD ·
-                PHP</small><b>↗</b></a>
+            <a href="https://github.com/Vonnnnnnnnn05/Arduino-Reaction-Time-Game-With-Web-UI-and-Database" target="_blank"
+              rel="noopener noreferrer"><span>Reaction Time Game</span><small>Arduino · Web UI ·
+                MySQL</small><b>↗</b></a>
+            <a href="https://github.com/Vonnnnnnnnn05/Arduino-Fortune-Teller-With-Web-UI-and-Database" target="_blank"
+              rel="noopener noreferrer"><span>Fortune Teller System</span><small>Arduino · Web UI ·
+                MySQL</small><b>↗</b></a>
+            <a href="https://github.com/Vonnnnnnnnn05/Motion-Detector-with-Web-Based-UI-and-Database" target="_blank"
+              rel="noopener noreferrer"><span>Motion Detector System</span><small>Arduino · PIR ·
+                MySQL</small><b>↗</b></a>
+            <a href="https://github.com/Vonnnnnnnnn05/Security-System-Using-Keypad-with-Web-UI-and-Database" target="_blank"
+              rel="noopener noreferrer"><span>Keypad Security System</span><small>Arduino · Keypad ·
+                MySQL</small><b>↗</b></a>
+            <a href="https://github.com/Vonnnnnnnnn05/LDR-System-with-Web-UI-and-Database" target="_blank"
+              rel="noopener noreferrer"><span>LDR Sensor System</span><small>Arduino · LDR ·
+                MySQL</small><b>↗</b></a>
           </div>
           <div class="work-group">
             <h3>Technical &amp; IT Services</h3>
