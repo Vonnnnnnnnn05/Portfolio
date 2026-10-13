@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('styles.css') }}">
-  <link rel="stylesheet" href="{{ asset('enhancements.css?v=18') }}">
+  <link rel="stylesheet" href="{{ asset('enhancements.css?v=25') }}">
   <style>
     body.splash-active {
       overflow: hidden !important;
@@ -160,81 +160,132 @@
         </div>
       </div>
       <div class="capability-grid" aria-label="Capabilities">
-        <article><span>01</span>
+        <article>
+          <div class="capability-header">
+            <span>01</span>
+            <svg class="capability-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+              <polyline points="9 8 7 10 9 12"></polyline>
+              <polyline points="15 8 17 10 15 12"></polyline>
+            </svg>
+          </div>
           <h3>Web systems</h3>
           <p>PHP, CodeIgniter, Laravel, JavaScript, and responsive interfaces.</p>
         </article>
-        <article><span>02</span>
+        <article>
+          <div class="capability-header">
+            <span>02</span>
+            <svg class="capability-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+            </svg>
+          </div>
           <h3>Data &amp; workflows</h3>
           <p>MySQL-backed management tools, reporting, tracking, and automation.</p>
         </article>
-        <article><span>03</span>
+        <article>
+          <div class="capability-header">
+            <span>03</span>
+            <svg class="capability-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+              <rect x="9" y="9" width="6" height="6"></rect>
+              <line x1="9" y1="1" x2="9" y2="4"></line>
+              <line x1="15" y1="1" x2="15" y2="4"></line>
+              <line x1="9" y1="20" x2="9" y2="23"></line>
+              <line x1="15" y1="20" x2="15" y2="23"></line>
+              <line x1="20" y1="9" x2="23" y2="9"></line>
+              <line x1="20" y1="14" x2="23" y2="14"></line>
+              <line x1="1" y1="9" x2="4" y2="9"></line>
+              <line x1="1" y1="14" x2="4" y2="14"></line>
+            </svg>
+          </div>
           <h3>Hardware integration</h3>
           <p>Arduino, RFID, sensors, and database-connected prototypes.</p>
         </article>
       </div>
-      <div class="tech-stack" aria-label="Technology stack">
-        <article><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="40"
-            height="40" loading="lazy" alt="">
-          <div><strong>PHP</strong><span>Backend</span></div>
-        </article>
-        <article><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg"
-            width="40" height="40" loading="lazy" alt="">
-          <div><strong>Composer</strong><span>Dependencies</span></div>
-        </article>
-        <article><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-            width="40" height="40" loading="lazy" alt="">
-          <div><strong>JavaScript</strong><span>Frontend &amp; APIs</span></div>
-        </article>
-        <article><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
-            width="40" height="40" loading="lazy" alt="">
-          <div><strong>MySQL</strong><span>Database</span></div>
-        </article>
-        <article><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg"
-            width="40" height="40" loading="lazy" alt="">
-          <div><strong>CodeIgniter 4</strong><span>Framework</span></div>
-        </article>
-        <article><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
-            width="40" height="40" loading="lazy" alt="">
-          <div><strong>Laravel</strong><span>Framework</span></div>
-        </article>
-        <article><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
-            width="40" height="40" loading="lazy" alt="">
-          <div><strong>Bootstrap</strong><span>UI toolkit</span></div>
-        </article>
-        <article><img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
-            width="40" height="40" loading="lazy" alt="">
-          <div><strong>Tailwind CSS</strong><span>UI styling</span></div>
-        </article>
-        <article><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg"
-            width="40" height="40" loading="lazy" alt="">
-          <div><strong>Arduino</strong><span>Hardware</span></div>
-        </article>
-        <article><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="40"
-            height="40" loading="lazy" alt="">
-          <div><strong>Git</strong><span>Version control</span></div>
-        </article>
-        <article class="tech-recent"><img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" width="40"
-            height="40" loading="lazy" alt="">
-          <div><strong>Nginx</strong><span>Web server</span></div><small>Recent</small>
-        </article>
-        <article class="tech-recent"><img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" width="40"
-            height="40" loading="lazy" alt="">
-          <div><strong>Ubuntu</strong><span>Server OS</span></div><small>Recent</small>
-        </article>
-        <article class="tech-recent"><img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/openapi/openapi-original.svg" width="40"
-            height="40" loading="lazy" alt="">
-          <div><strong>AI &amp; APIs</strong><span>Groq integration</span></div><small>Recent</small>
-        </article>
-        <article class="tech-recent"><img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="40"
-            height="40" loading="lazy" alt="">
-          <div><strong>Azure</strong><span>Cloud platform</span></div><small>Recent</small>
-        </article>
+      <div class="tech-marquee-wrapper" aria-label="Technologies and frameworks">
+        <div class="tech-marquee-header">
+          <span class="tech-marquee-label">Technologies I work with</span>
+        </div>
+
+        <!-- ROW 1: Left to Right (→) -->
+        <div class="tech-marquee-row tech-marquee-ltr" aria-label="Technologies row 1">
+          <div class="tech-marquee-track">
+            <div class="tech-marquee-group">
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="24" height="24" loading="lazy" alt="PHP logo"><strong>PHP</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" width="24" height="24" loading="lazy" alt="Composer logo"><strong>Composer</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="24" height="24" loading="lazy" alt="JavaScript logo"><strong>JavaScript</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="24" height="24" loading="lazy" alt="MySQL logo"><strong>MySQL</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" width="24" height="24" loading="lazy" alt="CodeIgniter logo"><strong>CodeIgniter 4</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" width="24" height="24" loading="lazy" alt="Laravel logo"><strong>Laravel</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="24" height="24" loading="lazy" alt="Bootstrap logo"><strong>Bootstrap</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="24" height="24" loading="lazy" alt="PHP logo"><strong>PHP</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" width="24" height="24" loading="lazy" alt="Composer logo"><strong>Composer</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="24" height="24" loading="lazy" alt="JavaScript logo"><strong>JavaScript</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="24" height="24" loading="lazy" alt="MySQL logo"><strong>MySQL</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" width="24" height="24" loading="lazy" alt="CodeIgniter logo"><strong>CodeIgniter 4</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" width="24" height="24" loading="lazy" alt="Laravel logo"><strong>Laravel</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="24" height="24" loading="lazy" alt="Bootstrap logo"><strong>Bootstrap</strong></article>
+            </div>
+            <div class="tech-marquee-group" aria-hidden="true">
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="24" height="24" loading="lazy" alt=""><strong>PHP</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Composer</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="24" height="24" loading="lazy" alt=""><strong>JavaScript</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="24" height="24" loading="lazy" alt=""><strong>MySQL</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" width="24" height="24" loading="lazy" alt=""><strong>CodeIgniter 4</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Laravel</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Bootstrap</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="24" height="24" loading="lazy" alt=""><strong>PHP</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Composer</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="24" height="24" loading="lazy" alt=""><strong>JavaScript</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="24" height="24" loading="lazy" alt=""><strong>MySQL</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" width="24" height="24" loading="lazy" alt=""><strong>CodeIgniter 4</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Laravel</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Bootstrap</strong></article>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 2: Right to Left (←) -->
+        <div class="tech-marquee-row tech-marquee-rtl" aria-label="Technologies row 2">
+          <div class="tech-marquee-track">
+            <div class="tech-marquee-group">
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="24" height="24" loading="lazy" alt="Tailwind CSS logo"><strong>Tailwind CSS</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" width="24" height="24" loading="lazy" alt="Arduino logo"><strong>Arduino</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="24" height="24" loading="lazy" alt="Git logo"><strong>Git</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" width="24" height="24" loading="lazy" alt="Nginx logo"><strong>Nginx</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" width="24" height="24" loading="lazy" alt="Ubuntu logo"><strong>Ubuntu</strong></article>
+              <article class="tech-card"><svg class="tech-icon" width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 3L18.8 11.2C19.3 12.7 20.5 13.9 22 14.4L30 17L22 19.6C20.5 20.1 19.3 21.3 18.8 22.8L16 31L13.2 22.8C12.7 21.3 11.5 20.1 10 19.6L2 17L10 14.4C11.5 13.9 12.7 12.7 13.2 11.2L16 3Z" fill="currentColor"/><path d="M25 4L26.2 7.8C26.4 8.4 26.9 8.9 27.5 9.1L31 10L27.5 10.9C26.9 11.1 26.4 11.6 26.2 12.2L25 16L23.8 12.2C23.6 11.6 23.1 11.1 22.5 10.9L19 10L22.5 9.1C23.1 8.9 23.6 8.4 23.8 7.8L25 4Z" fill="currentColor" opacity="0.55"/></svg><strong>AI Integration</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="24" height="24" loading="lazy" alt="Azure logo"><strong>Azure</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="24" height="24" loading="lazy" alt="Tailwind CSS logo"><strong>Tailwind CSS</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" width="24" height="24" loading="lazy" alt="Arduino logo"><strong>Arduino</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="24" height="24" loading="lazy" alt="Git logo"><strong>Git</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" width="24" height="24" loading="lazy" alt="Nginx logo"><strong>Nginx</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" width="24" height="24" loading="lazy" alt="Ubuntu logo"><strong>Ubuntu</strong></article>
+              <article class="tech-card"><svg class="tech-icon" width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 3L18.8 11.2C19.3 12.7 20.5 13.9 22 14.4L30 17L22 19.6C20.5 20.1 19.3 21.3 18.8 22.8L16 31L13.2 22.8C12.7 21.3 11.5 20.1 10 19.6L2 17L10 14.4C11.5 13.9 12.7 12.7 13.2 11.2L16 3Z" fill="currentColor"/><path d="M25 4L26.2 7.8C26.4 8.4 26.9 8.9 27.5 9.1L31 10L27.5 10.9C26.9 11.1 26.4 11.6 26.2 12.2L25 16L23.8 12.2C23.6 11.6 23.1 11.1 22.5 10.9L19 10L22.5 9.1C23.1 8.9 23.6 8.4 23.8 7.8L25 4Z" fill="currentColor" opacity="0.55"/></svg><strong>AI Integration</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="24" height="24" loading="lazy" alt="Azure logo"><strong>Azure</strong></article>
+            </div>
+            <div class="tech-marquee-group" aria-hidden="true">
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Tailwind CSS</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Arduino</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Git</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Nginx</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Ubuntu</strong></article>
+              <article class="tech-card"><svg class="tech-icon" width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 3L18.8 11.2C19.3 12.7 20.5 13.9 22 14.4L30 17L22 19.6C20.5 20.1 19.3 21.3 18.8 22.8L16 31L13.2 22.8C12.7 21.3 11.5 20.1 10 19.6L2 17L10 14.4C11.5 13.9 12.7 12.7 13.2 11.2L16 3Z" fill="currentColor"/><path d="M25 4L26.2 7.8C26.4 8.4 26.9 8.9 27.5 9.1L31 10L27.5 10.9C26.9 11.1 26.4 11.6 26.2 12.2L25 16L23.8 12.2C23.6 11.6 23.1 11.1 22.5 10.9L19 10L22.5 9.1C23.1 8.9 23.6 8.4 23.8 7.8L25 4Z" fill="currentColor" opacity="0.55"/></svg><strong>AI Integration</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Azure</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Tailwind CSS</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Arduino</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Git</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Nginx</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Ubuntu</strong></article>
+              <article class="tech-card"><svg class="tech-icon" width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 3L18.8 11.2C19.3 12.7 20.5 13.9 22 14.4L30 17L22 19.6C20.5 20.1 19.3 21.3 18.8 22.8L16 31L13.2 22.8C12.7 21.3 11.5 20.1 10 19.6L2 17L10 14.4C11.5 13.9 12.7 12.7 13.2 11.2L16 3Z" fill="currentColor"/><path d="M25 4L26.2 7.8C26.4 8.4 26.9 8.9 27.5 9.1L31 10L27.5 10.9C26.9 11.1 26.4 11.6 26.2 12.2L25 16L23.8 12.2C23.6 11.6 23.1 11.1 22.5 10.9L19 10L22.5 9.1C23.1 8.9 23.6 8.4 23.8 7.8L25 4Z" fill="currentColor" opacity="0.55"/></svg><strong>AI Integration</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Azure</strong></article>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <section id="work" class="shell section work-section reveal">
@@ -633,7 +684,7 @@
       fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15" />
     </svg></button>
-  <script src="{{ asset('script.js?v=21') }}"></script>
+  <script src="{{ asset('script.js?v=22') }}"></script>
 </body>
 
 </html>

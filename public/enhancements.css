@@ -3,64 +3,253 @@
   color-scheme: light;
 }
 
-.tech-stack {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 32px;
+/* ==========================================================================
+   TECHNOLOGY MARQUEE SLIDERS (Ultra-smooth monochrome)
+   ========================================================================== */
+.tech-marquee-wrapper {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  contain: layout paint;
 }
 
-.tech-stack article {
+.tech-marquee-header {
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+.tech-marquee-label {
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.tech-marquee-row {
   position: relative;
-  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+  padding: 6px 0;
+  contain: paint;
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.tech-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  user-select: none;
+}
+
+/* Row 1: Left to Right (→) */
+.tech-marquee-ltr .tech-marquee-track {
+  animation: marquee-ltr 55s linear infinite;
+}
+
+/* Row 2: Right to Left (←) - calm, butter-smooth glide */
+.tech-marquee-rtl .tech-marquee-track {
+  animation: marquee-rtl 55s linear infinite;
+}
+
+/* Independent row hover pause */
+.tech-marquee-row:hover .tech-marquee-track {
+  animation-play-state: paused;
+}
+
+.tech-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 12px;
+  flex-shrink: 0;
+}
+
+/* Technology Card - Black & White aesthetic (Logo + Name only) */
+.tech-marquee-group .tech-card,
+.tech-marquee-group article {
+  position: relative;
+  width: auto;
+  height: 48px;
   display: flex;
   align-items: center;
   gap: 10px;
-  min-height: 72px;
-  padding: 12px 10px;
-  overflow: hidden;
-  border: 1px solid var(--line);
+  padding: 8px 16px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   background: var(--white);
-  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  color: var(--ink);
+  flex-shrink: 0;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), border-color 260ms ease, box-shadow 260ms ease;
 }
 
-.tech-stack img {
-  width: 32px;
-  height: 32px;
-  flex: 0 0 32px;
+html[data-theme="dark"] .tech-marquee-group .tech-card,
+html[data-theme="dark"] .tech-marquee-group article {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Black & White Monochrome Logos */
+.tech-marquee-group .tech-card img,
+.tech-marquee-group article img,
+.tech-marquee-group .tech-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
   object-fit: contain;
-  transition: transform 220ms ease;
+  filter: grayscale(100%);
+  opacity: 0.82;
+  transition: filter 260ms ease, opacity 260ms ease, transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.tech-stack div { min-width: 0; }
-.tech-stack strong,
-.tech-stack span { display: block; }
-.tech-stack strong { font-size: .78rem; line-height: 1.25; }
-.tech-stack span { margin-top: 3px; color: var(--muted); font-size: .66rem; line-height: 1.25; }
-.tech-stack small { display: none; }
+.tech-marquee-group svg.tech-icon {
+  display: block;
+  color: var(--ink);
+}
 
+html[data-theme="dark"] .tech-marquee-group .tech-card img,
+html[data-theme="dark"] .tech-marquee-group article img {
+  filter: grayscale(100%) brightness(1.2);
+  opacity: 0.88;
+}
+
+html[data-theme="dark"] .tech-marquee-group svg.tech-icon {
+  color: var(--ink);
+}
+
+.tech-marquee-group strong {
+  display: inline-block;
+  font-size: .84rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.tech-marquee-group small {
+  display: none;
+}
+
+/* Micro-interaction on card hover */
 @media (hover: hover) {
-  .tech-stack article:hover { z-index: 1; transform: translateY(-3px); border-color: var(--ink); box-shadow: 0 8px 20px rgba(0, 0, 0, .1); }
-  .tech-stack article:hover img { transform: scale(1.08); }
+  .tech-marquee-group .tech-card:hover,
+  .tech-marquee-group article:hover {
+    z-index: 5;
+    transform: translateY(-2px) scale(1.02);
+    border-color: rgba(0, 0, 0, 0.22);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+  }
+  .tech-marquee-group .tech-card:hover img,
+  .tech-marquee-group article:hover img,
+  .tech-marquee-group .tech-card:hover .tech-icon,
+  .tech-marquee-group article:hover .tech-icon {
+    filter: grayscale(100%) contrast(1.15);
+    opacity: 1;
+    transform: scale(1.06);
+  }
 }
 
-@media (max-width: 960px) {
-  .tech-stack {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+html[data-theme="dark"] .tech-marquee-group .tech-card:hover,
+html[data-theme="dark"] .tech-marquee-group article:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+}
+
+/* Keyframe animations for seamless loops with GPU compositing */
+@keyframes marquee-ltr {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes marquee-rtl {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (max-width: 640px) {
+  .tech-marquee-wrapper {
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .tech-marquee-group .tech-card,
+  .tech-marquee-group article {
+    height: 42px;
+    padding: 6px 12px;
     gap: 8px;
   }
-  .tech-stack article {
-    min-height: 68px;
-    padding: 12px 14px;
-    width: 100% !important;
-    grid-column: auto !important;
-    justify-self: stretch !important;
+  .tech-marquee-group .tech-card img,
+  .tech-marquee-group article img,
+  .tech-marquee-group .tech-icon {
+    width: 20px;
+    height: 20px;
+    flex-basis: 20px;
   }
-  .tech-stack img {
-    width: 30px;
-    height: 30px;
-    flex-basis: 30px;
+  .tech-marquee-group strong {
+    font-size: .76rem;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-marquee-ltr .tech-marquee-track,
+  .tech-marquee-rtl .tech-marquee-track {
+    animation: none !important;
+  }
+  .tech-marquee-row {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+  .tech-marquee-group .tech-card,
+  .tech-marquee-group article {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   CAPABILITY CARDS (Editorial Monochrome Icons)
+   ========================================================================== */
+.capability-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.capability-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--muted);
+  opacity: 0.8;
+  flex-shrink: 0;
+  transition: color 240ms ease, opacity 240ms ease, transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.capability-grid article {
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.capability-grid article:hover .capability-icon {
+  color: var(--ink);
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
 /* Compact launcher that clears the footer links when they enter view. */
