@@ -4,6 +4,186 @@
 }
 
 /* ==========================================================================
+   TECH STACK — Static Categorized Pill Grid
+   ========================================================================== */
+.tech-stack-section {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.tech-stack-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tech-stack-eyebrow {
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.tech-stack-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -.01em;
+}
+
+.tech-category-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tech-category-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tech-category-label svg {
+  flex-shrink: 0;
+  opacity: .7;
+}
+
+.tech-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgba(0,0,0,.09);
+  border-radius: 8px;
+  background: var(--white, #fff);
+  color: var(--ink);
+  font-size: .84rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: default;
+  transition:
+    transform 240ms cubic-bezier(.16,1,.3,1),
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    background 240ms ease;
+  overflow: hidden;
+}
+
+.tech-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 60%, rgba(0,0,0,.025));
+  opacity: 0;
+  transition: opacity 240ms ease;
+  border-radius: inherit;
+}
+
+@media (hover: hover) {
+  .tech-pill:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0,0,0,.18);
+    box-shadow: 0 8px 24px rgba(0,0,0,.07), 0 2px 6px rgba(0,0,0,.04);
+  }
+  .tech-pill:hover::before { opacity: 1; }
+  .tech-pill:hover img { filter: none; opacity: 1; }
+  .tech-pill:hover svg { opacity: 1; }
+}
+
+.tech-pill img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  object-fit: contain;
+  filter: grayscale(80%);
+  opacity: .85;
+  transition: filter 240ms ease, opacity 240ms ease;
+}
+
+.tech-pill svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: .8;
+  transition: opacity 240ms ease;
+  color: var(--ink);
+}
+
+.tech-pill span {
+  position: relative;
+  z-index: 1;
+}
+
+/* AI Integration pill — special multi-provider subtitle */
+.tech-pill-sub {
+  font-size: .68rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: 2px;
+}
+
+/* AWS EC2 pill — "New" badge */
+.tech-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(21,94,239,.1);
+  color: #155eef;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-left: 2px;
+}
+
+html[data-theme="dark"] .tech-pill {
+  background: var(--surface, rgba(255,255,255,.04));
+  border-color: rgba(255,255,255,.1);
+  color: var(--ink);
+}
+html[data-theme="dark"] .tech-pill img {
+  filter: grayscale(60%) brightness(1.15);
+  opacity: .9;
+}
+html[data-theme="dark"] .tech-pill:hover {
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+}
+html[data-theme="dark"] .tech-pill-badge {
+  background: rgba(96,165,250,.12);
+  color: #93c5fd;
+}
+
+@media (max-width: 640px) {
+  .tech-stack-section { gap: 20px; margin-top: 24px; }
+  .tech-pill { padding: 7px 11px; font-size: .78rem; }
+  .tech-pill img, .tech-pill svg { width: 18px; height: 18px; }
+  .tech-stack-title { font-size: .95rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-pill { transition: none !important; }
+}
+
+/* ==========================================================================
    TECHNOLOGY MARQUEE SLIDERS (Ultra-smooth monochrome)
    ========================================================================== */
 .tech-marquee-wrapper {
