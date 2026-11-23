@@ -84,7 +84,14 @@
       menuButton?.setAttribute('aria-expanded', 'false');
     }
   });
-  const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); }), { threshold: 0.12 });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.02, rootMargin: '0px 0px -20px 0px' });
   document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
   const navObserver = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`)); }), { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
   sections.forEach((section) => navObserver.observe(section));
@@ -400,52 +407,6 @@
   };
 
   initGitHubActivity();
-
-  // Align Experience additional works gallery and Capstone defense subphotos level on desktop
-  const alignExperienceGalleries = () => {
-    const leftPhotos = document.querySelector('.additional-works-photos');
-    const rightContainer = document.querySelector('.capstone-sub-container');
-    const rightPhotos = document.querySelector('.capstone-subphotos');
-
-    if (!leftPhotos || !rightPhotos) return;
-
-    if (window.innerWidth <= 800) {
-      if (rightContainer) rightContainer.style.marginTop = '';
-      rightPhotos.style.marginTop = '';
-      leftPhotos.style.marginTop = '';
-      return;
-    }
-
-    // Reset to calculate natural positions
-    if (rightContainer) rightContainer.style.marginTop = '18px';
-    rightPhotos.style.marginTop = '';
-    leftPhotos.style.marginTop = '';
-
-    const leftRect = leftPhotos.getBoundingClientRect();
-    const rightRect = rightPhotos.getBoundingClientRect();
-    const diff = leftRect.top - rightRect.top;
-
-    if (Math.abs(diff) > 1) {
-      if (diff > 0) {
-        if (rightContainer) {
-          const baseMargin = 18;
-          rightContainer.style.marginTop = `${baseMargin + diff}px`;
-        } else {
-          rightPhotos.style.marginTop = `${diff}px`;
-        }
-      } else {
-        leftPhotos.style.marginTop = `${-diff}px`;
-      }
-    }
-  };
-
-  window.addEventListener('load', alignExperienceGalleries);
-  window.addEventListener('resize', alignExperienceGalleries);
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(alignExperienceGalleries);
-  }
-  setTimeout(alignExperienceGalleries, 350);
-  setTimeout(alignExperienceGalleries, 1200);
 
   if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register(document.querySelector('meta[name="service-worker-url"]').content).catch(() => {}));
 })();

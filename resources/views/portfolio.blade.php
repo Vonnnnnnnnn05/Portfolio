@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('styles.css') }}">
-  <link rel="stylesheet" href="{{ asset('enhancements.css?v=28') }}">
+  <link rel="stylesheet" href="{{ asset('enhancements.css?v=31') }}">
   <style>
     body.splash-active {
       overflow: hidden !important;
@@ -103,14 +103,14 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="shell nav-wrap">
-      <div class="wordmark" aria-label="Von Vergara">
-        <img src="{{ asset('images/vt-logo-badge.png?v=3') }}" alt="" class="nav-brand-icon" width="28" height="28">
-        <span>Von Esson Vergara<span>.</span></span>
-      </div>
+      <a href="#top" class="wordmark" aria-label="Von Vergara - Home">
+        <img src="{{ asset('images/vt-logo-badge.png?v=3') }}" alt="Von Tech Logo" class="nav-brand-icon" width="36"
+          height="36">
+      </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-        <a href="#about">About</a><a href="#work">Work</a><a
-          href="#experience">Experience</a><a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#work">Work</a><a href="#experience">Experience</a><a
+          href="#contact">Contact</a>
       </nav>
       <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
         <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
@@ -163,7 +163,8 @@
         <article>
           <div class="capability-header">
             <span>01</span>
-            <svg class="capability-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg class="capability-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="2" y="3" width="20" height="14" rx="2"></rect>
               <line x1="8" y1="21" x2="16" y2="21"></line>
               <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -177,7 +178,8 @@
         <article>
           <div class="capability-header">
             <span>02</span>
-            <svg class="capability-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg class="capability-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
               <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
               <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
@@ -189,7 +191,8 @@
         <article>
           <div class="capability-header">
             <span>03</span>
-            <svg class="capability-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg class="capability-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="4" y="4" width="16" height="16" rx="2"></rect>
               <rect x="9" y="9" width="6" height="6"></rect>
               <line x1="9" y1="1" x2="9" y2="4"></line>
@@ -217,38 +220,100 @@
 
             <!-- Primary set -->
             <div class="tech-marquee-group">
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="24" height="24" loading="lazy" alt="PHP logo"><strong>PHP</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="24" height="24" loading="lazy" alt="JavaScript logo"><strong>JavaScript</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" width="24" height="24" loading="lazy" alt="Laravel logo"><strong>Laravel</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" width="24" height="24" loading="lazy" alt="CodeIgniter logo"><strong>CodeIgniter 4</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="24" height="24" loading="lazy" alt="Bootstrap logo"><strong>Bootstrap</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="24" height="24" loading="lazy" alt="Tailwind CSS logo"><strong>Tailwind CSS</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" width="24" height="24" loading="lazy" alt="Composer logo"><strong>Composer</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="24" height="24" loading="lazy" alt="MySQL logo"><strong>MySQL</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="24" height="24" loading="lazy" alt="Git logo"><strong>Git</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" width="24" height="24" loading="lazy" alt="Arduino logo"><strong>Arduino</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" width="24" height="24" loading="lazy" alt="Nginx logo"><strong>Nginx</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" width="24" height="24" loading="lazy" alt="Ubuntu logo"><strong>Ubuntu</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="24" height="24" loading="lazy" alt="Azure logo"><strong>Azure</strong></article>
-              <article class="tech-card tech-card-aws"><svg class="tech-icon" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M13.527 21.529c0 .528.057 1.055.17 1.527.113.527.283.998.51 1.413.084.169.113.338.113.508 0 .22-.113.44-.396.66l-1.303.868c-.17.112-.34.168-.509.168-.226 0-.396-.112-.566-.28a5.95 5.95 0 01-.679-.882 14.9 14.9 0 01-.566-1.133c-1.416 1.667-3.172 2.5-5.267 2.5-1.53 0-2.72-.44-3.624-1.32-.905-.882-1.36-2.07-1.36-3.555 0-1.57.566-2.84 1.698-3.835 1.132-.995 2.605-1.47 4.473-1.47.622 0 1.245.056 1.924.14.68.085 1.36.225 2.095.395v-1.33c0-1.385-.283-2.35-.906-2.896-.622-.54-1.698-.817-3.17-.817-.679 0-1.359.084-2.038.253-.679.169-1.359.395-2.038.65-.283.112-.51.169-.623.197a1.067 1.067 0 01-.283.028c-.226 0-.396-.197-.396-.59v-.938c0-.309.056-.535.17-.675.112-.14.339-.281.622-.422.679-.338 1.472-.619 2.378-.826.905-.225 1.867-.338 2.887-.338 2.208 0 3.794.5 4.812 1.47 1.019.97 1.528 2.47 1.528 4.47v5.882h-.057zm-7.247 2.714c.622 0 1.245-.112 1.924-.338.679-.225 1.302-.619 1.812-1.17.283-.338.51-.732.622-1.161.113-.422.17-.938.17-1.526v-.732c-.51-.14-1.075-.253-1.641-.309a14.73 14.73 0 00-1.641-.112c-1.188 0-2.038.225-2.66.703-.623.478-.905 1.14-.905 2.013 0 .788.17 1.4.566 1.808.396.395 1.019.624 1.753.624zm14.044 1.892c-.283 0-.51-.056-.622-.197-.113-.112-.226-.365-.34-.732l-3.68-12.082c-.113-.422-.17-.704-.17-.845 0-.338.17-.507.509-.507h1.98c.283 0 .51.057.623.197.113.113.225.338.339.732l2.605 10.33 2.435-10.33c.113-.394.226-.62.34-.732.112-.113.339-.197.622-.197h1.585c.283 0 .51.057.623.197.113.113.225.338.34.732l2.434 10.47 2.66-10.47c.113-.394.227-.62.34-.732.112-.113.339-.197.622-.197h1.924c.34 0 .51.169.51.507 0 .112-.03.225-.057.366-.028.112-.113.337-.226.703l-3.794 12.082c-.113.394-.227.619-.34.732-.112.112-.339.197-.622.197h-1.698c-.283 0-.51-.056-.622-.197-.113-.14-.226-.394-.34-.759l-2.434-10.19-2.378 10.19c-.113.394-.226.619-.34.76-.112.14-.339.196-.622.196h-1.698zm19.65.394c-1.019 0-2.038-.14-3.001-.394-.963-.253-1.698-.506-2.208-.788-.283-.169-.453-.338-.509-.506a1.277 1.277 0 01-.113-.507v-.97c0-.394.17-.59.509-.59.113 0 .226 0 .34.056.112.057.282.113.452.197.622.281 1.302.506 2.038.647.735.14 1.471.225 2.207.225 1.19 0 2.095-.197 2.774-.59.679-.394 1.019-.995 1.019-1.779 0-.507-.17-.938-.509-1.3-.338-.365-.962-.704-1.924-1.02l-2.774-.87c-1.358-.422-2.378-1.048-3.001-1.86-.622-.815-.963-1.715-.963-2.741 0-.788.17-1.49.566-2.097.396-.619.905-1.153 1.528-1.575.622-.45 1.302-.76 2.095-1.013.792-.225 1.64-.338 2.49-.338.396 0 .849.028 1.246.084.396.057.792.14 1.188.225.37.084.736.197 1.075.338.339.141.623.281.849.422.283.197.51.394.623.59.113.197.17.422.17.703v.903c0 .394-.17.59-.51.59-.17 0-.452-.085-.848-.281-.679-.31-1.473-.563-2.208-.704-.736-.14-1.471-.225-2.208-.225-.963 0-1.754.168-2.264.478-.509.31-.792.787-.792 1.527 0 .506.17.9.509 1.244.339.338.962.675 1.924.98l2.717.871c1.302.422 2.321 1.02 2.943 1.804.623.787.906 1.675.906 2.656 0 .844-.17 1.63-.566 2.29-.396.675-.905 1.237-1.584 1.715-.68.479-1.472.844-2.378 1.1-.905.26-1.868.395-2.887.395z" fill="currentColor"/></svg><strong>AWS EC2</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="24"
+                  height="24" loading="lazy" alt="PHP logo"><strong>PHP</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                  width="24" height="24" loading="lazy" alt="JavaScript logo"><strong>JavaScript</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
+                  width="24" height="24" loading="lazy" alt="Laravel logo"><strong>Laravel</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg"
+                  width="24" height="24" loading="lazy" alt="CodeIgniter logo"><strong>CodeIgniter 4</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
+                  width="24" height="24" loading="lazy" alt="Bootstrap logo"><strong>Bootstrap</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                  width="24" height="24" loading="lazy" alt="Tailwind CSS logo"><strong>Tailwind CSS</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg"
+                  width="24" height="24" loading="lazy" alt="Composer logo"><strong>Composer</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="24"
+                  height="24" loading="lazy" alt="MySQL logo"><strong>MySQL</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="24"
+                  height="24" loading="lazy" alt="Git logo"><strong>Git</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg"
+                  width="24" height="24" loading="lazy" alt="Arduino logo"><strong>Arduino</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" width="24"
+                  height="24" loading="lazy" alt="Nginx logo"><strong>Nginx</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" width="24"
+                  height="24" loading="lazy" alt="Ubuntu logo"><strong>Ubuntu</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="24"
+                  height="24" loading="lazy" alt="Azure logo"><strong>Azure</strong></article>
+              <article class="tech-card tech-card-aws"><svg class="tech-icon" width="24" height="24" viewBox="0 0 48 48"
+                  fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path
+                    d="M13.527 21.529c0 .528.057 1.055.17 1.527.113.527.283.998.51 1.413.084.169.113.338.113.508 0 .22-.113.44-.396.66l-1.303.868c-.17.112-.34.168-.509.168-.226 0-.396-.112-.566-.28a5.95 5.95 0 01-.679-.882 14.9 14.9 0 01-.566-1.133c-1.416 1.667-3.172 2.5-5.267 2.5-1.53 0-2.72-.44-3.624-1.32-.905-.882-1.36-2.07-1.36-3.555 0-1.57.566-2.84 1.698-3.835 1.132-.995 2.605-1.47 4.473-1.47.622 0 1.245.056 1.924.14.68.085 1.36.225 2.095.395v-1.33c0-1.385-.283-2.35-.906-2.896-.622-.54-1.698-.817-3.17-.817-.679 0-1.359.084-2.038.253-.679.169-1.359.395-2.038.65-.283.112-.51.169-.623.197a1.067 1.067 0 01-.283.028c-.226 0-.396-.197-.396-.59v-.938c0-.309.056-.535.17-.675.112-.14.339-.281.622-.422.679-.338 1.472-.619 2.378-.826.905-.225 1.867-.338 2.887-.338 2.208 0 3.794.5 4.812 1.47 1.019.97 1.528 2.47 1.528 4.47v5.882h-.057zm-7.247 2.714c.622 0 1.245-.112 1.924-.338.679-.225 1.302-.619 1.812-1.17.283-.338.51-.732.622-1.161.113-.422.17-.938.17-1.526v-.732c-.51-.14-1.075-.253-1.641-.309a14.73 14.73 0 00-1.641-.112c-1.188 0-2.038.225-2.66.703-.623.478-.905 1.14-.905 2.013 0 .788.17 1.4.566 1.808.396.395 1.019.624 1.753.624zm14.044 1.892c-.283 0-.51-.056-.622-.197-.113-.112-.226-.365-.34-.732l-3.68-12.082c-.113-.422-.17-.704-.17-.845 0-.338.17-.507.509-.507h1.98c.283 0 .51.057.623.197.113.113.225.338.339.732l2.605 10.33 2.435-10.33c.113-.394.226-.62.34-.732.112-.113.339-.197.622-.197h1.585c.283 0 .51.057.623.197.113.113.225.338.34.732l2.434 10.47 2.66-10.47c.113-.394.227-.62.34-.732.112-.113.339-.197.622-.197h1.924c.34 0 .51.169.51.507 0 .112-.03.225-.057.366-.028.112-.113.337-.226.703l-3.794 12.082c-.113.394-.227.619-.34.732-.112.112-.339.197-.622.197h-1.698c-.283 0-.51-.056-.622-.197-.113-.14-.226-.394-.34-.759l-2.434-10.19-2.378 10.19c-.113.394-.226.619-.34.76-.112.14-.339.196-.622.196h-1.698zm19.65.394c-1.019 0-2.038-.14-3.001-.394-.963-.253-1.698-.506-2.208-.788-.283-.169-.453-.338-.509-.506a1.277 1.277 0 01-.113-.507v-.97c0-.394.17-.59.509-.59.113 0 .226 0 .34.056.112.057.282.113.452.197.622.281 1.302.506 2.038.647.735.14 1.471.225 2.207.225 1.19 0 2.095-.197 2.774-.59.679-.394 1.019-.995 1.019-1.779 0-.507-.17-.938-.509-1.3-.338-.365-.962-.704-1.924-1.02l-2.774-.87c-1.358-.422-2.378-1.048-3.001-1.86-.622-.815-.963-1.715-.963-2.741 0-.788.17-1.49.566-2.097.396-.619.905-1.153 1.528-1.575.622-.45 1.302-.76 2.095-1.013.792-.225 1.64-.338 2.49-.338.396 0 .849.028 1.246.084.396.057.792.14 1.188.225.37.084.736.197 1.075.338.339.141.623.281.849.422.283.197.51.394.623.59.113.197.17.422.17.703v.903c0 .394-.17.59-.51.59-.17 0-.452-.085-.848-.281-.679-.31-1.473-.563-2.208-.704-.736-.14-1.471-.225-2.208-.225-.963 0-1.754.168-2.264.478-.509.31-.792.787-.792 1.527 0 .506.17.9.509 1.244.339.338.962.675 1.924.98l2.717.871c1.302.422 2.321 1.02 2.943 1.804.623.787.906 1.675.906 2.656 0 .844-.17 1.63-.566 2.29-.396.675-.905 1.237-1.584 1.715-.68.479-1.472.844-2.378 1.1-.905.26-1.868.395-2.887.395z"
+                    fill="currentColor" />
+                </svg><strong>AWS EC2</strong></article>
             </div>
 
             <!-- Duplicate for seamless loop (aria-hidden) -->
             <div class="tech-marquee-group" aria-hidden="true">
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="24" height="24" loading="lazy" alt=""><strong>PHP</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="24" height="24" loading="lazy" alt=""><strong>JavaScript</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Laravel</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" width="24" height="24" loading="lazy" alt=""><strong>CodeIgniter 4</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Bootstrap</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Tailwind CSS</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Composer</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="24" height="24" loading="lazy" alt=""><strong>MySQL</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Git</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Arduino</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Nginx</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Ubuntu</strong></article>
-              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Azure</strong></article>
-              <article class="tech-card tech-card-aws"><svg class="tech-icon" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M13.527 21.529c0 .528.057 1.055.17 1.527.113.527.283.998.51 1.413.084.169.113.338.113.508 0 .22-.113.44-.396.66l-1.303.868c-.17.112-.34.168-.509.168-.226 0-.396-.112-.566-.28a5.95 5.95 0 01-.679-.882 14.9 14.9 0 01-.566-1.133c-1.416 1.667-3.172 2.5-5.267 2.5-1.53 0-2.72-.44-3.624-1.32-.905-.882-1.36-2.07-1.36-3.555 0-1.57.566-2.84 1.698-3.835 1.132-.995 2.605-1.47 4.473-1.47.622 0 1.245.056 1.924.14.68.085 1.36.225 2.095.395v-1.33c0-1.385-.283-2.35-.906-2.896-.622-.54-1.698-.817-3.17-.817-.679 0-1.359.084-2.038.253-.679.169-1.359.395-2.038.65-.283.112-.51.169-.623.197a1.067 1.067 0 01-.283.028c-.226 0-.396-.197-.396-.59v-.938c0-.309.056-.535.17-.675.112-.14.339-.281.622-.422.679-.338 1.472-.619 2.378-.826.905-.225 1.867-.338 2.887-.338 2.208 0 3.794.5 4.812 1.47 1.019.97 1.528 2.47 1.528 4.47v5.882h-.057zm-7.247 2.714c.622 0 1.245-.112 1.924-.338.679-.225 1.302-.619 1.812-1.17.283-.338.51-.732.622-1.161.113-.422.17-.938.17-1.526v-.732c-.51-.14-1.075-.253-1.641-.309a14.73 14.73 0 00-1.641-.112c-1.188 0-2.038.225-2.66.703-.623.478-.905 1.14-.905 2.013 0 .788.17 1.4.566 1.808.396.395 1.019.624 1.753.624zm14.044 1.892c-.283 0-.51-.056-.622-.197-.113-.112-.226-.365-.34-.732l-3.68-12.082c-.113-.422-.17-.704-.17-.845 0-.338.17-.507.509-.507h1.98c.283 0 .51.057.623.197.113.113.225.338.339.732l2.605 10.33 2.435-10.33c.113-.394.226-.62.34-.732.112-.113.339-.197.622-.197h1.585c.283 0 .51.057.623.197.113.113.225.338.34.732l2.434 10.47 2.66-10.47c.113-.394.227-.62.34-.732.112-.113.339-.197.622-.197h1.924c.34 0 .51.169.51.507 0 .112-.03.225-.057.366-.028.112-.113.337-.226.703l-3.794 12.082c-.113.394-.227.619-.34.732-.112.112-.339.197-.622.197h-1.698c-.283 0-.51-.056-.622-.197-.113-.14-.226-.394-.34-.759l-2.434-10.19-2.378 10.19c-.113.394-.226.619-.34.76-.112.14-.339.196-.622.196h-1.698zm19.65.394c-1.019 0-2.038-.14-3.001-.394-.963-.253-1.698-.506-2.208-.788-.283-.169-.453-.338-.509-.506a1.277 1.277 0 01-.113-.507v-.97c0-.394.17-.59.509-.59.113 0 .226 0 .34.056.112.057.282.113.452.197.622.281 1.302.506 2.038.647.735.14 1.471.225 2.207.225 1.19 0 2.095-.197 2.774-.59.679-.394 1.019-.995 1.019-1.779 0-.507-.17-.938-.509-1.3-.338-.365-.962-.704-1.924-1.02l-2.774-.87c-1.358-.422-2.378-1.048-3.001-1.86-.622-.815-.963-1.715-.963-2.741 0-.788.17-1.49.566-2.097.396-.619.905-1.153 1.528-1.575.622-.45 1.302-.76 2.095-1.013.792-.225 1.64-.338 2.49-.338.396 0 .849.028 1.246.084.396.057.792.14 1.188.225.37.084.736.197 1.075.338.339.141.623.281.849.422.283.197.51.394.623.59.113.197.17.422.17.703v.903c0 .394-.17.59-.51.59-.17 0-.452-.085-.848-.281-.679-.31-1.473-.563-2.208-.704-.736-.14-1.471-.225-2.208-.225-.963 0-1.754.168-2.264.478-.509.31-.792.787-.792 1.527 0 .506.17.9.509 1.244.339.338.962.675 1.924.98l2.717.871c1.302.422 2.321 1.02 2.943 1.804.623.787.906 1.675.906 2.656 0 .844-.17 1.63-.566 2.29-.396.675-.905 1.237-1.584 1.715-.68.479-1.472.844-2.378 1.1-.905.26-1.868.395-2.887.395z" fill="currentColor"/></svg><strong>AWS EC2</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="24"
+                  height="24" loading="lazy" alt=""><strong>PHP</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                  width="24" height="24" loading="lazy" alt=""><strong>JavaScript</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
+                  width="24" height="24" loading="lazy" alt=""><strong>Laravel</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg"
+                  width="24" height="24" loading="lazy" alt=""><strong>CodeIgniter 4</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
+                  width="24" height="24" loading="lazy" alt=""><strong>Bootstrap</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                  width="24" height="24" loading="lazy" alt=""><strong>Tailwind CSS</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg"
+                  width="24" height="24" loading="lazy" alt=""><strong>Composer</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="24"
+                  height="24" loading="lazy" alt=""><strong>MySQL</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="24"
+                  height="24" loading="lazy" alt=""><strong>Git</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg"
+                  width="24" height="24" loading="lazy" alt=""><strong>Arduino</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" width="24"
+                  height="24" loading="lazy" alt=""><strong>Nginx</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" width="24"
+                  height="24" loading="lazy" alt=""><strong>Ubuntu</strong></article>
+              <article class="tech-card"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="24"
+                  height="24" loading="lazy" alt=""><strong>Azure</strong></article>
+              <article class="tech-card tech-card-aws"><svg class="tech-icon" width="24" height="24" viewBox="0 0 48 48"
+                  fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path
+                    d="M13.527 21.529c0 .528.057 1.055.17 1.527.113.527.283.998.51 1.413.084.169.113.338.113.508 0 .22-.113.44-.396.66l-1.303.868c-.17.112-.34.168-.509.168-.226 0-.396-.112-.566-.28a5.95 5.95 0 01-.679-.882 14.9 14.9 0 01-.566-1.133c-1.416 1.667-3.172 2.5-5.267 2.5-1.53 0-2.72-.44-3.624-1.32-.905-.882-1.36-2.07-1.36-3.555 0-1.57.566-2.84 1.698-3.835 1.132-.995 2.605-1.47 4.473-1.47.622 0 1.245.056 1.924.14.68.085 1.36.225 2.095.395v-1.33c0-1.385-.283-2.35-.906-2.896-.622-.54-1.698-.817-3.17-.817-.679 0-1.359.084-2.038.253-.679.169-1.359.395-2.038.65-.283.112-.51.169-.623.197a1.067 1.067 0 01-.283.028c-.226 0-.396-.197-.396-.59v-.938c0-.309.056-.535.17-.675.112-.14.339-.281.622-.422.679-.338 1.472-.619 2.378-.826.905-.225 1.867-.338 2.887-.338 2.208 0 3.794.5 4.812 1.47 1.019.97 1.528 2.47 1.528 4.47v5.882h-.057zm-7.247 2.714c.622 0 1.245-.112 1.924-.338.679-.225 1.302-.619 1.812-1.17.283-.338.51-.732.622-1.161.113-.422.17-.938.17-1.526v-.732c-.51-.14-1.075-.253-1.641-.309a14.73 14.73 0 00-1.641-.112c-1.188 0-2.038.225-2.66.703-.623.478-.905 1.14-.905 2.013 0 .788.17 1.4.566 1.808.396.395 1.019.624 1.753.624zm14.044 1.892c-.283 0-.51-.056-.622-.197-.113-.112-.226-.365-.34-.732l-3.68-12.082c-.113-.422-.17-.704-.17-.845 0-.338.17-.507.509-.507h1.98c.283 0 .51.057.623.197.113.113.225.338.339.732l2.605 10.33 2.435-10.33c.113-.394.226-.62.34-.732.112-.113.339-.197.622-.197h1.585c.283 0 .51.057.623.197.113.113.225.338.34.732l2.434 10.47 2.66-10.47c.113-.394.227-.62.34-.732.112-.113.339-.197.622-.197h1.924c.34 0 .51.169.51.507 0 .112-.03.225-.057.366-.028.112-.113.337-.226.703l-3.794 12.082c-.113.394-.227.619-.34.732-.112.112-.339.197-.622.197h-1.698c-.283 0-.51-.056-.622-.197-.113-.14-.226-.394-.34-.759l-2.434-10.19-2.378 10.19c-.113.394-.226.619-.34.76-.112.14-.339.196-.622.196h-1.698zm19.65.394c-1.019 0-2.038-.14-3.001-.394-.963-.253-1.698-.506-2.208-.788-.283-.169-.453-.338-.509-.506a1.277 1.277 0 01-.113-.507v-.97c0-.394.17-.59.509-.59.113 0 .226 0 .34.056.112.057.282.113.452.197.622.281 1.302.506 2.038.647.735.14 1.471.225 2.207.225 1.19 0 2.095-.197 2.774-.59.679-.394 1.019-.995 1.019-1.779 0-.507-.17-.938-.509-1.3-.338-.365-.962-.704-1.924-1.02l-2.774-.87c-1.358-.422-2.378-1.048-3.001-1.86-.622-.815-.963-1.715-.963-2.741 0-.788.17-1.49.566-2.097.396-.619.905-1.153 1.528-1.575.622-.45 1.302-.76 2.095-1.013.792-.225 1.64-.338 2.49-.338.396 0 .849.028 1.246.084.396.057.792.14 1.188.225.37.084.736.197 1.075.338.339.141.623.281.849.422.283.197.51.394.623.59.113.197.17.422.17.703v.903c0 .394-.17.59-.51.59-.17 0-.452-.085-.848-.281-.679-.31-1.473-.563-2.208-.704-.736-.14-1.471-.225-2.208-.225-.963 0-1.754.168-2.264.478-.509.31-.792.787-.792 1.527 0 .506.17.9.509 1.244.339.338.962.675 1.924.98l2.717.871c1.302.422 2.321 1.02 2.943 1.804.623.787.906 1.675.906 2.656 0 .844-.17 1.63-.566 2.29-.396.675-.905 1.237-1.584 1.715-.68.479-1.472.844-2.378 1.1-.905.26-1.868.395-2.887.395z"
+                    fill="currentColor" />
+                </svg><strong>AWS EC2</strong></article>
             </div>
 
           </div>
@@ -293,9 +358,9 @@
                 class="live-dot" aria-hidden="true"></span>Live demo ↗</a></div>
         </article>
         <article class="project"><a class="project-image" href="https://carwash.vongarces.tech/" target="_blank"
-            rel="noopener noreferrer" title="View live Carwash CRM system"><img src="{{ asset('images/carwash.png') }}" width="1919" height="878"
-              loading="lazy" alt="Interface of the Carwash CRM system"><span class="live-pill"><span class="live-dot"
-                aria-hidden="true"></span>Live Demo</span></a>
+            rel="noopener noreferrer" title="View live Carwash CRM system"><img src="{{ asset('images/carwash.png') }}"
+              width="1919" height="878" loading="lazy" alt="Interface of the Carwash CRM system"><span
+              class="live-pill"><span class="live-dot" aria-hidden="true"></span>Live Demo</span></a>
           <div class="project-meta"><span>02</span><span>Customer workflow</span></div>
           <h2>Carwash CRM</h2>
           <p class="project-lead">An operational system that keeps customer details, services, and visit history
@@ -319,8 +384,8 @@
           <div class="project-actions"><a class="project-link"
               href="https://github.com/Vonnnnnnnnn05/Carwash-Management-System" target="_blank"
               rel="noopener noreferrer">Explore repository ↗</a><a class="project-link project-live-link"
-              href="https://carwash.vongarces.tech/" target="_blank" rel="noopener noreferrer"><span
-                class="live-dot" aria-hidden="true"></span>Live demo ↗</a></div>
+              href="https://carwash.vongarces.tech/" target="_blank" rel="noopener noreferrer"><span class="live-dot"
+                aria-hidden="true"></span>Live demo ↗</a></div>
         </article>
         <article class="project"><a class="project-image" href="https://dentaflow.vonessonvergara.me/" target="_blank"
             rel="noopener noreferrer" title="View live DentaFlow system"><img src="{{ asset('images/dentaflow.png') }}"
@@ -385,8 +450,8 @@
             <a href="https://github.com/Vonnnnnnnnn05/RFID-ATTENDANCE-WITH-WEB-UI-AND-DATABASE" target="_blank"
               rel="noopener noreferrer"><span>RFID Attendance System</span><small>Arduino · RFID ·
                 MySQL</small><b>↗</b></a>
-            <a href="https://github.com/Vonnnnnnnnn05/Arduino-Reaction-Time-Game-With-Web-UI-and-Database" target="_blank"
-              rel="noopener noreferrer"><span>Reaction Time Game</span><small>Arduino · Web UI ·
+            <a href="https://github.com/Vonnnnnnnnn05/Arduino-Reaction-Time-Game-With-Web-UI-and-Database"
+              target="_blank" rel="noopener noreferrer"><span>Reaction Time Game</span><small>Arduino · Web UI ·
                 MySQL</small><b>↗</b></a>
             <a href="https://github.com/Vonnnnnnnnn05/Arduino-Fortune-Teller-With-Web-UI-and-Database" target="_blank"
               rel="noopener noreferrer"><span>Fortune Teller System</span><small>Arduino · Web UI ·
@@ -394,8 +459,8 @@
             <a href="https://github.com/Vonnnnnnnnn05/Motion-Detector-with-Web-Based-UI-and-Database" target="_blank"
               rel="noopener noreferrer"><span>Motion Detector System</span><small>Arduino · PIR ·
                 MySQL</small><b>↗</b></a>
-            <a href="https://github.com/Vonnnnnnnnn05/Security-System-Using-Keypad-with-Web-UI-and-Database" target="_blank"
-              rel="noopener noreferrer"><span>Keypad Security System</span><small>Arduino · Keypad ·
+            <a href="https://github.com/Vonnnnnnnnn05/Security-System-Using-Keypad-with-Web-UI-and-Database"
+              target="_blank" rel="noopener noreferrer"><span>Keypad Security System</span><small>Arduino · Keypad ·
                 MySQL</small><b>↗</b></a>
             <a href="https://github.com/Vonnnnnnnnn05/LDR-System-with-Web-UI-and-Database" target="_blank"
               rel="noopener noreferrer"><span>LDR Sensor System</span><small>Arduino · LDR ·
@@ -403,15 +468,21 @@
           </div>
           <div class="work-group">
             <h3>Domains &amp; Hosting</h3>
-            <a href="https://scholarship.vonessonvergara.me/" target="_blank" rel="noopener noreferrer"><span>scholarship.vonessonvergara.me</span><small>Live · PHP · MySQL · Azure</small><b>↗</b></a>
-            <a href="https://dentaflow.vonessonvergara.me/" target="_blank" rel="noopener noreferrer"><span>dentaflow.vonessonvergara.me</span><small>Live · Laravel · Nginx · Azure</small><b>↗</b></a>
-            <a href="https://carwash.vongarces.tech/" target="_blank" rel="noopener noreferrer"><span>carwash.vongarces.tech</span><small>Live · PHP · MySQL · AWS EC2</small><b>↗</b></a>
-            <a href="https://vonessonvergara.me/" target="_blank" rel="noopener noreferrer"><span>vonessonvergara.me</span><small>Portfolio · AWS EC2 · Nginx</small><b>↗</b></a>
+            <a href="https://scholarship.vonessonvergara.me/" target="_blank"
+              rel="noopener noreferrer"><span>scholarship.vonessonvergara.me</span><small>Live · PHP · MySQL ·
+                Azure</small><b>↗</b></a>
+            <a href="https://dentaflow.vonessonvergara.me/" target="_blank"
+              rel="noopener noreferrer"><span>dentaflow.vonessonvergara.me</span><small>Live · Laravel · Nginx ·
+                Azure</small><b>↗</b></a>
+            <a href="https://carwash.vongarces.tech/" target="_blank"
+              rel="noopener noreferrer"><span>carwash.vongarces.tech</span><small>Live · PHP · MySQL · AWS
+                EC2</small><b>↗</b></a>
+            <a href="https://vonessonvergara.me/" target="_blank"
+              rel="noopener noreferrer"><span>vonessonvergara.me</span><small>Portfolio · AWS EC2 ·
+                Nginx</small><b>↗</b></a>
           </div>
           <div class="work-group">
             <h3>Technical &amp; IT Services</h3>
-            <a href="#experience" class="work-service-item"><span>Contract Making (Rabbitry)</span><small>Documentation
-                · MS Word</small><b>View ↘</b></a>
             <a href="#experience" class="work-service-item"><span>Reformatting Windows</span><small>OS Clean Install ·
                 Recovery</small><b>View ↘</b></a>
             <a href="#experience" class="work-service-item"><span>Microsoft Office Setup</span><small>Download &amp;
@@ -474,17 +545,12 @@
             <li class="timeline-it-services">
               <h3>IT Support &amp; Technical Services</h3>
               <p>Freelance &amp; Client Projects</p>
-              <span>Delivered practical technical solutions including contract making (Rabbitry), reformatting Windows,
               <span>Delivered practical technical solutions including reformatting Windows,
                 activation or download of Microsoft Office, and web prototyping.</span>
               <div class="leadership-gallery it-services-gallery">
                 <div class="leadership-gallery-heading it-services-heading"><strong>Additional works in
-                    practice</strong><span>Contract · Reformat · Prototype</span></div>
-                    practice</strong><span>Reformat · Prototype</span></div>
+                    practice</strong></div>
                 <div class="leadership-photos additional-works-photos">
-                  <figure><img src="{{ asset('images/additional/rabbitry-contract.png') }}" class="media-contract"
-                      width="768" height="1024" loading="lazy"
-                      alt="Contract making (Rabbitry) document layout in Microsoft Word"></figure>
                   <figure><img src="{{ asset('images/additional/windows-reformat.png') }}" width="1024" height="768"
                       loading="lazy" alt="Reformatting Windows, driver setup, and Microsoft Office installation">
                   </figure>
@@ -494,10 +560,6 @@
                   </figure>
                 </div>
                 <div class="additional-works-list">
-                  <div class="work-detail-item">
-                    <strong>Contract making (Rabbitry)</strong>
-                    <span>Custom sales agreement &amp; document formatting</span>
-                  </div>
                   <div class="work-detail-item">
                     <strong>Reformatting Windows</strong>
                     <span>Clean OS installation, recovery &amp; driver setup</span>
@@ -557,16 +619,12 @@
               <p>Academic projects</p>
               <span>Coordinated school development teams across software and hardware work.</span>
               <div class="leadership-gallery">
-                <div class="leadership-gallery-heading"><strong>Capstone defense</strong><span>Project leadership · Team
-                    delivery</span></div>
                 <div class="capstone-lead-wrap">
                   <figure class="capstone-lead-figure"><img src="{{ asset('team_leader/team_leader.jpg') }}"
                       width="2048" height="1152" loading="lazy"
                       alt="Von and his project team after successfully completing their capstone defense"></figure>
                 </div>
                 <div class="capstone-sub-container">
-                  <div class="leadership-gallery-heading capstone-subheading"><strong>Defense
-                      results</strong><span>Outcome · Defended</span></div>
                   <div class="leadership-photos capstone-subphotos">
                     <figure><img src="{{ asset('team_leader/team_leader2.jpg') }}" width="960" height="1280"
                         loading="lazy"
@@ -608,7 +666,7 @@
       fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15" />
     </svg></button>
-  <script src="{{ asset('script.js?v=22') }}"></script>
+  <script src="{{ asset('script.js?v=27') }}"></script>
 </body>
 
 </html>
