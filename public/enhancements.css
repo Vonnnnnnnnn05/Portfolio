@@ -289,12 +289,13 @@ html[data-theme="dark"] .tech-marquee-group article {
   object-fit: contain;
   filter: grayscale(100%);
   opacity: 0.82;
-  transition: filter 260ms ease, opacity 260ms ease, transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: filter 260ms ease, opacity 260ms ease, transform 260ms cubic-bezier(0.16, 1, 0.3, 1), color 260ms ease;
 }
 
 .tech-marquee-group svg.tech-icon {
   display: block;
   color: var(--ink);
+  transition: color 260ms ease, opacity 260ms ease, transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html[data-theme="dark"] .tech-marquee-group .tech-card img,
@@ -320,7 +321,7 @@ html[data-theme="dark"] .tech-marquee-group svg.tech-icon {
   display: none;
 }
 
-/* Micro-interaction on card hover */
+/* Micro-interaction on card hover - Reveal original colors */
 @media (hover: hover) {
   .tech-marquee-group .tech-card:hover,
   .tech-marquee-group article:hover {
@@ -330,12 +331,18 @@ html[data-theme="dark"] .tech-marquee-group svg.tech-icon {
     box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
   }
   .tech-marquee-group .tech-card:hover img,
-  .tech-marquee-group article:hover img,
+  .tech-marquee-group article:hover img {
+    filter: grayscale(0%) !important;
+    opacity: 1;
+    transform: scale(1.08);
+  }
   .tech-marquee-group .tech-card:hover .tech-icon,
   .tech-marquee-group article:hover .tech-icon {
-    filter: grayscale(100%) contrast(1.15);
     opacity: 1;
-    transform: scale(1.06);
+    transform: scale(1.08);
+  }
+  .tech-marquee-group .tech-card-aws:hover .tech-icon {
+    color: #FF9900 !important;
   }
 }
 
@@ -343,6 +350,16 @@ html[data-theme="dark"] .tech-marquee-group .tech-card:hover,
 html[data-theme="dark"] .tech-marquee-group article:hover {
   border-color: rgba(255, 255, 255, 0.22);
   box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+}
+
+html[data-theme="dark"] .tech-marquee-group .tech-card:hover img,
+html[data-theme="dark"] .tech-marquee-group article:hover img {
+  filter: grayscale(0%) brightness(1) !important;
+  opacity: 1;
+}
+
+html[data-theme="dark"] .tech-marquee-group .tech-card-aws:hover .tech-icon {
+  color: #FF9900 !important;
 }
 
 /* Keyframe animations for seamless loops with GPU compositing */

@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('styles.css') }}">
-  <link rel="stylesheet" href="{{ asset('enhancements.css?v=26') }}">
+  <link rel="stylesheet" href="{{ asset('enhancements.css?v=28') }}">
   <style>
     body.splash-active {
       overflow: hidden !important;
@@ -206,101 +206,51 @@
           <p>Arduino, RFID, sensors, and database-connected prototypes.</p>
         </article>
       </div>
-      <!-- Tech Stack Static Grid -->
-      <div class="tech-stack-section" aria-label="Technologies and frameworks">
-        <div class="tech-stack-header">
-          <span class="tech-stack-eyebrow">Stack</span>
-          <h3 class="tech-stack-title">Technologies I work with</h3>
+      <!-- Tech Stack — Single RTL Marquee (all techs compiled) -->
+      <div class="tech-marquee-wrapper" aria-label="Technologies and frameworks">
+        <div class="tech-marquee-header">
+          <span class="tech-marquee-label">Technologies I work with</span>
         </div>
 
-        <div class="tech-category-group">
-          <div class="tech-category-label">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            Languages &amp; Frameworks
-          </div>
-          <div class="tech-pill-row">
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="20" height="20" loading="lazy" alt="PHP">
-              <span>PHP</span>
-            </div>
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="20" height="20" loading="lazy" alt="JavaScript">
-              <span>JavaScript</span>
-            </div>
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" width="20" height="20" loading="lazy" alt="Laravel">
-              <span>Laravel</span>
-            </div>
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" width="20" height="20" loading="lazy" alt="CodeIgniter 4">
-              <span>CodeIgniter 4</span>
-            </div>
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="20" height="20" loading="lazy" alt="Bootstrap">
-              <span>Bootstrap</span>
-            </div>
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="20" height="20" loading="lazy" alt="Tailwind CSS">
-              <span>Tailwind CSS</span>
-            </div>
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" width="20" height="20" loading="lazy" alt="Composer">
-              <span>Composer</span>
-            </div>
-          </div>
-        </div>
+        <div class="tech-marquee-row tech-marquee-rtl" aria-label="Technologies">
+          <div class="tech-marquee-track">
 
-        <div class="tech-category-group">
-          <div class="tech-category-label">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
-            Databases &amp; Tools
-          </div>
-          <div class="tech-pill-row">
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="20" height="20" loading="lazy" alt="MySQL">
-              <span>MySQL</span>
+            <!-- Primary set -->
+            <div class="tech-marquee-group">
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="24" height="24" loading="lazy" alt="PHP logo"><strong>PHP</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="24" height="24" loading="lazy" alt="JavaScript logo"><strong>JavaScript</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" width="24" height="24" loading="lazy" alt="Laravel logo"><strong>Laravel</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" width="24" height="24" loading="lazy" alt="CodeIgniter logo"><strong>CodeIgniter 4</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="24" height="24" loading="lazy" alt="Bootstrap logo"><strong>Bootstrap</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="24" height="24" loading="lazy" alt="Tailwind CSS logo"><strong>Tailwind CSS</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" width="24" height="24" loading="lazy" alt="Composer logo"><strong>Composer</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="24" height="24" loading="lazy" alt="MySQL logo"><strong>MySQL</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="24" height="24" loading="lazy" alt="Git logo"><strong>Git</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" width="24" height="24" loading="lazy" alt="Arduino logo"><strong>Arduino</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" width="24" height="24" loading="lazy" alt="Nginx logo"><strong>Nginx</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" width="24" height="24" loading="lazy" alt="Ubuntu logo"><strong>Ubuntu</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="24" height="24" loading="lazy" alt="Azure logo"><strong>Azure</strong></article>
+              <article class="tech-card tech-card-aws"><svg class="tech-icon" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M13.527 21.529c0 .528.057 1.055.17 1.527.113.527.283.998.51 1.413.084.169.113.338.113.508 0 .22-.113.44-.396.66l-1.303.868c-.17.112-.34.168-.509.168-.226 0-.396-.112-.566-.28a5.95 5.95 0 01-.679-.882 14.9 14.9 0 01-.566-1.133c-1.416 1.667-3.172 2.5-5.267 2.5-1.53 0-2.72-.44-3.624-1.32-.905-.882-1.36-2.07-1.36-3.555 0-1.57.566-2.84 1.698-3.835 1.132-.995 2.605-1.47 4.473-1.47.622 0 1.245.056 1.924.14.68.085 1.36.225 2.095.395v-1.33c0-1.385-.283-2.35-.906-2.896-.622-.54-1.698-.817-3.17-.817-.679 0-1.359.084-2.038.253-.679.169-1.359.395-2.038.65-.283.112-.51.169-.623.197a1.067 1.067 0 01-.283.028c-.226 0-.396-.197-.396-.59v-.938c0-.309.056-.535.17-.675.112-.14.339-.281.622-.422.679-.338 1.472-.619 2.378-.826.905-.225 1.867-.338 2.887-.338 2.208 0 3.794.5 4.812 1.47 1.019.97 1.528 2.47 1.528 4.47v5.882h-.057zm-7.247 2.714c.622 0 1.245-.112 1.924-.338.679-.225 1.302-.619 1.812-1.17.283-.338.51-.732.622-1.161.113-.422.17-.938.17-1.526v-.732c-.51-.14-1.075-.253-1.641-.309a14.73 14.73 0 00-1.641-.112c-1.188 0-2.038.225-2.66.703-.623.478-.905 1.14-.905 2.013 0 .788.17 1.4.566 1.808.396.395 1.019.624 1.753.624zm14.044 1.892c-.283 0-.51-.056-.622-.197-.113-.112-.226-.365-.34-.732l-3.68-12.082c-.113-.422-.17-.704-.17-.845 0-.338.17-.507.509-.507h1.98c.283 0 .51.057.623.197.113.113.225.338.339.732l2.605 10.33 2.435-10.33c.113-.394.226-.62.34-.732.112-.113.339-.197.622-.197h1.585c.283 0 .51.057.623.197.113.113.225.338.34.732l2.434 10.47 2.66-10.47c.113-.394.227-.62.34-.732.112-.113.339-.197.622-.197h1.924c.34 0 .51.169.51.507 0 .112-.03.225-.057.366-.028.112-.113.337-.226.703l-3.794 12.082c-.113.394-.227.619-.34.732-.112.112-.339.197-.622.197h-1.698c-.283 0-.51-.056-.622-.197-.113-.14-.226-.394-.34-.759l-2.434-10.19-2.378 10.19c-.113.394-.226.619-.34.76-.112.14-.339.196-.622.196h-1.698zm19.65.394c-1.019 0-2.038-.14-3.001-.394-.963-.253-1.698-.506-2.208-.788-.283-.169-.453-.338-.509-.506a1.277 1.277 0 01-.113-.507v-.97c0-.394.17-.59.509-.59.113 0 .226 0 .34.056.112.057.282.113.452.197.622.281 1.302.506 2.038.647.735.14 1.471.225 2.207.225 1.19 0 2.095-.197 2.774-.59.679-.394 1.019-.995 1.019-1.779 0-.507-.17-.938-.509-1.3-.338-.365-.962-.704-1.924-1.02l-2.774-.87c-1.358-.422-2.378-1.048-3.001-1.86-.622-.815-.963-1.715-.963-2.741 0-.788.17-1.49.566-2.097.396-.619.905-1.153 1.528-1.575.622-.45 1.302-.76 2.095-1.013.792-.225 1.64-.338 2.49-.338.396 0 .849.028 1.246.084.396.057.792.14 1.188.225.37.084.736.197 1.075.338.339.141.623.281.849.422.283.197.51.394.623.59.113.197.17.422.17.703v.903c0 .394-.17.59-.51.59-.17 0-.452-.085-.848-.281-.679-.31-1.473-.563-2.208-.704-.736-.14-1.471-.225-2.208-.225-.963 0-1.754.168-2.264.478-.509.31-.792.787-.792 1.527 0 .506.17.9.509 1.244.339.338.962.675 1.924.98l2.717.871c1.302.422 2.321 1.02 2.943 1.804.623.787.906 1.675.906 2.656 0 .844-.17 1.63-.566 2.29-.396.675-.905 1.237-1.584 1.715-.68.479-1.472.844-2.378 1.1-.905.26-1.868.395-2.887.395z" fill="currentColor"/></svg><strong>AWS EC2</strong></article>
             </div>
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="20" height="20" loading="lazy" alt="Git">
-              <span>Git</span>
-            </div>
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" width="20" height="20" loading="lazy" alt="Arduino">
-              <span>Arduino</span>
-            </div>
-            <div class="tech-pill tech-pill-ai">
-              <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 3L18.8 11.2C19.3 12.7 20.5 13.9 22 14.4L30 17L22 19.6C20.5 20.1 19.3 21.3 18.8 22.8L16 31L13.2 22.8C12.7 21.3 11.5 20.1 10 19.6L2 17L10 14.4C11.5 13.9 12.7 12.7 13.2 11.2L16 3Z" fill="currentColor"/><path d="M25 4L26.2 7.8C26.4 8.4 26.9 8.9 27.5 9.1L31 10L27.5 10.9C26.9 11.1 26.4 11.6 26.2 12.2L25 16L23.8 12.2C23.6 11.6 23.1 11.1 22.5 10.9L19 10L22.5 9.1C23.1 8.9 23.6 8.4 23.8 7.8L25 4Z" fill="currentColor" opacity="0.55"/></svg>
-              <span>AI Integration</span>
-              <span class="tech-pill-sub">Gemini · Groq · OpenRouter</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="tech-category-group">
-          <div class="tech-category-label">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-            Infrastructure &amp; Cloud
-          </div>
-          <div class="tech-pill-row">
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" width="20" height="20" loading="lazy" alt="Nginx">
-              <span>Nginx</span>
+            <!-- Duplicate for seamless loop (aria-hidden) -->
+            <div class="tech-marquee-group" aria-hidden="true">
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="24" height="24" loading="lazy" alt=""><strong>PHP</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="24" height="24" loading="lazy" alt=""><strong>JavaScript</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Laravel</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" width="24" height="24" loading="lazy" alt=""><strong>CodeIgniter 4</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Bootstrap</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Tailwind CSS</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Composer</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="24" height="24" loading="lazy" alt=""><strong>MySQL</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Git</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Arduino</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Nginx</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Ubuntu</strong></article>
+              <article class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="24" height="24" loading="lazy" alt=""><strong>Azure</strong></article>
+              <article class="tech-card tech-card-aws"><svg class="tech-icon" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M13.527 21.529c0 .528.057 1.055.17 1.527.113.527.283.998.51 1.413.084.169.113.338.113.508 0 .22-.113.44-.396.66l-1.303.868c-.17.112-.34.168-.509.168-.226 0-.396-.112-.566-.28a5.95 5.95 0 01-.679-.882 14.9 14.9 0 01-.566-1.133c-1.416 1.667-3.172 2.5-5.267 2.5-1.53 0-2.72-.44-3.624-1.32-.905-.882-1.36-2.07-1.36-3.555 0-1.57.566-2.84 1.698-3.835 1.132-.995 2.605-1.47 4.473-1.47.622 0 1.245.056 1.924.14.68.085 1.36.225 2.095.395v-1.33c0-1.385-.283-2.35-.906-2.896-.622-.54-1.698-.817-3.17-.817-.679 0-1.359.084-2.038.253-.679.169-1.359.395-2.038.65-.283.112-.51.169-.623.197a1.067 1.067 0 01-.283.028c-.226 0-.396-.197-.396-.59v-.938c0-.309.056-.535.17-.675.112-.14.339-.281.622-.422.679-.338 1.472-.619 2.378-.826.905-.225 1.867-.338 2.887-.338 2.208 0 3.794.5 4.812 1.47 1.019.97 1.528 2.47 1.528 4.47v5.882h-.057zm-7.247 2.714c.622 0 1.245-.112 1.924-.338.679-.225 1.302-.619 1.812-1.17.283-.338.51-.732.622-1.161.113-.422.17-.938.17-1.526v-.732c-.51-.14-1.075-.253-1.641-.309a14.73 14.73 0 00-1.641-.112c-1.188 0-2.038.225-2.66.703-.623.478-.905 1.14-.905 2.013 0 .788.17 1.4.566 1.808.396.395 1.019.624 1.753.624zm14.044 1.892c-.283 0-.51-.056-.622-.197-.113-.112-.226-.365-.34-.732l-3.68-12.082c-.113-.422-.17-.704-.17-.845 0-.338.17-.507.509-.507h1.98c.283 0 .51.057.623.197.113.113.225.338.339.732l2.605 10.33 2.435-10.33c.113-.394.226-.62.34-.732.112-.113.339-.197.622-.197h1.585c.283 0 .51.057.623.197.113.113.225.338.34.732l2.434 10.47 2.66-10.47c.113-.394.227-.62.34-.732.112-.113.339-.197.622-.197h1.924c.34 0 .51.169.51.507 0 .112-.03.225-.057.366-.028.112-.113.337-.226.703l-3.794 12.082c-.113.394-.227.619-.34.732-.112.112-.339.197-.622.197h-1.698c-.283 0-.51-.056-.622-.197-.113-.14-.226-.394-.34-.759l-2.434-10.19-2.378 10.19c-.113.394-.226.619-.34.76-.112.14-.339.196-.622.196h-1.698zm19.65.394c-1.019 0-2.038-.14-3.001-.394-.963-.253-1.698-.506-2.208-.788-.283-.169-.453-.338-.509-.506a1.277 1.277 0 01-.113-.507v-.97c0-.394.17-.59.509-.59.113 0 .226 0 .34.056.112.057.282.113.452.197.622.281 1.302.506 2.038.647.735.14 1.471.225 2.207.225 1.19 0 2.095-.197 2.774-.59.679-.394 1.019-.995 1.019-1.779 0-.507-.17-.938-.509-1.3-.338-.365-.962-.704-1.924-1.02l-2.774-.87c-1.358-.422-2.378-1.048-3.001-1.86-.622-.815-.963-1.715-.963-2.741 0-.788.17-1.49.566-2.097.396-.619.905-1.153 1.528-1.575.622-.45 1.302-.76 2.095-1.013.792-.225 1.64-.338 2.49-.338.396 0 .849.028 1.246.084.396.057.792.14 1.188.225.37.084.736.197 1.075.338.339.141.623.281.849.422.283.197.51.394.623.59.113.197.17.422.17.703v.903c0 .394-.17.59-.51.59-.17 0-.452-.085-.848-.281-.679-.31-1.473-.563-2.208-.704-.736-.14-1.471-.225-2.208-.225-.963 0-1.754.168-2.264.478-.509.31-.792.787-.792 1.527 0 .506.17.9.509 1.244.339.338.962.675 1.924.98l2.717.871c1.302.422 2.321 1.02 2.943 1.804.623.787.906 1.675.906 2.656 0 .844-.17 1.63-.566 2.29-.396.675-.905 1.237-1.584 1.715-.68.479-1.472.844-2.378 1.1-.905.26-1.868.395-2.887.395z" fill="currentColor"/></svg><strong>AWS EC2</strong></article>
             </div>
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" width="20" height="20" loading="lazy" alt="Ubuntu">
-              <span>Ubuntu</span>
-            </div>
-            <div class="tech-pill">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="20" height="20" loading="lazy" alt="Microsoft Azure">
-              <span>Azure</span>
-            </div>
-            <div class="tech-pill tech-pill-aws">
-              <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M13.527 21.529c0 .528.057 1.055.17 1.527.113.527.283.998.51 1.413.084.169.113.338.113.508 0 .22-.113.44-.396.66l-1.303.868c-.17.112-.34.168-.509.168-.226 0-.396-.112-.566-.28a5.95 5.95 0 01-.679-.882 14.9 14.9 0 01-.566-1.133c-1.416 1.667-3.172 2.5-5.267 2.5-1.53 0-2.72-.44-3.624-1.32-.905-.882-1.36-2.07-1.36-3.555 0-1.57.566-2.84 1.698-3.835 1.132-.995 2.605-1.47 4.473-1.47.622 0 1.245.056 1.924.14.68.085 1.36.225 2.095.395v-1.33c0-1.385-.283-2.35-.906-2.896-.622-.54-1.698-.817-3.17-.817-.679 0-1.359.084-2.038.253-.679.169-1.359.395-2.038.65-.283.112-.51.169-.623.197a1.067 1.067 0 01-.283.028c-.226 0-.396-.197-.396-.59v-.938c0-.309.056-.535.17-.675.112-.14.339-.281.622-.422.679-.338 1.472-.619 2.378-.826.905-.225 1.867-.338 2.887-.338 2.208 0 3.794.5 4.812 1.47 1.019.97 1.528 2.47 1.528 4.47v5.882h-.057zm-7.247 2.714c.622 0 1.245-.112 1.924-.338.679-.225 1.302-.619 1.812-1.17.283-.338.51-.732.622-1.161.113-.422.17-.938.17-1.526v-.732c-.51-.14-1.075-.253-1.641-.309a14.73 14.73 0 00-1.641-.112c-1.188 0-2.038.225-2.66.703-.623.478-.905 1.14-.905 2.013 0 .788.17 1.4.566 1.808.396.395 1.019.624 1.753.624zm14.044 1.892c-.283 0-.51-.056-.622-.197-.113-.112-.226-.365-.34-.732l-3.68-12.082c-.113-.422-.17-.704-.17-.845 0-.338.17-.507.509-.507h1.98c.283 0 .51.057.623.197.113.113.225.338.339.732l2.605 10.33 2.435-10.33c.113-.394.226-.62.34-.732.112-.113.339-.197.622-.197h1.585c.283 0 .51.057.623.197.113.113.225.338.34.732l2.434 10.47 2.66-10.47c.113-.394.227-.62.34-.732.112-.113.339-.197.622-.197h1.924c.34 0 .51.169.51.507 0 .112-.03.225-.057.366-.028.112-.113.337-.226.703l-3.794 12.082c-.113.394-.227.619-.34.732-.112.112-.339.197-.622.197h-1.698c-.283 0-.51-.056-.622-.197-.113-.14-.226-.394-.34-.759l-2.434-10.19-2.378 10.19c-.113.394-.226.619-.34.76-.112.14-.339.196-.622.196h-1.698zm19.65.394c-1.019 0-2.038-.14-3.001-.394-.963-.253-1.698-.506-2.208-.788-.283-.169-.453-.338-.509-.506a1.277 1.277 0 01-.113-.507v-.97c0-.394.17-.59.509-.59.113 0 .226 0 .34.056.112.057.282.113.452.197.622.281 1.302.506 2.038.647.735.14 1.471.225 2.207.225 1.19 0 2.095-.197 2.774-.59.679-.394 1.019-.995 1.019-1.779 0-.507-.17-.938-.509-1.3-.338-.365-.962-.704-1.924-1.02l-2.774-.87c-1.358-.422-2.378-1.048-3.001-1.86-.622-.815-.963-1.715-.963-2.741 0-.788.17-1.49.566-2.097.396-.619.905-1.153 1.528-1.575.622-.45 1.302-.76 2.095-1.013.792-.225 1.64-.338 2.49-.338.396 0 .849.028 1.246.084.396.057.792.14 1.188.225.37.084.736.197 1.075.338.339.141.623.281.849.422.283.197.51.394.623.59.113.197.17.422.17.703v.903c0 .394-.17.59-.51.59-.17 0-.452-.085-.848-.281-.679-.31-1.473-.563-2.208-.704-.736-.14-1.471-.225-2.208-.225-.963 0-1.754.168-2.264.478-.509.31-.792.787-.792 1.527 0 .506.17.9.509 1.244.339.338.962.675 1.924.98l2.717.871c1.302.422 2.321 1.02 2.943 1.804.623.787.906 1.675.906 2.656 0 .844-.17 1.63-.566 2.29-.396.675-.905 1.237-1.584 1.715-.68.479-1.472.844-2.378 1.1-.905.26-1.868.395-2.887.395z" fill="currentColor"/>
-              </svg>
-              <span>AWS EC2</span>
-              <span class="tech-pill-badge">New</span>
-            </div>
+
           </div>
         </div>
       </div>
